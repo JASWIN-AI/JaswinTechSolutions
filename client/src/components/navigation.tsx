@@ -1,10 +1,6 @@
-import { useState } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 export default function Navigation() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [location] = useLocation();
 
   const navigationItems = [
@@ -15,77 +11,75 @@ export default function Navigation() {
     { name: "Contact", path: "/contact" }
   ];
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
   const isActive = (path: string) => {
     return location === path;
   };
 
   return (
-    <nav className="fixed top-0 w-full bg-navy-800 text-white z-50 shadow-lg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <nav style={{
+      position: 'fixed',
+      top: 0,
+      width: '100%',
+      backgroundColor: '#1e3a8a',
+      color: 'white',
+      zIndex: 50,
+      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+    }}>
+      <div style={{
+        maxWidth: '1280px',
+        margin: '0 auto',
+        padding: '0 1rem'
+      }}>
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          height: '64px'
+        }}>
           {/* Logo */}
           <Link href="/">
-            <div className="flex items-center cursor-pointer">
-              <div className="text-xl font-bold">
-                <span className="text-gold-500">JASWIN</span> Tech Solution
+            <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+              <div style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>
+                <span style={{ color: '#f59e0b' }}>JASWIN</span> Tech Solution
               </div>
             </div>
           </Link>
 
-          {/* Desktop Navigation - Always visible on larger screens */}
-          <div className="hidden sm:block">
-            <div className="ml-10 flex items-baseline space-x-4 lg:space-x-8">
-              {navigationItems.map((item) => (
-                <Link key={item.path} href={item.path}>
-                  <button
-                    className={`smooth-transition px-3 py-2 text-sm font-medium hover:text-gold-500 whitespace-nowrap ${
-                      isActive(item.path) ? "text-gold-500 border-b-2 border-gold-500" : "text-white"
-                    }`}
-                  >
-                    {item.name}
-                  </button>
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="sm:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleMobileMenu}
-              className="text-white hover:bg-navy-700"
-            >
-              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="sm:hidden bg-navy-700">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          {/* Desktop Navigation - Always visible */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
             {navigationItems.map((item) => (
               <Link key={item.path} href={item.path}>
                 <button
-                  className={`block px-3 py-2 text-base font-medium w-full text-left smooth-transition hover:text-gold-500 ${
-                    isActive(item.path) ? "text-gold-500" : "text-white"
-                  }`}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  style={{
+                    padding: '0.5rem 1rem',
+                    fontSize: '0.875rem',
+                    fontWeight: '500',
+                    color: isActive(item.path) ? '#f59e0b' : 'white',
+                    backgroundColor: 'transparent',
+                    border: 'none',
+                    cursor: 'pointer',
+                    borderBottom: isActive(item.path) ? '2px solid #f59e0b' : 'none',
+                    transition: 'all 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isActive(item.path)) {
+                      (e.target as HTMLButtonElement).style.color = '#f59e0b';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isActive(item.path)) {
+                      (e.target as HTMLButtonElement).style.color = 'white';
+                    }
+                  }}
                 >
                   {item.name}
                 </button>
               </Link>
             ))}
           </div>
+
         </div>
-      )}
+      </div>
     </nav>
   );
 }
