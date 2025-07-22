@@ -36,14 +36,14 @@ export default function Navigation() {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+          {/* Desktop Navigation - Always visible on larger screens */}
+          <div className="hidden sm:block">
+            <div className="ml-10 flex items-baseline space-x-4 lg:space-x-8">
               {navigationItems.map((item) => (
                 <Link key={item.path} href={item.path}>
                   <button
-                    className={`smooth-transition px-3 py-2 text-sm font-medium hover:text-gold-500 ${
-                      isActive(item.path) ? "text-gold-500" : "text-white"
+                    className={`smooth-transition px-3 py-2 text-sm font-medium hover:text-gold-500 whitespace-nowrap ${
+                      isActive(item.path) ? "text-gold-500 border-b-2 border-gold-500" : "text-white"
                     }`}
                   >
                     {item.name}
@@ -54,7 +54,7 @@ export default function Navigation() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="sm:hidden">
             <Button
               variant="ghost"
               size="icon"
@@ -69,7 +69,7 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-navy-700">
+        <div className="sm:hidden bg-navy-700">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navigationItems.map((item) => (
               <Link key={item.path} href={item.path}>
