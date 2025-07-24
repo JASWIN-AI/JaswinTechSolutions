@@ -38,7 +38,7 @@ export default function About() {
           <div className="text-center mb-16">
             <h1 className="text-4xl font-bold text-navy-800 mb-4">About JASWIN Tech Solution</h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We are a forward-thinking technology company dedicated to empowering businesses through innovative digital solutions.
+              JASWIN AI Solution LLP is an Indian tech startup that helps businesses grow with smart, scalable digital solutions. We focus on innovation, speed, and trust to deliver high-quality IT services and projects.
             </p>
           </div>
 

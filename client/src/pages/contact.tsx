@@ -126,7 +126,7 @@ export default function Contact() {
     {
       icon: MapPin,
       title: "Office Address",
-      content: ["123 Technology Drive", "Innovation District", "San Francisco, CA 94105"]
+      content: ["Blue Ridge", "Pune", "Maharashtra, 411057", "India"]
     },
     {
       icon: Phone,
@@ -143,8 +143,7 @@ export default function Contact() {
       title: "Business Hours",
       content: [
         "Monday - Friday: 9:00 AM - 6:00 PM",
-        "Saturday: 10:00 AM - 4:00 PM",
-        "Sunday: Closed"
+        "Saturday & Sunday: Closed"
       ]
     }
   ];

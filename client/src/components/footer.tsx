@@ -18,28 +18,61 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-navy-800 text-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+    <footer style={{
+      backgroundColor: '#1e3a8a',
+      color: 'white',
+      padding: '3rem 0'
+    }}>
+      <div style={{
+        maxWidth: '1280px',
+        margin: '0 auto',
+        padding: '0 1rem'
+      }}>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+          gap: '2rem',
+          marginBottom: '2rem'
+        }}>
           {/* Company Info */}
-          <div className="md:col-span-2">
-            <div className="text-2xl font-bold mb-4">
-              <span className="text-gold-400">JASWIN</span> Tech Solution
+          <div style={{ gridColumn: 'span 2' }}>
+            <div style={{
+              fontSize: '2rem',
+              fontWeight: 'bold',
+              marginBottom: '1rem'
+            }}>
+              <span style={{ color: '#f59e0b' }}>JASWIN</span> Tech Solution
             </div>
-            <p className="text-gray-300 mb-4">
+            <p style={{
+              color: '#d1d5db',
+              marginBottom: '1rem',
+              lineHeight: '1.6'
+            }}>
               Empowering businesses through innovative technology solutions. Your trusted partner for digital transformation and growth.
             </p>
-            <div className="flex space-x-4">
+            <div style={{
+              display: 'flex',
+              gap: '1rem'
+            }}>
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-gold-400 smooth-transition"
+                  style={{
+                    color: '#d1d5db',
+                    transition: 'color 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.target as HTMLAnchorElement).style.color = '#f59e0b';
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.target as HTMLAnchorElement).style.color = '#d1d5db';
+                  }}
                   aria-label={social.name}
                 >
-                  <social.icon className="h-5 w-5" />
+                  <social.icon style={{ width: '20px', height: '20px' }} />
                 </a>
               ))}
             </div>
@@ -47,12 +80,30 @@ export default function Footer() {
           
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4 text-gold-400">Quick Links</h4>
-            <ul className="space-y-2">
+            <h4 style={{
+              fontWeight: '600',
+              marginBottom: '1rem',
+              color: '#f59e0b'
+            }}>Quick Links</h4>
+            <ul style={{ listStyle: 'none', padding: 0 }}>
               {quickLinks.map((link) => (
-                <li key={link.path}>
+                <li key={link.path} style={{ marginBottom: '0.5rem' }}>
                   <Link href={link.path}>
-                    <button className="text-gray-300 hover:text-gold-400 smooth-transition text-left">
+                    <button style={{
+                      color: '#d1d5db',
+                      backgroundColor: 'transparent',
+                      border: 'none',
+                      cursor: 'pointer',
+                      textAlign: 'left',
+                      padding: 0,
+                      transition: 'color 0.3s ease'
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.target as HTMLButtonElement).style.color = '#f59e0b';
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.target as HTMLButtonElement).style.color = '#d1d5db';
+                    }}>
                       {link.name}
                     </button>
                   </Link>
@@ -63,19 +114,32 @@ export default function Footer() {
           
           {/* Contact Info */}
           <div>
-            <h4 className="font-semibold mb-4 text-gold-400">Contact Info</h4>
-            <div className="space-y-2 text-sm text-gray-300">
-              <p>123 Technology Drive</p>
-              <p>San Francisco, CA 94105</p>
-              <p>+1 (555) 123-4567</p>
-              <p>enquiry@jas.com</p>
+            <h4 style={{
+              fontWeight: '600',
+              marginBottom: '1rem',
+              color: '#f59e0b'
+            }}>Contact Info</h4>
+            <div style={{
+              fontSize: '0.875rem',
+              color: '#d1d5db',
+              lineHeight: '1.5'
+            }}>
+              <p style={{ margin: '0.25rem 0' }}>123 Technology Drive</p>
+              <p style={{ margin: '0.25rem 0' }}>San Francisco, CA 94105</p>
+              <p style={{ margin: '0.25rem 0' }}>+1 (555) 123-4567</p>
+              <p style={{ margin: '0.25rem 0' }}>enquiry@jas.com</p>
             </div>
           </div>
         </div>
         
         {/* Copyright */}
-        <div className="border-t border-navy-700 pt-8 text-center text-gray-300">
-          <p>&copy; 2024 JASWIN Tech Solution. All rights reserved. | Privacy Policy | Terms of Service</p>
+        <div style={{
+          borderTop: '1px solid #374151',
+          paddingTop: '2rem',
+          textAlign: 'center',
+          color: '#d1d5db'
+        }}>
+          <p style={{ margin: 0 }}>&copy; 2024 JASWIN Tech Solution. All rights reserved. | Privacy Policy | Terms of Service</p>
         </div>
       </div>
     </footer>
