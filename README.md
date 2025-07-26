@@ -1,5 +1,10 @@
 # JASWIN Tech Solution Website
 
+
+To publis website from local
+1. Chckin your code on github and pull request on github_pages
+2. npm run build
+3. npm run deploy
 A professional corporate website built with React TypeScript, featuring modern design with navy blue, white, and gold branding.
 
 ## Features
