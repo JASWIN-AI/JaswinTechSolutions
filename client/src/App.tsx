@@ -18,7 +18,7 @@ function Router() {
       <Route path="/services" component={Services} />
       <Route path="/projects" component={Projects} />
       <Route path="/contact" component={Contact} />
-      <Route path="/lander" component={Home} />
+      <Route path="/home" component={Home} />
     </Switch>
   );
 }
