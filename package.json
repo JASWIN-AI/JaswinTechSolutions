@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "license": "MIT",
-  "homepage": "https://innervationitpune.github.io",
+  "homepage": "https://jasitsol.in/lander",
   "scripts": {
     "dev": "vite dev",               
     "build": "vite build",           
