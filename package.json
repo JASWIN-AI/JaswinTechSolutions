@@ -1,9 +1,9 @@
 {
-  "name": "rest-express",
+  "name": "JaswinTechSolutions",
   "version": "1.0.0",
   "type": "module",
   "license": "MIT",
-  "homepage": "https://jasitsol.in/lander",
+  "homepage": "https://jasitsol.in/",
   "scripts": {
     "dev": "vite dev",               
     "build": "vite build",           
