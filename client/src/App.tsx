@@ -8,7 +8,7 @@ import About from "@/pages/about";
 import Services from "@/pages/services";
 import Projects from "@/pages/projects";
 import Contact from "@/pages/contact";
-import NotFound from "@/pages/not-found";
+import "@/styles/globals.css";
 
 function Router() {
   return (
