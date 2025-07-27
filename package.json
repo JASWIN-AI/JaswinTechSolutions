@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "license": "MIT",
-  "homepage": "https:/jasitsol.in/",
+  "homepage": "http:/jasitsol.in/",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
