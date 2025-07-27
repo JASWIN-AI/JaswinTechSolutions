@@ -3,18 +3,20 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pages: write
+      id-token: write
     
     steps:
-    - name: Checkout
+    - name: Checkout code
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Ensures full git history for proper deployment
 
     - name: Setup Node.js
       uses: actions/setup-node@v4
@@ -24,9 +26,9 @@ jobs:
 
     - name: Install dependencies
       run: npm ci
-
-    - name: Build application
-      run: npm run build --emptyOutDir 
+      
+    - name: Build with forced clean output
+      run: npm run build -- --emptyOutDir
       env:
         VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
         VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
@@ -35,7 +37,17 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN  }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./dist
-        keep_files: false  
+        keep_files: false
         force_orphan: true
+        enable_jekyll: false  # Crucial for modern SPAs
+        # Uncomment if using custom domain:
+        # cname: yourdomain.com
+
+    - name: Verify deployment
+      run: |
+        echo "Deployment completed successfully!"
+        echo "View at https://<your-username>.github.io/<repo>"
+        # For custom domain:
+        # echo "Or at https://jasitsol.in"
