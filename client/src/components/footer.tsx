@@ -141,7 +141,7 @@ export default function Footer() {
           textAlign: 'center',
           color: '#d1d5db'
         }}>
-          <p style={{ margin: 0 }}>&copy; 2024 JASWIN Tech Solution. All rights reserved. | Privacy Policy | Terms of Service</p>
+          <p style={{ margin: 0 }}>&copy; 2025 JASWIN Tech Solution. All rights reserved. | Privacy Policy | Terms of Service</p>
         </div>
       </div>
     </footer>

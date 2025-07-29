@@ -214,7 +214,7 @@ export default function Navigation() {
                     <div style={dropdownItemStyle}>JASWIN AI-LMS</div>
                   </Link>
                   <Link href="/product/ai-bfsi">
-                    <div style={dropdownItemStyle}>AI-BFSI - DST & Reporting</div>
+                    <div style={dropdownItemStyle}>AI-BFSI-DST & Reporting</div>
                   </Link>
                 </div>
               )}
