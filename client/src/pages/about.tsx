@@ -36,7 +36,7 @@ export default function About() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center md:items-start gap-10 mb-16">
-            {/* Left: Text Content */}
+            {/* Left: Text Contents*/}
             <div className="flex-1">
               <h1 className="text-4xl md:text-5xl font-extrabold text-navy-800 mb-4 tracking-tight leading-tight">
           <span className="block text-gold-500 drop-shadow-lg">Empowering Innovation,</span>
