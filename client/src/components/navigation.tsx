@@ -177,14 +177,52 @@ export default function Navigation() {
               )}
             </div>
 
-            {/* 3. Product */}
-            <Link href="/product">
-              <button style={navButtonStyle(isActive("/product"))}>Product</button>
-            </Link>
+            {/* 3. Product with dropdown */}
+            <div
+              style={{ position: "relative" }}
+              onMouseEnter={() => setOpenMenu("product")}
+              onMouseLeave={() => setOpenMenu(null)}
+            >
+              <button
+                style={{
+                  padding: '0.5rem 1rem',
+                  fontSize: '0.875rem',
+                  fontWeight: '500',
+                  color: openMenu === "product" ? '#f59e0b' : 'white',
+                  backgroundColor: 'transparent',
+                  border: 'none',
+                  cursor: 'pointer',
+                  borderBottom: openMenu === "product" ? '2px solid #f59e0b' : 'none',
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                Product
+              </button>
+              {openMenu === "product" && (
+                <div style={{
+                  position: "absolute",
+                  top: "100%",
+                  left: 0,
+                  background: "white",
+                  color: "#1e3a8a",
+                  minWidth: "240px",
+                  boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+                  borderRadius: "0 0 8px 8px",
+                  padding: "0.5rem 0"
+                }}>
+                  <Link href="/product/lms">
+                    <div style={dropdownItemStyle}>JASWIN AI-LMS</div>
+                  </Link>
+                  <Link href="/product/ai-bfsi">
+                    <div style={dropdownItemStyle}>AI-BFSI - DST & Reporting</div>
+                  </Link>
+                </div>
+              )}
+            </div>
 
             {/* 4. Consulting */}
             <Link href="/consulting">
-              <button style={navButtonStyle(isActive("/consulting"))}>Consulting</button>
+              <button style={navButtonStyle(isActive("/consulting"))}>Consulting </button>
             </Link>
 
             {/* 5. Human Capital */}

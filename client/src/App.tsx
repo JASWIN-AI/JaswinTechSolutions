@@ -9,6 +9,7 @@ import Services from "@/pages/services";
 import Projects from "@/pages/projects";
 import Contact from "@/pages/contact";
 import ProductDevelopment from "@/pages/product-development";
+import Consulting from "./pages/consulting";
 
 function Router() {
   return (
@@ -19,6 +20,7 @@ function Router() {
       <Route path="/solutions/turnkey-projects" component={Projects} />
       <Route path="/solutions/product-development" component={ProductDevelopment} />
       <Route path="/contact" component={Contact} />
+      <Route path="/consulting" component={Consulting} />
       <Route path="/home" component={Home} />
     </Switch>
   );
