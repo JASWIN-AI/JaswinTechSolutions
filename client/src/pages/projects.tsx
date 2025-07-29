@@ -44,12 +44,33 @@ export default function Projects() {
     <div className="pt-16">
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold text-navy-800 mb-4">Our Recent Projects</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Discover how we've helped businesses transform their operations and achieve their digital goals through innovative technology solutions.
-            </p>
-          </div>
+            <div className="flex flex-col md:flex-row items-center mb-16 gap-8">
+            <div className="flex-1 text-center md:text-left">
+              <h1 className="text-4xl font-bold text-navy-800 mb-4">
+              Turnkey Project Development
+              </h1>
+              <p className="text-lg text-gray-700 leading-relaxed">
+              We provide <span className="font-semibold text-navy-800">end-to-end software development services</span>, delivering fully integrated digital solutions from initial concept to deployment and beyond.
+              <br /><br />
+              Our turnkey approach covers:
+              <ul className="list-disc list-inside text-gray-600 mt-2 mb-4">
+                <li>Requirement analysis &amp; system architecture</li>
+                <li>Agile development &amp; rigorous testing</li>
+                <li>Seamless implementation &amp; ongoing support</li>
+              </ul>
+              By combining cutting-edge technologies with industry best practices, we build scalable, secure, and high-performance software tailored to your business objectives.
+              <br /><br />
+              <span className="font-medium text-navy-800">From innovation to efficiency</span>, we manage the entire project lifecycle—reducing risks, optimizing costs, and accelerating time-to-market.
+              </p>
+            </div>
+            <div className="flex-1 hidden md:block">
+              <img
+              src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Turnkey Project Development"
+              className="rounded-xl shadow-lg object-cover w-full h-72"
+              />
+            </div>
+            </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
@@ -64,9 +85,9 @@ export default function Projects() {
                   <p className="text-gray-600 mb-4">{project.description}</p>
                   <div className="flex justify-between items-center">
                     <span className="text-gold-500 font-medium">{project.category}</span>
-                    <button className="text-navy-800 hover:text-gold-500 smooth-transition">
+                   {/*  <button className="text-navy-800 hover:text-gold-500 smooth-transition">
                       <ArrowRight className="h-5 w-5" />
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </div>

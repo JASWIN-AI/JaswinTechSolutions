@@ -1,4 +1,4 @@
-# How to Get Your JASWIN Tech Website to GitHub - Simple Steps
+# How to Get Your JASWIN AI Website to GitHub - Simple Steps
 
 ## Method 1: Direct File Upload (Easiest)
 

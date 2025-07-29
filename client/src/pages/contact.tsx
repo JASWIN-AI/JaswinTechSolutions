@@ -125,13 +125,18 @@ export default function Contact() {
   const contactInfo = [
     {
       icon: MapPin,
-      title: "Office Address",
-      content: ["Blue Ridge", "Pune", "Maharashtra, 411057", "India"]
+      title: "JASWIN AI Solutions",
+      content: ["Om Sai Avenue,Shop No.109,1St Floor,",
+                "River Residency Road, near Swaraj capital,",
+                "MIDC, Chikhali, Pimpri-Chinchwad,",
+                "Pune-411062, Maharashtra", 
+                "India"
+              ]
     },
     {
       icon: Phone,
       title: "Phone Number",
-      content: ["+1 (555) 123-4567"]
+      content: ["+91 87880 58772"]
     },
     {
       icon: Mail,

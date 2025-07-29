@@ -35,15 +35,38 @@ export default function About() {
       {/* Mission & Values Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold text-navy-800 mb-4">About JASWIN Tech Solution</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              JASWIN AI Solution LLP is an Indian tech startup that helps businesses grow with smart, scalable digital solutions. We focus on innovation, speed, and trust to deliver high-quality IT services and projects.
-            </p>
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-10 mb-16">
+            {/* Left: Text Content */}
+            <div className="flex-1">
+              <h1 className="text-4xl md:text-5xl font-extrabold text-navy-800 mb-4 tracking-tight leading-tight">
+          <span className="block text-gold-500 drop-shadow-lg">Empowering Innovation,</span>
+          <span className="block">Transforming <span className="text-gold-600">Futures</span></span>
+              </h1>
+              <div className="max-w-2xl text-base md:text-lg text-gray-700 leading-relaxed space-y-5">
+          <p></p>
+          <p>
+            <span className="font-semibold text-navy-700">JASWIN AI Solutions ©</span> is a dynamic technology and consulting startup, blending deep industry expertise with cutting-edge innovation. Founded by BFSI and IT veterans and fueled by a talented team of technologists and strategists, we deliver agile, impactful solutions for modern enterprises.
+          </p>
+          <p>
+            At JASWIN, we bridge the gap between vision and reality. As a next-gen technology and consulting startup, we combine decades of industry expertise with agile innovation to deliver tailored solutions for the <span className="text-gold-600 font-medium">BFSI</span>, <span className="text-gold-600 font-medium">EdTech</span>, and <span className="text-gold-600 font-medium">eGovernance</span> sectors.
+          </p>
+          <p>
+            Backed by seasoned leaders from banking, IT, and public sector digitization, and powered by a dynamic team of developers, strategists, and domain specialists, we bring <span className="font-semibold text-navy-700">speed</span>, <span className="font-semibold text-navy-700">precision</span>, and <span className="font-semibold text-navy-700">fresh thinking</span> to every project.
+          </p>
+              </div>
+            </div>
+            {/* Right: Image */}
+            <div className="flex-1 flex justify-center md:justify-end items-stretch py-10">
+              <img
+              src="https://images.unsplash.com/photo-1658086351750-1ec43149a713?q=80&w=1665&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="AI Innovation"
+              className="rounded-2xl shadow-2xl w-full max-w-sm h-[480px] object-cover"
+              />
+            </div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 mb-16">
-            <div className="bg-gold-100 p-8 rounded-xl">
+            <div className="grid lg:grid-cols-2 gap-12 mb-16">
+              <div className="bg-gold-100 p-8 rounded-xl shadow-2xl border border-gold-100/40">
               <div className="text-gold-500 mb-4">
                 <Target className="h-8 w-8" />
               </div>
@@ -51,23 +74,24 @@ export default function About() {
               <p className="text-gray-700">
                 To deliver exceptional technology solutions that drive business growth, enhance operational efficiency, and create lasting value for our clients. We strive to be the trusted technology partner that organizations rely on for their digital transformation journey.
               </p>
-            </div>
+              </div>
 
-            <div className="bg-navy-50 p-8 rounded-xl">
+              <div className="bg-navy-50 p-8 rounded-xl shadow-2xl border border-navy-100/40">
               <div className="text-navy-800 mb-4">
                 <Heart className="h-8 w-8" />
               </div>
               <h3 className="text-2xl font-bold text-navy-800 mb-4">Our Values</h3>
               <ul className="text-gray-700 space-y-2">
                 {values.map((value, index) => (
-                  <li key={index} className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-gold-500 mr-2" />
-                    {value}
-                  </li>
+                <li key={index} className="flex items-center">
+                  <CheckCircle className="h-4 w-4 text-gold-500 mr-2" />
+                  {value}
+                </li>
                 ))}
               </ul>
+              </div>
             </div>
-          </div>
+
         </div>
       </section>
 

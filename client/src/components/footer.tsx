@@ -41,7 +41,7 @@ export default function Footer() {
               fontWeight: 'bold',
               marginBottom: '1rem'
             }}>
-              <span style={{ color: '#f59e0b' }}>JASWIN</span> Tech Solution
+              <span style={{ color: '#f59e0b' }}>JASWIN</span> AI Solutions
             </div>
             <p style={{
               color: '#d1d5db',
@@ -124,9 +124,11 @@ export default function Footer() {
               color: '#d1d5db',
               lineHeight: '1.5'
             }}>
-              <p style={{ margin: '0.25rem 0' }}>123 Technology Drive</p>
-              <p style={{ margin: '0.25rem 0' }}>San Francisco, CA 94105</p>
-              <p style={{ margin: '0.25rem 0' }}>+1 (555) 123-4567</p>
+              <p style={{ margin: '0.25rem 0', fontWeight: 'bold' }}>JASWIN AI Solutions</p>
+              <p style={{ margin: '0.25rem 0' }}>Om Sai Avenue,Shop No.109,1St Floor,</p>
+              <p style={{ margin: '0.25rem 0' }}>River Residency Road, near Swaraj capital,</p>
+              <p style={{ margin: '0.25rem 0' }}>MIDC, Chikhali, Pimpri-Chinchwad, Pune, Maharashtra 411062</p>
+              <p style={{ margin: '0.25rem 0' }}>+91 87880 58772</p>
               <p style={{ margin: '0.25rem 0' }}>enquiry@jas.com</p>
             </div>
           </div>

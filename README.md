@@ -1,4 +1,4 @@
-# JASWIN Tech Solution Website
+# JASWIN AI Solution Website
 
 
 To publis website from local
@@ -141,4 +141,4 @@ To enable the contact form:
 
 ## License
 
-© 2024 JASWIN Tech Solution. All rights reserved.
+© 2025 JASWIN AI Solutions. All rights reserved.

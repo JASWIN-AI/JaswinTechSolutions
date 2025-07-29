@@ -16,7 +16,7 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Welcome to <span className="text-gold-400">JASWIN</span> Tech Solution
+              Welcome to <span className="text-gold-400">JASWIN</span> AI Solutions
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
               Innovative technology solutions that drive business growth and digital transformation for forward-thinking companies.
@@ -39,7 +39,7 @@ export default function Home() {
                 Leading Technology Innovation
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                At JASWIN Tech Solution, we specialize in delivering cutting-edge technology services that help businesses thrive in the digital age. Our team of experts combines technical excellence with strategic insight to provide solutions that drive real results.
+                At JASWIN AI Solutions, we specialize in delivering cutting-edge technology services that help businesses thrive in the digital age. Our team of experts combines technical excellence with strategic insight to provide solutions that drive real results.
               </p>
               <p className="text-lg text-gray-600 mb-8">
                 From custom software development to cloud migration and digital transformation, we partner with organizations to unlock their full potential through technology.

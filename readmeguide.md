@@ -1,8 +1,8 @@
-# JASWIN Tech Solution Website
+# JASWIN AI Solutions Website
 
 ## Overview
 
-This is a full-stack web application for JASWIN Tech Solution, a technology company website built with React frontend and Express backend. The application uses a modern tech stack with TypeScript, React, Express, Drizzle ORM with PostgreSQL, and shadcn/ui components.
+This is a full-stack web application for JASWIN AI Solutions, a technology company website built with React frontend and Express backend. The application uses a modern tech stack with TypeScript, React, Express, Drizzle ORM with PostgreSQL, and shadcn/ui components.
 
 ## User Preferences
 

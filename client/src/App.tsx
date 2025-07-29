@@ -8,7 +8,7 @@ import About from "@/pages/about";
 import Services from "@/pages/services";
 import Projects from "@/pages/projects";
 import Contact from "@/pages/contact";
-
+import ProductDevelopment from "@/pages/product-development";
 
 function Router() {
   return (
@@ -16,7 +16,8 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/services" component={Services} />
-      <Route path="/projects" component={Projects} />
+      <Route path="/solutions/turnkey-projects" component={Projects} />
+      <Route path="/solutions/product-development" component={ProductDevelopment} />
       <Route path="/contact" component={Contact} />
       <Route path="/home" component={Home} />
     </Switch>
