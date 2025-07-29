@@ -128,8 +128,8 @@ export default function Footer() {
               <p style={{ margin: '0.25rem 0' }}>Om Sai Avenue,Shop No.109,1St Floor,</p>
               <p style={{ margin: '0.25rem 0' }}>River Residency Road, near Swaraj capital,</p>
               <p style={{ margin: '0.25rem 0' }}>MIDC, Chikhali, Pimpri-Chinchwad, Pune, Maharashtra 411062</p>
-              <p style={{ margin: '0.25rem 0' }}>+91 87880 58772</p>
-              <p style={{ margin: '0.25rem 0' }}>enquiry@jas.com</p>
+              <p style={{ margin: '0.25rem 0' }}>+91 8265016045</p>
+              <p style={{ margin: '0.25rem 0' }}>sales@jasitsol.com</p>
             </div>
           </div>
         </div>

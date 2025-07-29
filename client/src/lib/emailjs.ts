@@ -28,7 +28,7 @@ export const sendContactEmail = async (formData: ContactFormData): Promise<boole
     
     // Prepare template parameters
     const templateParams = {
-      to_email: 'enquiry@jas.com',
+      to_email: 'sales@jasitsol.com',
       from_name: formData.name,
       from_email: formData.email,
       phone: formData.phone || 'Not provided',

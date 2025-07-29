@@ -114,7 +114,7 @@ export default function Contact() {
       console.error("Form submission error:", error);
       toast({
         title: "Error",
-        description: "Failed to send your message. Please try again or contact us directly at enquiry@jas.com",
+        description: "Failed to send your message. Please try again or contact us directly at sales@jasitsol.com",
         variant: "destructive"
       });
     } finally {
@@ -136,12 +136,12 @@ export default function Contact() {
     {
       icon: Phone,
       title: "Phone Number",
-      content: ["+91 87880 58772"]
+      content: ["+91 8265016045"]
     },
     {
       icon: Mail,
       title: "Email Address",
-      content: ["enquiry@jas.com"]
+      content: ["sales@jasitsol.com"]
     },
     {
       icon: Clock,
