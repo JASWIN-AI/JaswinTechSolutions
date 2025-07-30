@@ -11,6 +11,8 @@ import Contact from "@/pages/contact";
 import ProductDevelopment from "@/pages/product-development";
 import Consulting from "./pages/consulting";
 import JaswinAILMS from "./pages/JaswinAILMS";
+import AIBFSIPage from "./pages/AIBFSIPage";
+import ServiceDeskPlus from "./pages/ServiceDeskPlus";
 
 function Router() {
   return (
@@ -23,6 +25,9 @@ function Router() {
       <Route path="/contact" component={Contact} />
       <Route path="/consulting" component={Consulting} />
       <Route path="product/lms" component={JaswinAILMS} />
+      <Route path="/product/ai-bfsi" component={AIBFSIPage} />
+      <Route path="/product/jas-service-desk" component={ServiceDeskPlus} />
+      {/* Catch-all route for home */}
       <Route path="/home" component={Home} />
     </Switch>
   );

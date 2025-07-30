@@ -27,18 +27,18 @@ export default function JaswinAILMS() {
               A cloud-based SaaS platform built on MERN stack, simplifying corporate training, 
               compliance, and skill development with AI-powered tools.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+           <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
-                href="/demo"
-                className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-6 rounded-full shadow transition text-center"
+                href="#demo"
+                className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:scale-105"
               >
                 Request Demo
               </a>
               <a
-                href="/compliance"
-                className="bg-white hover:bg-gray-100 text-blue-900 font-semibold py-3 px-6 rounded-full shadow transition text-center"
+                href="#contact"
+                className="bg-white/10 hover:bg-white/20 text-white font-semibold py-3 px-8 rounded-full border border-white/20 transition-all hover:scale-105"
               >
-                Compliance Features
+                Explore Features
               </a>
             </div>
           </div>
