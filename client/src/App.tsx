@@ -13,6 +13,8 @@ import Consulting from "./pages/consulting";
 import JaswinAILMS from "./pages/JaswinAILMS";
 import AIBFSIPage from "./pages/AIBFSIPage";
 import ServiceDeskPlus from "./pages/ServiceDeskPlus";
+import HumanCapitalWarm from "./pages/HumanCapital";
+import HumanCapitalCorporate from "./pages/HumanPartnership";
 
 function Router() {
   return (
@@ -27,6 +29,8 @@ function Router() {
       <Route path="product/lms" component={JaswinAILMS} />
       <Route path="/product/ai-bfsi" component={AIBFSIPage} />
       <Route path="/product/jas-service-desk" component={ServiceDeskPlus} />
+      <Route path="/human-capital" component={HumanCapitalWarm} />
+      <Route path="/hr-partner" component={HumanCapitalCorporate} />
       {/* Catch-all route for home */}
       <Route path="/home" component={Home} />
     </Switch>
