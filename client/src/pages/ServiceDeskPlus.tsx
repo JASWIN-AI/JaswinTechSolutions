@@ -123,17 +123,17 @@ const ServiceDeskPlus = () => {
                 className="flex justify-center gap-4 mt-8"
             >
                 <a
-                href="#demo"
+                href="/contact"
                 className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:scale-105"
                 >
                 Request Demo
                 </a>
-                <a
+                {/* <a
                 href="#capabilities"
                 className="bg-white/10 hover:bg-white/20 text-white font-semibold py-3 px-8 rounded-full border border-white/20 transition-all hover:scale-105"
                 >
                 Explore Features
-                </a>
+                </a> */}
             </motion.div>
         </div>
       </section>
@@ -279,17 +279,17 @@ const ServiceDeskPlus = () => {
           </motion.p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
-                href="#demo"
+                href="/contact"
                 className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:scale-105"
               >
                 Schedule Consultation
               </a>
-              <a
-                href="#contact"
-                className="bg-white/10 hover:bg-white/20 text-white font-semibold py-3 px-8 rounded-full border border-white/20 transition-all hover:scale-105"
-              >
-                Download Brochure
-              </a>
+                {/* <a
+                  href="#contact"
+                  className="bg-white/10 hover:bg-white/20 text-white font-semibold py-3 px-8 rounded-full border border-white/20 transition-all hover:scale-105"
+                >
+                  Download Brochure
+                </a> */}
             </div>
         </div>
       </section>
