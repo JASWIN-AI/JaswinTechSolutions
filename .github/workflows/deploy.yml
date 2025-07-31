@@ -43,8 +43,7 @@ jobs:
         force_orphan: true
         enable_jekyll: false  # Crucial for modern SPAs
         # Uncomment if using custom domain:
-        # cname: yourdomain.com
-
+        cname: jasitsol.in
     - name: Verify deployment
       run: |
         echo "Deployment completed successfully!"
