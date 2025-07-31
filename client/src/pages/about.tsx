@@ -45,7 +45,7 @@ export default function About() {
               <div className="max-w-2xl text-base md:text-lg text-gray-700 leading-relaxed space-y-5">
           <p></p>
           <p>
-            <span className="font-semibold text-navy-700">JASWIN AI Solutions ©</span> is a dynamic technology and consulting startup, blending deep industry expertise with cutting-edge innovation. Founded by BFSI and IT veterans and fueled by a talented team of technologists and strategists, we deliver agile, impactful solutions for modern enterprises.
+            <span className="font-semibold text-navy-700">JASWIN AI Solutions</span> is a dynamic technology and consulting startup, blending deep industry expertise with cutting-edge innovation. Founded by BFSI and IT veterans and fueled by a talented team of technologists and strategists, we deliver agile, impactful solutions for modern enterprises.
           </p>
           <p>
             At JASWIN, we bridge the gap between vision and reality. As a next-gen technology and consulting startup, we combine decades of industry expertise with agile innovation to deliver tailored solutions for the <span className="text-gold-600 font-medium">BFSI</span>, <span className="text-gold-600 font-medium">EdTech</span>, and <span className="text-gold-600 font-medium">eGovernance</span> sectors.

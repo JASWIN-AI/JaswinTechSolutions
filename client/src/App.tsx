@@ -15,6 +15,7 @@ import AIBFSIPage from "./pages/AIBFSIPage";
 import ServiceDeskPlus from "./pages/ServiceDeskPlus";
 import HumanCapitalWarm from "./pages/HumanCapital";
 import HumanCapitalCorporate from "./pages/HumanPartnership";
+import TechnologyPartner from "./pages/TechnologyPartner";
 
 function Router() {
   return (
@@ -31,6 +32,7 @@ function Router() {
       <Route path="/product/jas-service-desk" component={ServiceDeskPlus} />
       <Route path="/human-capital" component={HumanCapitalWarm} />
       <Route path="/hr-partner" component={HumanCapitalCorporate} />
+      <Route path="/technology-partner" component={TechnologyPartner} />
       {/* Catch-all route for home */}
       <Route path="/home" component={Home} />
     </Switch>
