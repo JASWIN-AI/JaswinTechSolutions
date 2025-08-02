@@ -1,25 +1,25 @@
-import { Switch, Route } from "wouter";
+import Footer from "@/components/footer";
+import Navigation from "@/components/navigation";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import Navigation from "@/components/navigation";
-import Footer from "@/components/footer";
-import Home from "@/pages/home";
 import About from "@/pages/about";
-import Services from "@/pages/services";
-import Projects from "@/pages/projects";
 import Contact from "@/pages/contact";
+import Home from "@/pages/home";
 import ProductDevelopment from "@/pages/product-development";
-import Consulting from "./pages/consulting";
-import JaswinAILMS from "./pages/JaswinAILMS";
+import Projects from "@/pages/projects";
+import Services from "@/pages/services";
+import { Route, Switch } from "wouter";
 import AIBFSIPage from "./pages/AIBFSIPage";
-import ServiceDeskPlus from "./pages/ServiceDeskPlus";
+import AIDataConsulting from "./pages/AIDataConsulting";
+import CloudDevelopmentServices from "./pages/CloudDevelopmentServices";
+import Consulting from "./pages/consulting";
 import HumanCapitalWarm from "./pages/HumanCapital";
 import HumanCapitalCorporate from "./pages/HumanPartnership";
-import TechnologyPartner from "./pages/TechnologyPartner";
-import SREServices from "./pages/SREServices";
-import CloudDevelopmentServices from "./pages/CloudDevelopmentServices";
 import InformationSecurity from "./pages/InformationSecurity";
-import AIDataConsulting from "./pages/AIDataConsulting";
+import JaswinAILMS from "./pages/JaswinAILMS";
+import ServiceDeskPlus from "./pages/ServiceDeskPlus";
+import SREServices from "./pages/SREServices";
+import TechnologyPartner from "./pages/TechnologyPartner";
 
 function Router() {
   return (

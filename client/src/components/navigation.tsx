@@ -111,22 +111,27 @@ export default function Navigation() {
         }}>
           {/* Logo */}
           <Link href="/">
-            <div style={{ 
-              display: 'flex', 
-              alignItems: 'center', 
-              cursor: 'pointer',
-              gap: '0.5rem'
-            }}>
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="32" height="32" rx="4" fill="#3b82f6"/>
-                <path d="M16 22L10 16L16 10L22 16L16 22Z" fill="#f59e0b"/>
-                <path d="M16 19L13 16L16 13L19 16L16 19Z" fill="white"/>
-              </svg>
-              <div style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>
-                <span style={{ color: '#f59e0b' }}>JASWIN</span> AI Solutions
-              </div>
-            </div>
-          </Link>
+  <div style={{ 
+    display: 'flex', 
+    alignItems: 'center', 
+    cursor: 'pointer',
+    gap: '0.5rem'
+  }}>
+    {/* Replace SVG with your image */}
+    <img 
+      src="/assets/jaslogo.png" 
+      alt="JASWIN Logo" 
+      style={{ 
+        width: '32px', 
+        height: '32px',
+        objectFit: 'contain'
+      }}
+    />
+    <div style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>
+      <span style={{ color: '#f59e0b' }}>JASWIN</span> AI Solutions
+    </div>
+  </div>
+</Link>
 
           {/* Navigation */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>

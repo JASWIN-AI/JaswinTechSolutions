@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Link, useLocation } from "wouter";
+
 import {
   BarChart2,
   ShieldCheck,
@@ -50,12 +52,12 @@ const AIBFSIPage = () => {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="flex justify-center gap-4 mt-8"
           >
-            <a
+            <Link
               href="/contact"
-              className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:scale-105"
+              className="bg-white hover:bg-gray-100 text-blue-600 font-medium py-2 px-6 rounded-full text-sm shadow"
             >
               Request Demo
-            </a>
+            </Link>
            {/*  <a
               href="#capabilities"
               className="bg-white/10 hover:bg-white/20 text-white font-semibold py-3 px-8 rounded-full border border-white/20 transition-all hover:scale-105"
@@ -191,12 +193,12 @@ const AIBFSIPage = () => {
               Break data silos with cognitive automation and enhance profitability across your financial value chain.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a
-                href="/contact"
-                className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:scale-105"
-              >
+               <Link
+              href="/contact"
+              className="bg-white hover:bg-gray-100 text-blue-600 font-medium py-2 px-6 rounded-full text-sm shadow"
+            >
                 Schedule Consultation
-              </a>
+              </Link>
               {/* <a
                 href="#contact"
                 className="bg-white/10 hover:bg-white/20 text-white font-semibold py-3 px-8 rounded-full border border-white/20 transition-all hover:scale-105"
