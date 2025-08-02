@@ -18,58 +18,25 @@ export default function Footer() {
   ];
 
   return (
-    <footer style={{
-      backgroundColor: '#1e3a8a',
-      color: 'white',
-      padding: '3rem 0'
-    }}>
-      <div style={{
-        maxWidth: '1280px',
-        margin: '0 auto',
-        padding: '0 1rem'
-      }}>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-          gap: '2rem',
-          marginBottom: '2rem'
-        }}>
+    <footer className="footer-root">
+      <div className="footer-container">
+        <div className="footer-grid">
           {/* Company Info */}
-          <div style={{ gridColumn: 'span 2' }}>
-            <div style={{
-              fontSize: '2rem',
-              fontWeight: 'bold',
-              marginBottom: '1rem'
-            }}>
+          <div className="footer-section">
+            <div className="footer-title">
               <span style={{ color: '#f59e0b' }}>JASWIN</span> AI Solutions
             </div>
-            <p style={{
-              color: '#d1d5db',
-              marginBottom: '1rem',
-              lineHeight: '1.6'
-            }}>
+            <p className="footer-desc">
               Empowering businesses through innovative technology solutions. Your trusted partner for digital transformation and growth.
             </p>
-            <div style={{
-              display: 'flex',
-              gap: '1rem'
-            }}>
+            <div className="footer-social">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{
-                    color: '#d1d5db',
-                    transition: 'color 0.3s ease'
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.target as HTMLAnchorElement).style.color = '#f59e0b';
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.target as HTMLAnchorElement).style.color = '#d1d5db';
-                  }}
+                  className="footer-social-link"
                   aria-label={social.name}
                 >
                   <social.icon style={{ width: '20px', height: '20px' }} />
@@ -77,73 +44,127 @@ export default function Footer() {
               ))}
             </div>
           </div>
-          
           {/* Quick Links */}
-          <div>
-            <h4 style={{
-              fontWeight: '600',
-              marginBottom: '1rem',
-              color: '#f59e0b'
-            }}>Quick Links</h4>
-            <ul style={{ listStyle: 'none', padding: 0 }}>
+          <div className="footer-section">
+            <h4 className="footer-heading">Quick Links</h4>
+            <ul className="footer-list">
               {quickLinks.map((link) => (
-                <li key={link.path} style={{ marginBottom: '0.5rem' }}>
+                <li key={link.path}>
                   <Link href={link.path}>
-                    <button style={{
-                      color: '#d1d5db',
-                      backgroundColor: 'transparent',
-                      border: 'none',
-                      cursor: 'pointer',
-                      textAlign: 'left',
-                      padding: 0,
-                      transition: 'color 0.3s ease'
-                    }}
-                    onMouseEnter={(e) => {
-                      (e.target as HTMLButtonElement).style.color = '#f59e0b';
-                    }}
-                    onMouseLeave={(e) => {
-                      (e.target as HTMLButtonElement).style.color = '#d1d5db';
-                    }}>
-                      {link.name}
-                    </button>
+                    <button className="footer-link-btn">{link.name}</button>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
-          
           {/* Contact Info */}
-          <div>
-            <h4 style={{
-              fontWeight: '600',
-              marginBottom: '1rem',
-              color: '#f59e0b'
-            }}>Contact Info</h4>
-            <div style={{
-              fontSize: '0.875rem',
-              color: '#d1d5db',
-              lineHeight: '1.5'
-            }}>
-              <p style={{ margin: '0.25rem 0', fontWeight: 'bold' }}>JASWIN AI Solutions</p>
-              <p style={{ margin: '0.25rem 0' }}>Om Sai Avenue,Shop No.109,1St Floor,</p>
-              <p style={{ margin: '0.25rem 0' }}>River Residency Road, near Swaraj capital,</p>
-              <p style={{ margin: '0.25rem 0' }}>MIDC, Chikhali, Pimpri-Chinchwad, Pune, Maharashtra 411062</p>
-              <p style={{ margin: '0.25rem 0' }}>+91 8265016045</p>
-              <p style={{ margin: '0.25rem 0' }}>sales@jasitsol.com</p>
+          <div className="footer-section">
+            <h4 className="footer-heading">Contact Info</h4>
+            <div className="footer-contact">
+              <p><b>JASWIN AI Solutions</b></p>
+              <p>Om Sai Avenue, Shop No.109, 1St Floor,</p>
+              <p>River Residency Road, near Swaraj capital,</p>
+              <p>MIDC, Chikhali, Pimpri-Chinchwad, Pune, Maharashtra 411062</p>
+              <p>+91 8265016045</p>
+              <p>sales@jasitsol.com</p>
             </div>
           </div>
         </div>
-        
         {/* Copyright */}
-        <div style={{
-          borderTop: '1px solid #374151',
-          paddingTop: '2rem',
-          textAlign: 'center',
-          color: '#d1d5db'
-        }}>
-          <p style={{ margin: 0 }}>&copy; 2025 JASWIN Tech Solution. All rights reserved. | Privacy Policy | Terms of Service</p>
+        <div className="footer-copyright">
+          <p>&copy; 2025 JASWIN Tech Solution. All rights reserved. | Privacy Policy | Terms of Service</p>
         </div>
       </div>
+      <style>{`
+        .footer-root {
+          background: #1e3a8a;
+          color: white;
+          padding: 2.5rem 0 0 0;
+        }
+        .footer-container {
+          max-width: 1280px;
+          margin: 0 auto;
+          padding: 0 1rem;
+        }
+        .footer-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 2rem;
+          margin-bottom: 2rem;
+        }
+        .footer-section {
+          min-width: 0;
+        }
+        .footer-title {
+          font-size: 2rem;
+          font-weight: bold;
+          margin-bottom: 1rem;
+        }
+        .footer-desc {
+          color: #d1d5db;
+          margin-bottom: 1rem;
+          line-height: 1.6;
+        }
+        .footer-social {
+          display: flex;
+          gap: 1rem;
+        }
+        .footer-social-link {
+          color: #d1d5db;
+          transition: color 0.3s;
+        }
+        .footer-social-link:hover {
+          color: #f59e0b;
+        }
+        .footer-heading {
+          font-weight: 600;
+          margin-bottom: 1rem;
+          color: #f59e0b;
+        }
+        .footer-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+        .footer-link-btn {
+          color: #d1d5db;
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          text-align: left;
+          padding: 0;
+          font-size: 1rem;
+          transition: color 0.3s;
+        }
+        .footer-link-btn:hover {
+          color: #f59e0b;
+        }
+        .footer-contact p {
+          margin: 0.25rem 0;
+          color: #d1d5db;
+          font-size: 0.95rem;
+        }
+        .footer-copyright {
+          border-top: 1px solid #374151;
+          padding: 1.5rem 0 1rem 0;
+          text-align: center;
+          color: #d1d5db;
+          font-size: 0.95rem;
+        }
+        @media (max-width: 900px) {
+          .footer-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            text-align: center;
+          }
+          .footer-section {
+            margin-bottom: 1.5rem;
+          }
+          .footer-social {
+            justify-content: center;
+          }
+        }
+      `}</style>
     </footer>
   );
 }
