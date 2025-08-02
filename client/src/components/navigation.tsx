@@ -119,7 +119,7 @@ export default function Navigation() {
   }}>
     {/* Replace SVG with your image */}
     <img 
-      src="/assets/jaslogo.png" 
+      src="../../../assets/jaslogo.png" 
       alt="JASWIN Logo" 
       style={{ 
         width: '32px', 
