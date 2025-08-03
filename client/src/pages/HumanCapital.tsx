@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Users, Shield, Code, BookOpen, BarChart, Briefcase, ArrowRight } from 'lucide-react';
+import { Link } from 'wouter';
 
 const HumanCapital = () => {
   const services = [
@@ -50,9 +51,12 @@ const HumanCapital = () => {
               <p className="text-xl mb-8 text-gray-700">
                 We bridge the gap between workforce excellence and digital innovation through end-to-end talent solutions.
               </p>
-              <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-full flex items-center transition-all shadow-lg">
+                <Link
+                      href="/contact"
+                    className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-full flex items-center transition-all shadow-lg"
+                  >
                 Get Consultation <ArrowRight className="ml-2 h-4 w-4" />
-              </button>
+              </Link>
             </div>
             <div className="lg:w-1/2 grid grid-cols-2 gap-4">
               <StatCard value="100+" label="Institution Network" />
