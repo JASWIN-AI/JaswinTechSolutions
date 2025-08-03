@@ -1,12 +1,13 @@
 import { Link } from "wouter";
 import { Facebook, Twitter, Linkedin, Github } from "lucide-react";
+import logoJas from "../../../assets/jaslogo.png"; // Adjust the path as necessary
 
 export default function Footer() {
   const quickLinks = [
     { name: "Home", path: "/" },
-    { name: "About Us", path: "/about" },
-    { name: "Services", path: "/services" },
-    { name: "Projects", path: "/projects" },
+    { name: "About JASWIN", path: "/about" },
+    { name: "Solutions", path: "/solutions/turnkey-projects" },
+    { name: "Consulting", path: "/consulting" },
     { name: "Contact", path: "/contact" }
   ];
 
@@ -23,9 +24,21 @@ export default function Footer() {
         <div className="footer-grid">
           {/* Company Info */}
           <div className="footer-section">
-            <div className="footer-title">
-              <span style={{ color: '#f59e0b' }}>JASWIN</span> AI Solutions
+            <Link href="/" className="footer-logo-link">
+            <div className="nav-logo">
+              <img src={logoJas} alt="JASWIN Logo" className="nav-logo-img" 
+               style={{
+              height: "40px",
+              width: "auto",
+              objectFit: "contain",
+              margin: 0,
+              padding: 0,
+              display: "block"
+            }}
+              />
+              
             </div>
+          </Link>
             <p className="footer-desc">
               Empowering businesses through innovative technology solutions. Your trusted partner for digital transformation and growth.
             </p>
@@ -64,7 +77,7 @@ export default function Footer() {
               <p><b>JASWIN AI Solutions</b></p>
               <p>Om Sai Avenue, Shop No.109, 1St Floor,</p>
               <p>River Residency Road, near Swaraj capital,</p>
-              <p>MIDC, Chikhali, Pimpri-Chinchwad, Pune, Maharashtra 411062</p>
+              <p>MIDC, Chikhali, Pimpri-Chinchwad, Pune, Maharashtra 411026</p>
               <p>+91 8265016045</p>
               <p>sales@jasitsol.com</p>
             </div>
@@ -72,7 +85,16 @@ export default function Footer() {
         </div>
         {/* Copyright */}
         <div className="footer-copyright">
-          <p>&copy; 2025 JASWIN Tech Solution. All rights reserved. | Privacy Policy | Terms of Service</p>
+          <p>
+              &copy; 2025 JASWIN AI Solutions. All rights reserved. |{' '}
+              <a href="/privacy-policy" className="text-blue-600 hover:underline">
+                Privacy Policy
+              </a>{' '}
+              |{' '}
+              <a href="/terms-of-services" className="text-blue-600 hover:underline">
+                Terms of Service
+              </a>
+            </p>
         </div>
       </div>
       <style>{`

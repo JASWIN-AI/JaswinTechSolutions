@@ -3,10 +3,22 @@ import { ArrowRight } from "lucide-react";
 export default function Projects() {
   const projects = [
     {
-      title: "E-commerce Platform",
-      description: "Custom e-commerce solution with advanced inventory management and payment processing for retail client.",
+      title: "AI-LMS Platform",
+      description: "A cloud-based SaaS platform built on MERN stack, simplifying corporate training, compliance, and skill development with AI-powered tools.",
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
       category: "Web Development"
+    },
+    {
+      title: "AI-BFSI DST & Reporting",
+      description: "A unified, role-agnostic dashboard suite with an AI-driven rules engine, designed to transform decision-making across India's banking ecosystem.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
+      category: "Data Analytics"
+    },
+    {
+      title: "JASWIN Service Desk Plus",
+      description: "JASWIN Service Desk Plus is a next-generation, AI-powered Service Desk Management platform built specifically for the operational and compliance demands of Indian banking and IT enterprises.",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
+      category: "Enterprise Software"
     },
     {
       title: "Cloud Migration",
@@ -20,18 +32,8 @@ export default function Projects() {
       image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
       category: "Mobile Development"
     },
-    {
-      title: "BI Dashboard",
-      description: "Interactive business intelligence dashboard providing real-time insights and advanced analytics.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
-      category: "Data Analytics"
-    },
-    {
-      title: "ERP System",
-      description: "Comprehensive enterprise resource planning system streamlining business processes and operations.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
-      category: "Enterprise Software"
-    },
+    
+    
     {
       title: "Security Infrastructure",
       description: "Advanced cybersecurity solution with threat detection and automated response capabilities.",

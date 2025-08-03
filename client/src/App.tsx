@@ -20,6 +20,8 @@ import JaswinAILMS from "./pages/JaswinAILMS";
 import ServiceDeskPlus from "./pages/ServiceDeskPlus";
 import SREServices from "./pages/SREServices";
 import TechnologyPartner from "./pages/TechnologyPartner";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 
 function Router() {
   return (
@@ -45,6 +47,8 @@ function Router() {
       
       {/* Catch-all route for home */}
       <Route path="/home" component={Home} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/terms-of-services" component={TermsOfService} />
     </Switch>
   );
 }
