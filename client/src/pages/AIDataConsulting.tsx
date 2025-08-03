@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'wouter';
 
 const AIDataConsulting = () => {
   const services = [
@@ -157,20 +158,19 @@ const AIDataConsulting = () => {
             Our consultants are ready to help you harness the power of data and artificial intelligence.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3">
-            <motion.a
-              whileHover={{ scale: 1.03 }}
-              href="/contact"
-              className="bg-white hover:bg-gray-100 text-blue-600 font-medium py-2 px-6 rounded-full text-sm shadow"
-            >
+            <Link
+                href="/contact"
+                className="bg-white hover:bg-gray-100 text-blue-600 font-medium py-2 px-6 rounded-full text-sm shadow"
+              >
               Schedule Consultation
-            </motion.a>
-            <motion.a
-              whileHover={{ scale: 1.03 }}
-              href="/services"
-              className="border border-white hover:bg-white/10 font-medium py-2 px-6 rounded-full text-sm"
-            >
-              View Case Studies
-            </motion.a>
+            </Link>
+            <Link
+                href="/contact"
+                className="bg-white hover:bg-gray-100 text-blue-600 font-medium py-2 px-6 rounded-full text-sm shadow"
+              >
+               View Case Studies
+            </Link>
+            
           </div>
         </div>
       </section>

@@ -77,7 +77,7 @@ export default function Footer() {
               <p><b>JASWIN AI Solutions</b></p>
               <p>Om Sai Avenue, Shop No.109, 1St Floor,</p>
               <p>River Residency Road, near Swaraj capital,</p>
-              <p>MIDC, Chikhali, Pimpri-Chinchwad, Pune, Maharashtra 411026</p>
+              <p>MIDC, Chikhali, Pimpri-Chinchwad, Pune-411026, Maharashtra</p>
               <p>+91 8265016045</p>
               <p>sales@jasitsol.com</p>
             </div>

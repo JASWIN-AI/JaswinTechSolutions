@@ -58,12 +58,7 @@ const AIBFSIPage = () => {
             >
               Request Demo
             </Link>
-           {/*  <a
-              href="#capabilities"
-              className="bg-white/10 hover:bg-white/20 text-white font-semibold py-3 px-8 rounded-full border border-white/20 transition-all hover:scale-105"
-            >
-              Explore Features
-            </a> */}
+           
           </motion.div>
         </div>
       </section>

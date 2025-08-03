@@ -129,7 +129,7 @@ export default function Contact() {
       content: ["Om Sai Avenue,Shop No.109,1St Floor,",
                 "River Residency Road, near Swaraj capital,",
                 "MIDC, Chikhali, Pimpri-Chinchwad,",
-                "Pune-411062, Maharashtra", 
+                "Pune-411026, Maharashtra", 
                 "India"
               ]
     },
