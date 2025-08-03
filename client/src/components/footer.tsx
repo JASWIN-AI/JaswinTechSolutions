@@ -91,7 +91,7 @@ export default function Footer() {
                 Privacy Policy
               </Link>
               <span className="mx-2">|</span>
-              <Link href="/terms-of-services" className="text-blue-600 hover:underline">
+              <Link href="/terms-of-service" className="text-blue-600 hover:underline">
                 Terms of Service
               </Link>
             </p>

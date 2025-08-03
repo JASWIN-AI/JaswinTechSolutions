@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useLocation } from 'wouter'; // Import from wouter
 import Footer from "@/components/footer";
 import Navigation from "@/components/navigation";
 import { Toaster } from "@/components/ui/toaster";
@@ -23,33 +25,51 @@ import TechnologyPartner from "./pages/TechnologyPartner";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 
+// ScrollToTop component for wouter router
+function ScrollToTop() {
+  const [location] = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth' // Smooth scroll animation
+    });
+  }, [location]); // Trigger on location change
+  
+
+  return null;
+}
+
 function Router() {
   return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="/services" component={Services} />
-      <Route path="/solutions/turnkey-projects" component={Projects} />
-      <Route path="/solutions/product-development" component={ProductDevelopment} />
-      <Route path="/solutions/sre-managed" component={SREServices} />
-      <Route path="/solutions/cloud-services" component={CloudDevelopmentServices} />
-      <Route path="/solutions/information-security" component={InformationSecurity} />
-      <Route path="/solutions/ai-data-consulting" component={AIDataConsulting} />
-
-      <Route path="/contact" component={Contact} />
-      <Route path="/consulting" component={Consulting} />
-      <Route path="product/lms" component={JaswinAILMS} />
-      <Route path="/product/ai-bfsi" component={AIBFSIPage} />
-      <Route path="/product/jas-service-desk" component={ServiceDeskPlus} />
-      <Route path="/human-capital" component={HumanCapitalWarm} />
-      <Route path="/hr-partner" component={HumanCapitalCorporate} />
-      <Route path="/technology-partner" component={TechnologyPartner} />
-      <Route path="/privacy-policy" component={PrivacyPolicy} />
-      <Route path="/terms-of-services" component={TermsOfService} />
-      {/* Catch-all route for home */}
-      <Route path="/home" component={Home} />
-      
-    </Switch>
+    <>
+      <ScrollToTop />
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/services" component={Services} />
+        <Route path="/solutions/turnkey-projects" component={Projects} />
+        <Route path="/solutions/product-development" component={ProductDevelopment} />
+        <Route path="/solutions/sre-managed" component={SREServices} />
+        <Route path="/solutions/cloud-services" component={CloudDevelopmentServices} />
+        <Route path="/solutions/information-security" component={InformationSecurity} />
+        <Route path="/solutions/ai-data-consulting" component={AIDataConsulting} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/consulting" component={Consulting} />
+        <Route path="/product/lms" component={JaswinAILMS} />
+        <Route path="/product/ai-bfsi" component={AIBFSIPage} />
+        <Route path="/product/jas-service-desk" component={ServiceDeskPlus} />
+        <Route path="/human-capital" component={HumanCapitalWarm} />
+        <Route path="/hr-partner" component={HumanCapitalCorporate} />
+        <Route path="/technology-partner" component={TechnologyPartner} />
+        <Route path="/privacy-policy" component={PrivacyPolicy} />
+        <Route path="/terms-of-service" component={TermsOfService} />
+        {/* Catch-all route for home */}
+        <Route path="/home" component={Home} />
+        <Route path="/:rest*" component={Home} /> {/* Catch-all */}
+      </Switch>
+    </>
   );
 }
 
