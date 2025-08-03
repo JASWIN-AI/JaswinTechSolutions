@@ -52,11 +52,11 @@ const HumanCapital = () => {
                 We bridge the gap between workforce excellence and digital innovation through end-to-end talent solutions.
               </p>
                 <Link
-                      href="/contact"
-                    className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-full flex items-center transition-all shadow-lg"
-                  >
-                Get Consultation <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+                  href="/contact"
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-full flex items-center transition-all shadow-md w-fit"
+                >
+                  Get Consultation <ArrowRight className="ml-1 h-4 w-4" />
+                </Link>
             </div>
             <div className="lg:w-1/2 grid grid-cols-2 gap-4">
               <StatCard value="100+" label="Institution Network" />
