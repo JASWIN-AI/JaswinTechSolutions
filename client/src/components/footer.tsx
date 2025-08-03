@@ -87,13 +87,13 @@ export default function Footer() {
         <div className="footer-copyright">
           <p>
               &copy; 2025 JASWIN AI Solutions. All rights reserved. |{' '}
-              <a href="/privacy-policy" className="text-blue-600 hover:underline">
+              <Link href="/privacy-policy" className="text-blue-600 hover:underline">
                 Privacy Policy
-              </a>{' '}
-              |{' '}
-              <a href="/terms-of-services" className="text-blue-600 hover:underline">
+              </Link>
+              <span className="mx-2">|</span>
+              <Link href="/terms-of-services" className="text-blue-600 hover:underline">
                 Terms of Service
-              </a>
+              </Link>
             </p>
         </div>
       </div>

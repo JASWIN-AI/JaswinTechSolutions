@@ -44,11 +44,11 @@ function Router() {
       <Route path="/human-capital" component={HumanCapitalWarm} />
       <Route path="/hr-partner" component={HumanCapitalCorporate} />
       <Route path="/technology-partner" component={TechnologyPartner} />
-      
-      {/* Catch-all route for home */}
-      <Route path="/home" component={Home} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-services" component={TermsOfService} />
+      {/* Catch-all route for home */}
+      <Route path="/home" component={Home} />
+      
     </Switch>
   );
 }
