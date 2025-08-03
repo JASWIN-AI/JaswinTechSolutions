@@ -8,6 +8,7 @@ import {
   Code,
   CloudUpload
 } from "lucide-react";
+import { Link } from 'wouter';
 
 export default function ProductDevelopment() {
   return (
@@ -18,12 +19,12 @@ export default function ProductDevelopment() {
           <h2 className="text-2xl md:text-3xl font-extrabold mb-4">
             From Vision to Reality: Scalable, Secure Digital Solutions, Built with You
           </h2>
-          <a
-            href="/contact"
-            className="inline-block bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow transition"
+          <Link
+              href="/contact"
+            className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:scale-105"
           >
             Let’s Build Together &rarr;
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -101,12 +102,12 @@ export default function ProductDevelopment() {
       <section className="py-16 px-4 bg-gradient-to-r from-blue-900 to-blue-700 text-white text-center">
         <h2 className="text-3xl font-bold mb-4">Ready to Co-Create a Standout Digital Product?</h2>
         <div className="flex flex-col md:flex-row gap-4 justify-center mt-6">
-          <a
-            href="/contact"
-            className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow transition"
+           <Link
+              href="/contact"
+            className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:scale-105"
           >
             Book a Free Consultation
-          </a>
+          </Link>
           <a
             href="/tech"
             className="bg-white hover:bg-gray-100 text-blue-900 font-semibold py-3 px-8 rounded-full shadow transition"

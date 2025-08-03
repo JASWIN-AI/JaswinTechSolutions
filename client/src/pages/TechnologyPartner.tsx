@@ -1,6 +1,7 @@
 import React from "react";
 import { Cloud, Code, ShieldCheck, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from 'wouter';
 const TechnologyPartner = () => {
   const pillars = [
     {
@@ -44,12 +45,12 @@ const TechnologyPartner = () => {
                 transition={{ delay: 0.3, duration: 0.8 }}
                 className="flex justify-center gap-4 mt-8"
             >
-                <a
-                href="/contact"
-                className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:scale-105"
+                <Link
+                    href="/contact"
+                  className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:scale-105"
                 >
                 Start Partnership
-                </a>
+                </Link>
                 {/*  <a
                 href="#capabilities"
                 className="bg-white/10 hover:bg-white/20 text-white font-semibold py-3 px-8 rounded-full border border-white/20 transition-all hover:scale-105"

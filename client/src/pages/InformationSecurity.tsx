@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'wouter';
 
 const InformationSecurity = () => {
   const sections = [
@@ -136,12 +137,12 @@ const InformationSecurity = () => {
             Proactive information security is a strategic investment for long-term business success.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3">
-            <a
-              href="/contact"
-              className="bg-white hover:bg-gray-100 text-blue-600 font-medium py-2 px-6 rounded-full text-sm shadow"
-            >
-              Get Started
-            </a>
+            <Link
+                  href="/contact"
+                className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:scale-105"
+              >
+            Get Started
+            </Link>
             
           </div>
         </div>

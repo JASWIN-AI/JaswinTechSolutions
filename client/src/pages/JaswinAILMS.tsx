@@ -197,12 +197,12 @@ export default function JaswinAILMS() {
             Currently supporting existing clients with maintenance—contact us for 
             compliance-focused solutions or future deployment inquiries.
           </p>
-          <a
-            href="/contact"
-            className="inline-block bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition transform hover:scale-105"
+          <Link
+              href="/contact"
+            className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:scale-105"
           >
             Connect with Our EdTech Team
-          </a>
+          </Link>
         </div>
       </section>
     </div>

@@ -10,6 +10,7 @@ import {
   Clock,
   Zap,
 } from "lucide-react";
+import { Link } from "wouter";
 
 export default function Consulting() {
   return (
@@ -24,12 +25,12 @@ export default function Consulting() {
             Expert guidance in digital transformation, tech modernization, and policy 
             implementation—backed by hands-on BFSI and eGovernance experience.
           </p>
-          <a
-            href="/contact"
-            className="inline-block bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow transition"
+          <Link
+              href="/contact"
+            className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:scale-105"
           >
             Let’s Innovate Together &rarr;
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -134,12 +135,12 @@ export default function Consulting() {
         <p className="text-xl mb-8 max-w-2xl mx-auto">
           Let’s turn it into reality—efficiently and impactfully.
         </p>
-        <a
-          href="/contact"
-          className="inline-block bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow transition"
-        >
+        <Link
+              href="/contact"
+            className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:scale-105"
+          >
           Book a Strategy Session
-        </a>
+        </Link>
       </section>
     </div>
   );

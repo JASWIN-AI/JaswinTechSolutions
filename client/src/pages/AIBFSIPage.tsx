@@ -53,11 +53,11 @@ const AIBFSIPage = () => {
             className="flex justify-center gap-4 mt-8"
           >
             <Link
-              href="/contact"
-              className="bg-white hover:bg-gray-100 text-blue-600 font-medium py-2 px-6 rounded-full text-sm shadow"
-            >
-              Request Demo
-            </Link>
+                  href="/contact"
+                className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:scale-105"
+              >
+                Request Demo
+              </Link>
            
           </motion.div>
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from "framer-motion";
+import { Link } from 'wouter';
 
 const CloudDevelopmentServices = () => {
   return (
@@ -48,12 +49,12 @@ const CloudDevelopmentServices = () => {
                     transition={{ delay: 0.3, duration: 0.8 }}
                     className="flex justify-center gap-4 mt-8"
                 >
-                    <a
-                    href="/contact"
-                    className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:scale-105"
-                    >
+                    <Link
+                          href="/contact"
+                        className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:scale-105"
+                      >
                     Contact Us
-                    </a>
+                    </Link>
                     
                 </motion.div>  
             </motion.div>
@@ -264,12 +265,12 @@ const CloudDevelopmentServices = () => {
                     transition={{ delay: 0.3, duration: 0.8 }}
                     className="flex justify-center gap-4 mt-8"
                 >
-                    <a
-                    href="/contact"
-                    className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:scale-105"
-                    >
-                    Contact Us
-                    </a>
+                    <Link
+                          href="/contact"
+                        className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:scale-105"
+                      >
+                    Connect with Us
+                    </Link>
                     
                 </motion.div>  
         </div>

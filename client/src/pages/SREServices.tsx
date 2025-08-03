@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from "framer-motion";
-
+import { Link } from 'wouter';
 const SREServices = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,12 +19,12 @@ const SREServices = () => {
                 transition={{ delay: 0.3, duration: 0.8 }}
                 className="flex justify-center gap-4 mt-8"
             >
-                <a
-                href="/contact"
-                className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:scale-105"
-                >
+                <Link
+                      href="/contact"
+                    className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:scale-105"
+                  >
                 Contact Us
-                </a>
+                </Link>
                 
             </motion.div>   
         </div>
@@ -148,18 +148,13 @@ const SREServices = () => {
                 transition={{ delay: 0.3, duration: 0.8 }}
                 className="flex justify-center gap-4 mt-8"
             >
-                <a
-                href="/contact"
-                className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:scale-105"
-                >
-                Contact Us
-                </a>
-                {/*  <a
-                href="#capabilities"
-                className="bg-white/10 hover:bg-white/20 text-white font-semibold py-3 px-8 rounded-full border border-white/20 transition-all hover:scale-105"
-                >
-                Explore Features
-                </a> */}
+                <Link
+                      href="/contact"
+                    className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:scale-105"
+                  >
+                   Contact Us
+                </Link>
+                
             </motion.div>
         </div>
       </section>
