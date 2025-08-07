@@ -24,6 +24,10 @@ import SREServices from "./pages/SREServices";
 import TechnologyPartner from "./pages/TechnologyPartner";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
+import AIServicesForFinance from './pages/AIServicesForFinance';
+import DigitalTransformationServices from './pages/DigitalTransformationServices';
+import PublicSectorDigitization from './pages/PublicSectorDigitization';
+import EdTechPublicServices from './pages/EdTechPublicServices';
 
 // ScrollToTop component for wouter router
 function ScrollToTop() {
@@ -55,6 +59,9 @@ function Router() {
         <Route path="/solutions/cloud-services" component={CloudDevelopmentServices} />
         <Route path="/solutions/information-security" component={InformationSecurity} />
         <Route path="/solutions/ai-data-consulting" component={AIDataConsulting} />
+        <Route  path="/solutions/consulting/bfsi" component={DigitalTransformationServices} />
+        <Route path="/solutions/consulting/edtech" component={EdTechPublicServices} />
+        <Route path="/solutions/consulting/egovernance" component={PublicSectorDigitization} />
         <Route path="/contact" component={Contact} />
         <Route path="/consulting" component={Consulting} />
         <Route path="/product/lms" component={JaswinAILMS} />
