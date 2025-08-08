@@ -86,7 +86,7 @@ const PrivacyPolicy = () => {
           <section id="introduction" className="scroll-mt-24 mb-12">
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <p>
-                At JASWIN AI Solutions ("we", "our", "us"), we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website <a href="https://jasitsol.com" className="text-blue-600">https://jasitsol.com</a> (the "Site") or use our services (collectively, the "Services").
+                At JASWIN AI Solutions ("we", "our", "us"), we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website <a href="https://jaswins.com" className="text-blue-600">https://jaswins.com</a> (the "Site") or use our services (collectively, the "Services").
               </p>
               <p className="mt-4">
                 Please read this privacy policy carefully. By accessing or using our Services, you agree to the collection and use of information in accordance with this policy.
@@ -191,7 +191,7 @@ const PrivacyPolicy = () => {
                 <li><strong>Objection:</strong> Object to certain processing activities</li>
               </ul>
               <p>
-                To exercise these rights, please contact us at <a href="mailto:support@jasitsol.com" className="text-blue-600">support@jasitsol.com</a>.
+                To exercise these rights, please contact us at <a href="mailto:support@jaswins.com" className="text-blue-600">support@jaswins.com</a>.
               </p>
             </div>
           </section>
@@ -233,7 +233,7 @@ const PrivacyPolicy = () => {
               </p>
               <ul className="space-y-1">
                   <li><span className="font-medium">Registered Office:</span> Om Sai Avenue, Shop No.109, 1St Floor,River Residency Road, near Swaraj capital,MIDC, Chikhali, Pimpri-Chinchwad, Pune, Maharashtra 411026</li>
-                  <li><span className="font-medium">Email:</span> support@jasitsol.com</li>
+                  <li><span className="font-medium">Email:</span> support@jaswins.com</li>
                   <li><span className="font-medium">Phone:</span> +91 8265016045</li>
                 </ul>
               <p className="mt-4 text-sm text-gray-600">

@@ -43,10 +43,10 @@ jobs:
         force_orphan: true
         enable_jekyll: false  # Crucial for modern SPAs
         # Uncomment if using custom domain:
-        cname: jasitsol.in
+        cname: jaswins.com
     - name: Verify deployment
       run: |
         echo "Deployment completed successfully!"
         echo "View at https://<your-username>.github.io/<repo>"
         # For custom domain:
-        # echo "Or at https://jasitsol.in"
+        # echo "Or at https://jaswins.com"

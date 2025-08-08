@@ -12,7 +12,7 @@ A professional corporate website built with React TypeScript, featuring modern d
 - **Responsive Design**: Mobile-friendly layout that works on all devices
 - **Modern Tech Stack**: React 18 + TypeScript + Vite + Tailwind CSS
 - **Professional Branding**: Navy blue, white, and gold color scheme
-- **Contact Form**: EmailJS integration for sending inquiries to sales@jasitsol.com
+- **Contact Form**: EmailJS integration for sending inquiries to sales@jaswins.com
 - **SEO Optimized**: Meta tags and semantic HTML structure
 
 ## Pages
@@ -106,7 +106,7 @@ To enable the contact form:
    - `{{phone}}` - Phone number
    - `{{company}}` - Company name
    - `{{message}}` - Message content
-   - `{{to_email}}` - Recipient email (sales@jasitsol.com)
+   - `{{to_email}}` - Recipient email (sales@jaswins.com)
 4. Get your Service ID, Template ID, and Public Key
 5. Add them to your environment variables
 

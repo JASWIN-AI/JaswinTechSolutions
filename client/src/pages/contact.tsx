@@ -114,7 +114,7 @@ export default function Contact() {
       console.error("Form submission error:", error);
       toast({
         title: "Error",
-        description: "Failed to send your message. Please try again or contact us directly at sales@jasitsol.com",
+        description: "Failed to send your message. Please try again or contact us directly at sales@jaswins.com",
         variant: "destructive"
       });
     } finally {
@@ -141,7 +141,7 @@ export default function Contact() {
     {
       icon: Mail,
       title: "Email Address",
-      content: ["sales@jasitsol.com"]
+      content: ["sales@jaswins.com"]
     },
     {
       icon: Clock,

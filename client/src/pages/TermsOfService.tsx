@@ -87,7 +87,7 @@ const TermsOfService = () => {
           {/* Introduction */}
           <div className="bg-white rounded-lg p-6 mb-8 shadow-sm">
             <p className="mb-4">
-              Welcome to JASWIN AI Solutions ("Company", "we", "our", "us"). These Terms of Service ("Terms") govern your use of our website located at https://jasitsol.com and our AI-powered IT services (collectively, the "Service").
+              Welcome to JASWIN AI Solutions ("Company", "we", "our", "us"). These Terms of Service ("Terms") govern your use of our website located at https://jaswins.com and our AI-powered IT services (collectively, the "Service").
             </p>
             <p>
               By accessing or using our Service, you agree to be bound by these Terms. If you disagree with any part of these Terms, please do not use our Service.
@@ -244,7 +244,7 @@ const TermsOfService = () => {
                 </p>
                 <ul className="space-y-1">
                   <li><span className="font-medium">Registered Office:</span> Om Sai Avenue, Shop No.109, 1St Floor,River Residency Road, near Swaraj capital,MIDC, Chikhali, Pimpri-Chinchwad, Pune, Maharashtra 411026</li>
-                  <li><span className="font-medium">Email:</span> support@jasitsol.com</li>
+                  <li><span className="font-medium">Email:</span> support@jaswins.com</li>
                   <li><span className="font-medium">Phone:</span> +91 8265016045</li>
                   <li><span className="font-medium">GSTIN:</span> Will be shared as per legal requirements</li>
                 </ul>
