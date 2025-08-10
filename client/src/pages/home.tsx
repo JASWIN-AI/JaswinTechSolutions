@@ -29,7 +29,8 @@ export default function Home() {
               <span className="text-gold-400">JASWIN</span> AI Solutions
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-              AI-powered innovation from mobile apps to enterprise-grade applications — 
+              Innovative technology solutions that drive business growth and digital transformation for forward-thinking companies.
+              AI-powered innovations — 
               delivering intelligent, data-driven solutions for tomorrow's businesses.
             </p>
             <Link href="/contact">
