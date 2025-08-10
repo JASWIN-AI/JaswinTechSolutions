@@ -1,0 +1,12 @@
+# Redirect all requests to index.html for SPA routing
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Ignore existing files and directories
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+
+  # Redirect everything else to index.html
+  RewriteRule ^ index.html [L]
+</IfModule>
