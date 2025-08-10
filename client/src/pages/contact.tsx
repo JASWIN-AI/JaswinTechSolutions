@@ -135,12 +135,15 @@
       {
         icon: MapPin,
         title: "JASWIN AI Solutions",
-        content: ["Om Sai Avenue,Shop No.109,1St Floor,",
-                  "River Residency Road, near Swaraj capital,",
-                  "MIDC, Chikhali, Pimpri-Chinchwad,",
-                  "Pune-411026, Maharashtra", 
-                  "India"
+        content: ["GALA NO. 06/A,",
+                  "GOYAL INDUSTRIAL PREMISES,",
+                  "J-514, MIDC, BHOSARI,",
+                  "PUNE-411039, MAHARASHTRA,",
+                  "INDIA"
                 ]
+              
+              
+
       },
       {
         icon: Phone,
