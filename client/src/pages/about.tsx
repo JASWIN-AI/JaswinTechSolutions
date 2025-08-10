@@ -95,29 +95,62 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Technology Expertise Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-navy-800 mb-4">Meet Our Expert Team</h3>
-            <p className="text-lg text-gray-600">
-              Our diverse team of technology professionals brings together expertise, creativity, and dedication.
+            <h3 className="text-3xl font-bold text-navy-800 mb-4">
+              Our Technology Expertise
+            </h3>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              From enterprise-grade microservices to cutting-edge AI models, 
+              our team delivers robust, scalable, and innovative solutions 
+              across diverse technology domains.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="team-card bg-white rounded-xl shadow-lg p-6 text-center smooth-transition">
-                <img 
-                  src={member.image} 
-                  alt={`${member.name} - ${member.position}`} 
-                  className="w-32 h-32 rounded-full mx-auto mb-4 object-cover" 
-                />
-                <h4 className="text-xl font-semibold text-navy-800 mb-2">{member.name}</h4>
-                <p className="text-gold-500 font-medium mb-3">{member.position}</p>
-                <p className="text-gray-600 text-sm">{member.description}</p>
-              </div>
-            ))}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-2xl transition">
+              <h4 className="text-xl font-semibold text-navy-800 mb-3">Java & Python Microservices</h4>
+              <p className="text-gray-600 text-sm">
+                Building scalable, high-performance microservices architectures using Java (Spring Boot) and Python (FastAPI, Flask), optimized for modern enterprise workloads.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-2xl transition">
+              <h4 className="text-xl font-semibold text-navy-800 mb-3">Data Science & AI</h4>
+              <p className="text-gray-600 text-sm">
+                Delivering AI-powered insights with machine learning, NLP, and predictive analytics to drive smarter decision-making and innovation.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-2xl transition">
+              <h4 className="text-xl font-semibold text-navy-800 mb-3">Mobile App Development</h4>
+              <p className="text-gray-600 text-sm">
+                Cross-platform apps using React Native, backed by robust APIs and modern DevOps pipelines for fast, secure releases.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-2xl transition">
+              <h4 className="text-xl font-semibold text-navy-800 mb-3">.NET Core & C#</h4>
+              <p className="text-gray-600 text-sm">
+                Enterprise-grade backend systems and APIs leveraging .NET Core, C#, and modern cloud integration patterns.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-2xl transition">
+              <h4 className="text-xl font-semibold text-navy-800 mb-3">Cloud Platforms</h4>
+              <p className="text-gray-600 text-sm">
+                Expert deployments and cloud-native solutions on Azure, AWS, GCP, and DigitalOcean — ensuring scalability, security, and cost efficiency.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-2xl transition">
+              <h4 className="text-xl font-semibold text-navy-800 mb-3">End-to-End Digital Solutions</h4>
+              <p className="text-gray-600 text-sm">
+                From architecture to deployment, we bring technology, strategy, and execution together for impactful digital transformations.
+              </p>
+            </div>
           </div>
         </div>
       </section>
