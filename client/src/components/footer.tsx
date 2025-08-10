@@ -75,9 +75,10 @@ export default function Footer() {
             <h4 className="footer-heading">Contact Info</h4>
             <div className="footer-contact">
               <p><b>JASWIN AI Solutions</b></p>
-              <p>Om Sai Avenue, Shop No.109, 1St Floor,</p>
-              <p>River Residency Road, near Swaraj capital,</p>
-              <p>MIDC, Chikhali, Pimpri-Chinchwad, Pune-411026, Maharashtra</p>
+              <p>GALA NO. 06/A,</p>
+              <p>GOYAL INDUSTRIAL PREMISES,</p>
+              <p>J-514, MIDC, BHOSARI,</p>
+              <p>PUNE-411039, MAHARASHTRA, INDIA</p>
               <p>+91 8265016045</p>
               <p>sales@jaswins.com</p>
             </div>
