@@ -25,20 +25,26 @@ jobs:
         cache: 'npm'
 
     - name: Install dependencies
+      working-directory: ./client
       run: npm ci
       
     - name: Build with environment variables
-      run: npm run build -- --emptyOutDir
+      working-directory: ./client
+      run: npm run build
       env:
         NEXT_PUBLIC_RESEND_API_KEY: ${{ secrets.NEXT_PUBLIC_RESEND_API_KEY }}
         NEXT_PUBLIC_CONTACT_EMAIL: ${{ secrets.NEXT_PUBLIC_CONTACT_EMAIL }}
         NEXT_PUBLIC_FROM_EMAIL: ${{ secrets.NEXT_PUBLIC_FROM_EMAIL }}
 
+    # Copy index.html to 404.html for SPA routing
+    - name: Create 404.html
+      run: cp ./client/dist/index.html ./client/dist/404.html
+
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./out
+        publish_dir: ./client/dist
         keep_files: false
         force_orphan: true
         enable_jekyll: false
