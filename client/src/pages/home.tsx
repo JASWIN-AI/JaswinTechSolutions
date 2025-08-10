@@ -7,30 +7,46 @@ export default function Home() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="relative bg-navy-800 text-white py-20 lg:py-32">
-        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=1080')"
-          }}
-        ></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
+      <section className="relative bg-navy-800 text-white py-20 lg:py-28">
+          {/* Background Image */}
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage:
+                "url('https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1920&q=80')"
+            }}
+          ></div>
+
+          {/* Lighten Overlay */}
+          <div className="absolute inset-0 bg-white bg-opacity-20"></div>
+
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
+
+          {/* Content */}
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               <span className="text-gold-400">JASWIN</span> AI Solutions
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-              Innovative technology solutions that drive business growth and digital transformation for forward-thinking companies.
+              AI-powered innovation from mobile apps to enterprise-grade applications — 
+              delivering intelligent, data-driven solutions for tomorrow's businesses.
             </p>
             <Link href="/contact">
-              <Button className="bg-gold-500 hover:bg-gold-600 text-navy-800 font-semibold px-8 py-3 text-lg">
+              <Button className="
+                bg-gold-500 hover:bg-gold-600 
+                text-navy-800 font-semibold px-8 py-3 text-lg shadow-lg
+                underline decoration-navy-800 underline-offset-4
+                transition-all duration-300 ease-in-out
+                hover:scale-105 hover:decoration-white
+              ">
                 Let's Build the Future
               </Button>
             </Link>
           </div>
-        </div>
-      </section>
+        </section>
+
+
 
       {/* Company Introduction Section */}
       <section className="py-16 bg-white">
