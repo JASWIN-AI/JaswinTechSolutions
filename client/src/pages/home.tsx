@@ -2,20 +2,21 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Rocket, Zap, Sparkles } from "lucide-react";
 import { motion } from 'framer-motion';
-
+import heroBg from "../../../assets/hero_background5.png"; // Adjust the path as necessary
 export default function Home() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
       <section className="relative bg-navy-800 text-white py-20 lg:py-28">
-          {/* Background Image */}
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage:
-                "url('https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1920&q=80')"
-            }}
-          ></div>
+          {/* Background Image as <img> */}
+<div className="absolute inset-0">
+  <img
+    src={heroBg}
+    alt="Hero Background"
+    className="w-full h-full object-cover object-center"
+  />
+</div>
+
 
           {/* Lighten Overlay */}
           <div className="absolute inset-0 bg-white bg-opacity-20"></div>
