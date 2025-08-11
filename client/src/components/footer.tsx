@@ -88,11 +88,11 @@ export default function Footer() {
         <div className="footer-copyright">
           <p>
               &copy; 2025 JASWIN AI Solutions. All rights reserved. |{' '}
-              <Link href="/privacy-policy" className="text-blue-600 hover:underline">
+              <Link href="/privacy-policy" className="text-black-900 hover:underline">
                 Privacy Policy
               </Link>
               <span className="mx-2">|</span>
-              <Link href="/terms-of-service" className="text-blue-600 hover:underline">
+              <Link href="/terms-of-service" className="text-black-900 hover:underline">
                 Terms of Service
               </Link>
             </p>
@@ -100,7 +100,7 @@ export default function Footer() {
       </div>
       <style>{`
         .footer-root {
-          background: #1e3a8a;
+          background: #244fc7ff;
           color: white;
           padding: 2.5rem 0 0 0;
         }
@@ -122,11 +122,16 @@ export default function Footer() {
           font-size: 2rem;
           font-weight: bold;
           margin-bottom: 1rem;
+          
         }
         .footer-desc {
           color: #d1d5db;
           margin-bottom: 1rem;
           line-height: 1.6;
+          font-size: 0.875rem;
+          font-weight: 400;
+          color: white;
+          background: transparent;
         }
         .footer-social {
           display: flex;
@@ -148,6 +153,10 @@ export default function Footer() {
           list-style: none;
           padding: 0;
           margin: 0;
+          font-size: 0.875rem;
+          font-weight: 400;
+          color: white;
+          background: transparent;
         }
         .footer-link-btn {
           color: #d1d5db;
@@ -158,6 +167,10 @@ export default function Footer() {
           padding: 0;
           font-size: 1rem;
           transition: color 0.3s;
+          font-size: 0.875rem;
+          font-weight: 400;
+          color: white;
+          background: transparent;
         }
         .footer-link-btn:hover {
           color: #f59e0b;
@@ -166,6 +179,10 @@ export default function Footer() {
           margin: 0.25rem 0;
           color: #d1d5db;
           font-size: 0.95rem;
+          font-size: 0.875rem;
+          font-weight: 400;
+          color: white;
+          background: transparent;
         }
         .footer-copyright {
           border-top: 1px solid #374151;

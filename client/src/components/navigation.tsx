@@ -56,7 +56,7 @@ export default function Navigation() {
           </button>
 
           {/* Navigation Links */}
-          <div className={`nav-links${mobileMenuOpen ? " open" : ""}`}>
+          <div className={`nav-links${mobileMenuOpen ? " open" : ""}`} style={{ padding: "0 40px" }}>
             {/* Our Company */}
             <div
               className="nav-dropdown"
@@ -193,7 +193,7 @@ export default function Navigation() {
           top: 0;
           left:5;
           width: 100vw;
-          background: #1e3a8a;
+          background: #244fc7ff;
           color: white;
           z-index: 50;
           box-shadow: 0 4px 6px rgba(0,0,0,0.1);

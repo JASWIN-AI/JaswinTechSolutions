@@ -9,30 +9,29 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative bg-navy-800 text-white py-20 lg:py-28">
           {/* Background Image as <img> */}
-<div className="absolute inset-0">
-  <img
-    src={heroBg}
-    alt="Hero Background"
-    className="w-full h-full object-cover object-center"
-  />
-</div>
+        <div className="absolute inset-0">
+          <img
+            src={heroBg}
+            alt="Hero Background"
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
 
-
-          {/* Lighten Overlay */}
-          <div className="absolute inset-0 bg-white bg-opacity-20"></div>
-
+{/* Add a semi-transparent overlay to improve text readability */}
+  <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+          {/* Lighten Overlay 
+          <div className="absolute inset-0 bg-white bg-opacity-5"></div>
+*/}
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
 
           {/* Content */}
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              <span className="text-gold-400">JASWIN</span> AI Solutions
+              <span className="text-gold-200">JASWIN</span> AI Solutions
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
               Innovative technology solutions that drive business growth and digital transformation for forward-thinking companies.
-              AI-powered innovations — 
-              delivering intelligent, data-driven solutions for tomorrow's businesses.
             </p>
             <Link href="/contact">
               <Button className="
@@ -55,12 +54,15 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-navy-800 mb-6">
-                <span className="text-gold-500">Technology</span> With Purpose
+              {/* <h2 className="text-3xl font-bold text-navy-800 mb-6">
+                <span className="text-gold-500">Our</span> Mission
+              </h2> */}
+               <h2 className="text-3xl font-bold text-blue-900 mb-6 border-b-2 border-yellow-400 pb-2">
+                Our Mission
               </h2>
               <div className="space-y-6 text-gray-700">
                 <p className="text-lg">
-                  JASWIN AI Solution is a dynamic technology and consulting startup, blending deep industry expertise with cutting-edge innovation. Founded by BFSI and IT veterans and fueled by a talented team of technologists and strategists, we deliver agile, impactful solutions for modern enterprises.
+                  JASWIN AI Solution is a dynamic technology and consulting startup, blending deep industry expertise with cutting-edge innovation. Founded by BFSI and IT seasoned professionals  and fueled by a talented team of technologists and strategists, we deliver agile, impactful solutions for modern enterprises.
                 </p>
                 <p className="text-lg">
                   At JASWIN, we bridge the gap between vision and reality. As a next-gen technology and consulting startup, we combine decades of industry expertise with agile innovation to deliver tailored solutions for the <span className="font-semibold text-gold-600">BFSI</span>, <span className="font-semibold text-gold-600">EdTech</span>, and <span className="font-semibold text-gold-600">eGovernance</span> sectors.
@@ -135,7 +137,7 @@ export default function Home() {
     </div>
 
     {/* Medium-sized Success Story CTA */}
-    <div className="mt-16 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl shadow-lg p-8 text-center">
+    <div className="mt-16 bg-gradient-to-r from-gray-400 to-gray-500 rounded-xl shadow-lg p-8 text-center">
       <div className="max-w-2xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
           Let's Build Your <span className="text-yellow-300">Success Story</span>
@@ -150,7 +152,7 @@ export default function Home() {
             </Button>
           </Link>
           <Link href="/services">
-            <Button variant="outline" className="bg-transparent border border-white text-white hover:bg-white hover:text-blue-800 font-medium py-2 px-6 rounded-full text-sm shadow hover:scale-105 transition-transform">
+            <Button variant="outline" className=" border border-white text-blue hover:bg-white hover:text-blue-800 font-medium py-2 px-6 rounded-full text-sm shadow hover:scale-105 transition-transform">
               Explore Solutions
             </Button>
           </Link>
