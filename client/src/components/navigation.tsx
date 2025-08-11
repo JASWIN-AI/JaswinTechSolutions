@@ -59,37 +59,37 @@ export default function Navigation() {
           <div className={`nav-links${mobileMenuOpen ? " open" : ""}`} style={{ padding: "0 40px" }}>
             {/* Our Company */}
             <div
-              className="nav-dropdown"
-              onMouseEnter={() => setOpenMenu("company")}
-              onMouseLeave={() => setOpenMenu(null)}
-            >
-              <button
-                className={`nav-btn${openMenu === "company" ? " active" : ""}`}
-                onClick={() => setOpenMenu(openMenu === "company" ? null : "company")}
-                type="button"
+                className="nav-dropdown"
+                onMouseEnter={() => setOpenMenu("company")}
+                onMouseLeave={() => {}}
               >
-                Our Company
-              </button>
-              {openMenu === "company" && (
-                <div className="nav-dropdown-menu">
-                  <Link href="/about" onClick={handleNavClick}>
-                    <div style={dropdownItemStyle}>About JASWIN</div>
-                  </Link>
-                  <Link href="/technology-partner" onClick={handleNavClick}>
-                    <div style={dropdownItemStyle}>Technology/Service Partner</div>
-                  </Link>
-                  <Link href="/hr-partner" onClick={handleNavClick}>
-                    <div style={dropdownItemStyle}>Human Resources Partner</div>
-                  </Link>
-                </div>
-              )}
-            </div>
+                <button
+                  className={`nav-btn${openMenu === "company" ? " active" : ""}`}
+                  onClick={() => setOpenMenu(openMenu === "company" ? null : "company")}
+                  type="button"
+                >
+                  Our Company
+                </button>
+                {openMenu === "company" && (
+                  <div className="nav-dropdown-menu" onMouseEnter={() => setOpenMenu("company")} onMouseLeave={() => setOpenMenu(null)}>
+                    <Link href="/about" onClick={handleNavClick}>
+                      <div style={dropdownItemStyle}>About JASWIN</div>
+                    </Link>
+                    <Link href="/technology-partner" onClick={handleNavClick}>
+                      <div style={dropdownItemStyle}>Technology/Service Partner</div>
+                    </Link>
+                    <Link href="/hr-partner" onClick={handleNavClick}>
+                      <div style={dropdownItemStyle}>Human Resources Partner</div>
+                    </Link>
+                  </div>
+                )}
+              </div>
 
             {/* Solutions */}
             <div
               className="nav-dropdown"
               onMouseEnter={() => setOpenMenu("solutions")}
-              onMouseLeave={() => setOpenMenu(null)}
+              onMouseLeave={() => {}}
             >
               <button
                 className={`nav-btn${openMenu === "solutions" ? " active" : ""}`}
@@ -99,7 +99,9 @@ export default function Navigation() {
                 Solutions
               </button>
               {openMenu === "solutions" && (
-                <div className="nav-dropdown-menu">
+                <div className="nav-dropdown-menu"
+                onMouseEnter={() => setOpenMenu("solutions")}
+                onMouseLeave={() => setOpenMenu(null)}>
                   <Link href="/solutions/turnkey-projects" onClick={handleNavClick}>
                     <div style={dropdownItemStyle}>Turnkey Projects</div>
                   </Link>
@@ -149,7 +151,7 @@ export default function Navigation() {
             <div
               className="nav-dropdown"
               onMouseEnter={() => setOpenMenu("product")}
-              onMouseLeave={() => setOpenMenu(null)}
+              onMouseLeave={() => {}}
             >
               <button
                 className={`nav-btn${openMenu === "product" ? " active" : ""}`}
@@ -159,7 +161,9 @@ export default function Navigation() {
                 Product
               </button>
               {openMenu === "product" && (
-                <div className="nav-dropdown-menu">
+                <div className="nav-dropdown-menu"
+                onMouseEnter={() => setOpenMenu("product")}
+                onMouseLeave={() => setOpenMenu(null)}>
                   <Link href="/product/lms" onClick={handleNavClick}>
                     <div style={dropdownItemStyle}>JASWIN AI-LMS</div>
                   </Link>
@@ -274,6 +278,8 @@ export default function Navigation() {
           border-radius: 0 0 8px 8px;
           padding: 0.5rem 0;
           z-index: 100;
+          margin-top: 10px;
+          
         }
         .nav-subdropdown {
           position: relative;
