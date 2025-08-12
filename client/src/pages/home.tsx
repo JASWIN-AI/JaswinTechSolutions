@@ -87,80 +87,83 @@ export default function Home() {
       </section>
 
      {/* Disruptive by Design Section - Compact Colorful Design */}
-<section className="py-16 bg-gradient-to-br from-blue-50 to-gray-50">
-  <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-    {/* Section Header with Better Visibility */}
-    <div className="text-center mb-12">
-      <h2 className="text-3xl font-bold text-navy-800">
-        <span className="bg-gradient-to-r from-blue-900 to-blue-300 bg-clip-text text-transparent">
-          From Vision 
-        </span>{' '}
-        <span className="text-navy-800">to Velocity</span>
-      </h2>
-      <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-gold-400 mx-auto mt-4 rounded-full"></div>
-    </div>
-    
-    {/* Compact Feature Cards */}
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {/* Rapid Prototyping Card */}
-      <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all border-t-4 border-blue-500">
-        <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mb-4">
-          <Rocket className="h-6 w-6 text-blue-600" />
-        </div>
-        <h3 className="text-lg font-bold text-navy-800 mb-2">0 to MVP</h3>
-        <p className="text-gray-600 text-sm">
-          Concept to prototype in weeks with our agile framework
-        </p>
-      </div>
-      
-      {/* AI-Powered Card */}
-      <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all border-t-4 border-purple-500">
-        <div className="w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center mb-4">
-          <Zap className="h-6 w-6 text-purple-600" />
-        </div>
-        <h3 className="text-lg font-bold text-navy-800 mb-2">AI-Powered</h3>
-        <p className="text-gray-600 text-sm">
-          Intelligent systems that evolve with your needs
-        </p>
-      </div>
-      
-      {/* Future-Proof Card */}
-      <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all border-t-4 border-teal-500">
-        <div className="w-12 h-12 bg-teal-50 rounded-full flex items-center justify-center mb-4">
-          <Sparkles className="h-6 w-6 text-teal-600" />
-        </div>
-        <h3 className="text-lg font-bold text-navy-800 mb-2">Future-Proof</h3>
-        <p className="text-gray-600 text-sm">
-          Scalable architecture for tomorrow's challenges
-        </p>
-      </div>
-    </div>
+      <section className="py-16 bg-gradient-to-br from-blue-50 to-gray-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header with Better Visibility */}
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-navy-800">
+              <span className="bg-gradient-to-r from-blue-900 to-blue-300 bg-clip-text text-transparent">
+                From Vision 
+              </span>{' '}
+              <span className="text-navy-800">to Velocity</span>
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-gold-400 mx-auto mt-4 rounded-full"></div>
+          </div>
+          
+          {/* Compact Feature Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Rapid Prototyping Card */}
+            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all border-t-4 border-blue-500">
+              <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mb-4">
+                <Rocket className="h-6 w-6 text-blue-600" />
+              </div>
+              <h3 className="text-lg font-bold text-navy-800 mb-2">0 to MVP</h3>
+              <p className="text-gray-600 text-sm">
+                Concept to prototype in weeks with our agile framework
+              </p>
+            </div>
+            
+            {/* AI-Powered Card */}
+            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all border-t-4 border-purple-500">
+              <div className="w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center mb-4">
+                <Zap className="h-6 w-6 text-purple-600" />
+              </div>
+              <h3 className="text-lg font-bold text-navy-800 mb-2">AI-Powered</h3>
+              <p className="text-gray-600 text-sm">
+                Intelligent systems that evolve with your needs
+              </p>
+            </div>
+            
+            {/* Future-Proof Card */}
+            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all border-t-4 border-teal-500">
+              <div className="w-12 h-12 bg-teal-50 rounded-full flex items-center justify-center mb-4">
+                <Sparkles className="h-6 w-6 text-teal-600" />
+              </div>
+              <h3 className="text-lg font-bold text-navy-800 mb-2">Future-Proof</h3>
+              <p className="text-gray-600 text-sm">
+                Scalable architecture for tomorrow's challenges
+              </p>
+            </div>
+          </div>
 
-    {/* Medium-sized Success Story CTA */}
-    <div className="mt-16 bg-gradient-to-r from-gray-400 to-gray-500 rounded-xl shadow-lg p-8 text-center">
-      <div className="max-w-2xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-          Let's Build Your <span className="text-yellow-300">Success Story</span>
-        </h2>
-        <p className="text-blue-100 mb-6">
-          Custom solutions tailored for startups and enterprises alike
-        </p>
-        <div className="flex flex-wrap justify-center gap-3">
-          <Link href="/contact">
-            <Button className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-medium py-2 px-6 rounded-full text-sm shadow hover:scale-105 transition-transform">
-              Get Started
-            </Button>
-          </Link>
-          <Link href="/services">
-            <Button variant="outline" className=" border border-white text-blue hover:bg-white hover:text-blue-800 font-medium py-2 px-6 rounded-full text-sm shadow hover:scale-105 transition-transform">
-              Explore Solutions
-            </Button>
-          </Link>
+          {/* Medium-sized Success Story CTA */}
+          <div className="mt-16 bg-gradient-to-r from-blue-800 to-blue-900 rounded-xl shadow-2xl p-8 text-center border border-blue-400/20">
+            <div className="max-w-2xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                Let's Build Your <span className="text-yellow-300">Success Story</span>
+              </h2>
+              <p className="text-blue-100 mb-6 text-lg">
+                Custom solutions tailored for startups and enterprises alike
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Link href="/contact">
+                  <Button className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-300 hover:to-yellow-400 text-blue-900 font-semibold py-3 px-8 rounded-full text-sm shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 transform">
+                    Get Started
+                  </Button>
+                </Link>
+                <Link href="/services">
+                  <Button 
+                    variant="outline" 
+                    className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-300 hover:to-yellow-400 text-blue-900 font-semibold py-3 px-8 rounded-full text-sm shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 transform"
+                  >
+                    Explore Solutions
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
     </div>
   );
 }

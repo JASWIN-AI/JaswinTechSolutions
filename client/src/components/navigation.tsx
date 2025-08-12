@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import React, { useState } from "react";
+import React, { useState,useRef,useEffect  } from "react";
 import logoJas from "../../../assets/jaslogo.png"; // Adjust the path as necessary
 
 const dropdownItemStyle: React.CSSProperties = {
@@ -22,8 +22,48 @@ export default function Navigation() {
 
   const isActive = (path: string) => location === path;
 
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  
+  // Clear timeout when component unmounts
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
+  const handleNavClick = () => {
+    setOpenMenu(null);
+    setOpenConsulting(false);
+    setMobileMenuOpen(false);
+  };
+
+  const handleMouseEnter = (menu: string) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setOpenMenu(menu);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setOpenMenu(null);
+      setOpenConsulting(false);
+    }, 300); // 300ms delay before closing
+  };
+
+  const dropdownItemStyle = {
+    padding: "0.5rem 1rem",
+    cursor: "pointer",
+    transition: "all 0.2s ease",
+    "&:hover": {
+      backgroundColor: "#f0f0f0",
+    },
+  };
+
   // Handles closing mobile menu on navigation
-  const handleNavClick = () => setMobileMenuOpen(false);
+ // const handleNavClick = () => setMobileMenuOpen(false);
 
   return (
     <nav className="nav-root">
@@ -31,15 +71,18 @@ export default function Navigation() {
         <div className="nav-row">
           {/* Logo */}
           <Link href="/" onClick={handleNavClick}>
-            <div className="nav-logo">
-              <img src={logoJas} alt="JASWIN Logo" className="nav-logo-img" 
-               style={{
+            <div className="nav-logo" style={{ zIndex: 1 }}>
+              <img src={logoJas} 
+              alt="JASWIN Logo" 
+              className="nav-logo-img" 
+              style={{
               height: "40px",
               width: "auto",
               objectFit: "contain",
               margin: 0,
               padding: 0,
-              display: "block"
+              display: "block",
+              filter: "drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.6))"
             }}
               />
               
@@ -57,125 +100,153 @@ export default function Navigation() {
 
           {/* Navigation Links */}
           <div className={`nav-links${mobileMenuOpen ? " open" : ""}`} style={{ padding: "0 40px" }}>
-            {/* Our Company */}
+             {/* Our Company Dropdown */}
+      <div
+        className="nav-dropdown"
+        onMouseEnter={() => handleMouseEnter("company")}
+        onMouseLeave={handleMouseLeave}
+      >
+        <button
+          className={`nav-btn${openMenu === "company" ? " active" : ""}`}
+          onClick={() => setOpenMenu(openMenu === "company" ? null : "company")}
+          type="button"
+        >
+          Our Company
+        </button>
+        {openMenu === "company" && (
+          <div 
+            className="nav-dropdown-menu"
+            onMouseEnter={() => handleMouseEnter("company")}
+            onMouseLeave={handleMouseLeave}
+          >
+            <Link href="/about" onClick={handleNavClick}>
+              <div style={dropdownItemStyle}>About JASWIN</div>
+            </Link>
+            <Link href="/technology-partner" onClick={handleNavClick}>
+              <div style={dropdownItemStyle}>Technology/Service Partner</div>
+            </Link>
+            <Link href="/hr-partner" onClick={handleNavClick}>
+              <div style={dropdownItemStyle}>Human Resources Partner</div>
+            </Link>
+          </div>
+        )}
+      </div>
+
+      {/* Solutions Dropdown */}
+      <div
+        className="nav-dropdown"
+        onMouseEnter={() => handleMouseEnter("solutions")}
+        onMouseLeave={handleMouseLeave}
+      >
+        <button
+          className={`nav-btn${openMenu === "solutions" ? " active" : ""}`}
+          onClick={() => setOpenMenu(openMenu === "solutions" ? null : "solutions")}
+          type="button"
+        >
+          Solutions
+        </button>
+        {openMenu === "solutions" && (
+          <div 
+            className="nav-dropdown-menu"
+            onMouseEnter={() => handleMouseEnter("solutions")}
+            onMouseLeave={handleMouseLeave}
+          >
+            <Link href="/solutions/turnkey-projects" onClick={handleNavClick}>
+              <div style={dropdownItemStyle}>Turnkey Projects</div>
+            </Link>
+            <Link href="/solutions/product-development" onClick={handleNavClick}>
+              <div style={dropdownItemStyle}>Product Development</div>
+            </Link>
+            <Link href="/solutions/sre-managed" onClick={handleNavClick}>
+              <div style={dropdownItemStyle}>SRE/Managed Services</div>
+            </Link>
+            <Link href="/solutions/cloud-services" onClick={handleNavClick}>
+              <div style={dropdownItemStyle}>Cloud Services</div>
+            </Link>
+            <Link href="/solutions/information-security" onClick={handleNavClick}>
+              <div style={dropdownItemStyle}>Information Security</div>
+            </Link>
+            
+            {/* Consulting Submenu */}
             <div
-                className="nav-dropdown"
-                onMouseEnter={() => setOpenMenu("company")}
-                onMouseLeave={() => {}}
-              >
-                <button
-                  className={`nav-btn${openMenu === "company" ? " active" : ""}`}
-                  onClick={() => setOpenMenu(openMenu === "company" ? null : "company")}
-                  type="button"
-                >
-                  Our Company
-                </button>
-                {openMenu === "company" && (
-                  <div className="nav-dropdown-menu" onMouseEnter={() => setOpenMenu("company")} onMouseLeave={() => setOpenMenu(null)}>
-                    <Link href="/about" onClick={handleNavClick}>
-                      <div style={dropdownItemStyle}>About JASWIN</div>
-                    </Link>
-                    <Link href="/technology-partner" onClick={handleNavClick}>
-                      <div style={dropdownItemStyle}>Technology/Service Partner</div>
-                    </Link>
-                    <Link href="/hr-partner" onClick={handleNavClick}>
-                      <div style={dropdownItemStyle}>Human Resources Partner</div>
-                    </Link>
-                  </div>
-                )}
+              className="nav-subdropdown"
+              onMouseEnter={() => {
+                if (timeoutRef.current) clearTimeout(timeoutRef.current);
+                setOpenConsulting(true);
+              }}
+              onMouseLeave={() => {
+                timeoutRef.current = setTimeout(() => {
+                  setOpenConsulting(false);
+                }, 300);
+              }}
+            >
+              <div style={{ ...dropdownItemStyle, fontWeight: 600, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                Consulting Services &raquo;
               </div>
-
-            {/* Solutions */}
-            <div
-              className="nav-dropdown"
-              onMouseEnter={() => setOpenMenu("solutions")}
-              onMouseLeave={() => {}}
-            >
-              <button
-                className={`nav-btn${openMenu === "solutions" ? " active" : ""}`}
-                onClick={() => setOpenMenu(openMenu === "solutions" ? null : "solutions")}
-                type="button"
-              >
-                Solutions
-              </button>
-              {openMenu === "solutions" && (
-                <div className="nav-dropdown-menu"
-                onMouseEnter={() => setOpenMenu("solutions")}
-                onMouseLeave={() => setOpenMenu(null)}>
-                  <Link href="/solutions/turnkey-projects" onClick={handleNavClick}>
-                    <div style={dropdownItemStyle}>Turnkey Projects</div>
+              {openConsulting && (
+                <div 
+                  className="nav-dropdown-menu nav-subdropdown-menu"
+                  onMouseEnter={() => {
+                    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+                    setOpenConsulting(true);
+                  }}
+                  onMouseLeave={() => {
+                    timeoutRef.current = setTimeout(() => {
+                      setOpenConsulting(false);
+                    }, 300);
+                  }}
+                >
+                  <Link href="/solutions/consulting/bfsi" onClick={handleNavClick}>
+                    <div style={dropdownItemStyle}>BFSI</div>
                   </Link>
-                  <Link href="/solutions/product-development" onClick={handleNavClick}>
-                    <div style={dropdownItemStyle}>Product Development</div>
+                  <Link href="/solutions/consulting/edtech" onClick={handleNavClick}>
+                    <div style={dropdownItemStyle}>EdTech</div>
                   </Link>
-                  <Link href="/solutions/sre-managed" onClick={handleNavClick}>
-                    <div style={dropdownItemStyle}>SRE/Managed Services</div>
-                  </Link>
-                  <Link href="/solutions/cloud-services" onClick={handleNavClick}>
-                    <div style={dropdownItemStyle}>Cloud Services</div>
-                  </Link>
-                  <Link href="/solutions/information-security" onClick={handleNavClick}>
-                    <div style={dropdownItemStyle}>Information Security</div>
-                  </Link>
-                  {/* Consulting Submenu */}
-                  <div
-                    className="nav-subdropdown"
-                    onMouseEnter={() => setOpenConsulting(true)}
-                    onMouseLeave={() => setOpenConsulting(false)}
-                  >
-                    <div style={{ ...dropdownItemStyle, fontWeight: 600, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                      Consulting Services &raquo;
-                    </div>
-                    {openConsulting && (
-                      <div className="nav-dropdown-menu nav-subdropdown-menu">
-                        <Link href="/solutions/consulting/bfsi" onClick={handleNavClick}>
-                          <div style={dropdownItemStyle}>BFSI</div>
-                        </Link>
-                        <Link href="/solutions/consulting/edtech" onClick={handleNavClick}>
-                          <div style={dropdownItemStyle}>EdTech</div>
-                        </Link>
-                        <Link href="/solutions/consulting/egovernance" onClick={handleNavClick}>
-                          <div style={dropdownItemStyle}>eGovernance</div>
-                        </Link>
-                      </div>
-                    )}
-                  </div>
-                  <Link href="/solutions/ai-data-consulting" onClick={handleNavClick}>
-                    <div style={dropdownItemStyle}>AI and Data Consulting</div>
+                  <Link href="/solutions/consulting/egovernance" onClick={handleNavClick}>
+                    <div style={dropdownItemStyle}>eGovernance</div>
                   </Link>
                 </div>
               )}
             </div>
+            
+            <Link href="/solutions/ai-data-consulting" onClick={handleNavClick}>
+              <div style={dropdownItemStyle}>AI and Data Consulting</div>
+            </Link>
+          </div>
+        )}
+      </div>
 
-            {/* Product */}
-            <div
-              className="nav-dropdown"
-              onMouseEnter={() => setOpenMenu("product")}
-              onMouseLeave={() => {}}
-            >
-              <button
-                className={`nav-btn${openMenu === "product" ? " active" : ""}`}
-                onClick={() => setOpenMenu(openMenu === "product" ? null : "product")}
-                type="button"
-              >
-                Product
-              </button>
-              {openMenu === "product" && (
-                <div className="nav-dropdown-menu"
-                onMouseEnter={() => setOpenMenu("product")}
-                onMouseLeave={() => setOpenMenu(null)}>
-                  <Link href="/product/lms" onClick={handleNavClick}>
-                    <div style={dropdownItemStyle}>JASWIN AI-LMS</div>
-                  </Link>
-                  <Link href="/product/ai-bfsi" onClick={handleNavClick}>
-                    <div style={dropdownItemStyle}>AI-BFSI-DST & Reporting</div>
-                  </Link>
-                  <Link href="/product/jas-service-desk" onClick={handleNavClick}>
-                    <div style={dropdownItemStyle}>JASWIN Service Desk Plus</div>
-                  </Link>
-                </div>
-              )}
-            </div>
+      {/* Product Dropdown */}
+      <div
+        className="nav-dropdown"
+        onMouseEnter={() => handleMouseEnter("product")}
+        onMouseLeave={handleMouseLeave}
+      >
+        <button
+          className={`nav-btn${openMenu === "product" ? " active" : ""}`}
+          onClick={() => setOpenMenu(openMenu === "product" ? null : "product")}
+          type="button"
+        >
+          Product
+        </button>
+        {openMenu === "product" && (
+          <div 
+            className="nav-dropdown-menu"
+            onMouseEnter={() => handleMouseEnter("product")}
+            onMouseLeave={handleMouseLeave}
+          >
+            <Link href="/product/lms" onClick={handleNavClick}>
+              <div style={dropdownItemStyle}>JASWIN AI-LMS</div>
+            </Link>
+            <Link href="/product/ai-bfsi" onClick={handleNavClick}>
+              <div style={dropdownItemStyle}>AI-BFSI-DST & Reporting</div>
+            </Link>
+            <Link href="/product/jas-service-desk" onClick={handleNavClick}>
+              <div style={dropdownItemStyle}>JASWIN Service Desk Plus</div>
+            </Link>
+          </div>
+        )}
+      </div>
 
             {/* Simple Links */}
             <Link href="/consulting" onClick={handleNavClick}>
