@@ -85,9 +85,30 @@ export default function Navigation() {
               filter: "drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.6))"
             }}
               />
-              
             </div>
           </Link>
+          
+          {/* Flag + Independence Day Message */}
+          <div className="independence-banner">
+            {/* Fireworks before flag */}
+           
+
+            {/* Flag */}
+            <img
+              src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg"
+              alt="Indian Flag"
+              className="flag-wave"
+            />
+
+            {/* Text */}
+            <span className="independence-text">
+              {`Happy 78th Independence Day`}
+            </span>
+
+            {/* Fireworks after text */}
+            
+
+          </div>
 
           {/* Hamburger for mobile */}
           <button
@@ -100,153 +121,153 @@ export default function Navigation() {
 
           {/* Navigation Links */}
           <div className={`nav-links${mobileMenuOpen ? " open" : ""}`} style={{ padding: "0 40px" }}>
-             {/* Our Company Dropdown */}
-      <div
-        className="nav-dropdown"
-        onMouseEnter={() => handleMouseEnter("company")}
-        onMouseLeave={handleMouseLeave}
-      >
-        <button
-          className={`nav-btn${openMenu === "company" ? " active" : ""}`}
-          onClick={() => setOpenMenu(openMenu === "company" ? null : "company")}
-          type="button"
-        >
-          Our Company
-        </button>
-        {openMenu === "company" && (
-          <div 
-            className="nav-dropdown-menu"
-            onMouseEnter={() => handleMouseEnter("company")}
-            onMouseLeave={handleMouseLeave}
-          >
-            <Link href="/about" onClick={handleNavClick}>
-              <div style={dropdownItemStyle}>About JASWIN</div>
-            </Link>
-            <Link href="/technology-partner" onClick={handleNavClick}>
-              <div style={dropdownItemStyle}>Technology/Service Partner</div>
-            </Link>
-            <Link href="/hr-partner" onClick={handleNavClick}>
-              <div style={dropdownItemStyle}>Human Resources Partner</div>
-            </Link>
-          </div>
-        )}
-      </div>
-
-      {/* Solutions Dropdown */}
-      <div
-        className="nav-dropdown"
-        onMouseEnter={() => handleMouseEnter("solutions")}
-        onMouseLeave={handleMouseLeave}
-      >
-        <button
-          className={`nav-btn${openMenu === "solutions" ? " active" : ""}`}
-          onClick={() => setOpenMenu(openMenu === "solutions" ? null : "solutions")}
-          type="button"
-        >
-          Solutions
-        </button>
-        {openMenu === "solutions" && (
-          <div 
-            className="nav-dropdown-menu"
-            onMouseEnter={() => handleMouseEnter("solutions")}
-            onMouseLeave={handleMouseLeave}
-          >
-            <Link href="/solutions/turnkey-projects" onClick={handleNavClick}>
-              <div style={dropdownItemStyle}>Turnkey Projects</div>
-            </Link>
-            <Link href="/solutions/product-development" onClick={handleNavClick}>
-              <div style={dropdownItemStyle}>Product Development</div>
-            </Link>
-            <Link href="/solutions/sre-managed" onClick={handleNavClick}>
-              <div style={dropdownItemStyle}>SRE/Managed Services</div>
-            </Link>
-            <Link href="/solutions/cloud-services" onClick={handleNavClick}>
-              <div style={dropdownItemStyle}>Cloud Services</div>
-            </Link>
-            <Link href="/solutions/information-security" onClick={handleNavClick}>
-              <div style={dropdownItemStyle}>Information Security</div>
-            </Link>
-            
-            {/* Consulting Submenu */}
+            {/* Our Company Dropdown */}
             <div
-              className="nav-subdropdown"
-              onMouseEnter={() => {
-                if (timeoutRef.current) clearTimeout(timeoutRef.current);
-                setOpenConsulting(true);
-              }}
-              onMouseLeave={() => {
-                timeoutRef.current = setTimeout(() => {
-                  setOpenConsulting(false);
-                }, 300);
-              }}
+              className="nav-dropdown"
+              onMouseEnter={() => handleMouseEnter("company")}
+              onMouseLeave={handleMouseLeave}
             >
-              <div style={{ ...dropdownItemStyle, fontWeight: 600, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                Consulting Services &raquo;
-              </div>
-              {openConsulting && (
+              <button
+                className={`nav-btn${openMenu === "company" ? " active" : ""}`}
+                onClick={() => setOpenMenu(openMenu === "company" ? null : "company")}
+                type="button"
+              >
+                Our Company
+              </button>
+              {openMenu === "company" && (
                 <div 
-                  className="nav-dropdown-menu nav-subdropdown-menu"
-                  onMouseEnter={() => {
-                    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-                    setOpenConsulting(true);
-                  }}
-                  onMouseLeave={() => {
-                    timeoutRef.current = setTimeout(() => {
-                      setOpenConsulting(false);
-                    }, 300);
-                  }}
+                  className="nav-dropdown-menu"
+                  onMouseEnter={() => handleMouseEnter("company")}
+                  onMouseLeave={handleMouseLeave}
                 >
-                  <Link href="/solutions/consulting/bfsi" onClick={handleNavClick}>
-                    <div style={dropdownItemStyle}>BFSI</div>
+                  <Link href="/about" onClick={handleNavClick}>
+                    <div style={dropdownItemStyle}>About JASWIN</div>
                   </Link>
-                  <Link href="/solutions/consulting/edtech" onClick={handleNavClick}>
-                    <div style={dropdownItemStyle}>EdTech</div>
+                  <Link href="/technology-partner" onClick={handleNavClick}>
+                    <div style={dropdownItemStyle}>Technology/Service Partner</div>
                   </Link>
-                  <Link href="/solutions/consulting/egovernance" onClick={handleNavClick}>
-                    <div style={dropdownItemStyle}>eGovernance</div>
+                  <Link href="/hr-partner" onClick={handleNavClick}>
+                    <div style={dropdownItemStyle}>Human Resources Partner</div>
                   </Link>
                 </div>
               )}
             </div>
-            
-            <Link href="/solutions/ai-data-consulting" onClick={handleNavClick}>
-              <div style={dropdownItemStyle}>AI and Data Consulting</div>
-            </Link>
-          </div>
-        )}
-      </div>
 
-      {/* Product Dropdown */}
-      <div
-        className="nav-dropdown"
-        onMouseEnter={() => handleMouseEnter("product")}
-        onMouseLeave={handleMouseLeave}
-      >
-        <button
-          className={`nav-btn${openMenu === "product" ? " active" : ""}`}
-          onClick={() => setOpenMenu(openMenu === "product" ? null : "product")}
-          type="button"
-        >
-          Product
-        </button>
-        {openMenu === "product" && (
-          <div 
-            className="nav-dropdown-menu"
-            onMouseEnter={() => handleMouseEnter("product")}
-            onMouseLeave={handleMouseLeave}
-          >
-            <Link href="/product/lms" onClick={handleNavClick}>
-              <div style={dropdownItemStyle}>JASWIN AI-LMS</div>
-            </Link>
-            <Link href="/product/ai-bfsi" onClick={handleNavClick}>
-              <div style={dropdownItemStyle}>AI-BFSI-DST & Reporting</div>
-            </Link>
-            <Link href="/product/jas-service-desk" onClick={handleNavClick}>
-              <div style={dropdownItemStyle}>JASWIN Service Desk Plus</div>
-            </Link>
-          </div>
-        )}
-      </div>
+            {/* Solutions Dropdown */}
+            <div
+              className="nav-dropdown"
+              onMouseEnter={() => handleMouseEnter("solutions")}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button
+                className={`nav-btn${openMenu === "solutions" ? " active" : ""}`}
+                onClick={() => setOpenMenu(openMenu === "solutions" ? null : "solutions")}
+                type="button"
+              >
+                Solutions
+              </button>
+              {openMenu === "solutions" && (
+                <div 
+                  className="nav-dropdown-menu"
+                  onMouseEnter={() => handleMouseEnter("solutions")}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <Link href="/solutions/turnkey-projects" onClick={handleNavClick}>
+                    <div style={dropdownItemStyle}>Turnkey Projects</div>
+                  </Link>
+                  <Link href="/solutions/product-development" onClick={handleNavClick}>
+                    <div style={dropdownItemStyle}>Product Development</div>
+                  </Link>
+                  <Link href="/solutions/sre-managed" onClick={handleNavClick}>
+                    <div style={dropdownItemStyle}>SRE/Managed Services</div>
+                  </Link>
+                  <Link href="/solutions/cloud-services" onClick={handleNavClick}>
+                    <div style={dropdownItemStyle}>Cloud Services</div>
+                  </Link>
+                  <Link href="/solutions/information-security" onClick={handleNavClick}>
+                    <div style={dropdownItemStyle}>Information Security</div>
+                  </Link>
+                  
+                  {/* Consulting Submenu */}
+                  <div
+                    className="nav-subdropdown"
+                    onMouseEnter={() => {
+                      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+                      setOpenConsulting(true);
+                    }}
+                    onMouseLeave={() => {
+                      timeoutRef.current = setTimeout(() => {
+                        setOpenConsulting(false);
+                      }, 300);
+                    }}
+                  >
+                    <div style={{ ...dropdownItemStyle, fontWeight: 600, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                      Consulting Services &raquo;
+                    </div>
+                    {openConsulting && (
+                      <div 
+                        className="nav-dropdown-menu nav-subdropdown-menu"
+                        onMouseEnter={() => {
+                          if (timeoutRef.current) clearTimeout(timeoutRef.current);
+                          setOpenConsulting(true);
+                        }}
+                        onMouseLeave={() => {
+                          timeoutRef.current = setTimeout(() => {
+                            setOpenConsulting(false);
+                          }, 300);
+                        }}
+                      >
+                        <Link href="/solutions/consulting/bfsi" onClick={handleNavClick}>
+                          <div style={dropdownItemStyle}>BFSI</div>
+                        </Link>
+                        <Link href="/solutions/consulting/edtech" onClick={handleNavClick}>
+                          <div style={dropdownItemStyle}>EdTech</div>
+                        </Link>
+                        <Link href="/solutions/consulting/egovernance" onClick={handleNavClick}>
+                          <div style={dropdownItemStyle}>eGovernance</div>
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+                  
+                  <Link href="/solutions/ai-data-consulting" onClick={handleNavClick}>
+                    <div style={dropdownItemStyle}>AI and Data Consulting</div>
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* Product Dropdown */}
+            <div
+              className="nav-dropdown"
+              onMouseEnter={() => handleMouseEnter("product")}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button
+                className={`nav-btn${openMenu === "product" ? " active" : ""}`}
+                onClick={() => setOpenMenu(openMenu === "product" ? null : "product")}
+                type="button"
+              >
+                Product
+              </button>
+              {openMenu === "product" && (
+                <div 
+                  className="nav-dropdown-menu"
+                  onMouseEnter={() => handleMouseEnter("product")}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <Link href="/product/lms" onClick={handleNavClick}>
+                    <div style={dropdownItemStyle}>JASWIN AI-LMS</div>
+                  </Link>
+                  <Link href="/product/ai-bfsi" onClick={handleNavClick}>
+                    <div style={dropdownItemStyle}>AI-BFSI-DST & Reporting</div>
+                  </Link>
+                  <Link href="/product/jas-service-desk" onClick={handleNavClick}>
+                    <div style={dropdownItemStyle}>JASWIN Service Desk Plus</div>
+                  </Link>
+                </div>
+              )}
+            </div>
 
             {/* Simple Links */}
             <Link href="/consulting" onClick={handleNavClick}>
@@ -398,6 +419,42 @@ export default function Navigation() {
             color: #1e3a8a;
           }
         }
+
+        .independence-banner {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 1rem;
+          font-weight: bold;
+          margin-left: 16px;
+        }
+
+       .flag-wave {
+          height: 35px;
+          width: auto;
+          animation: flutter 0.8s ease-in-out infinite;
+        }
+
+        @keyframes flutter {
+          0%   { transform: rotateZ(0deg) skewX(0deg); }
+          25%  { transform: rotateZ(1deg) skewX(2deg); }
+          50%  { transform: rotateZ(0deg) skewX(0deg); }
+          75%  { transform: rotateZ(-1deg) skewX(-2deg); }
+          100% { transform: rotateZ(0deg) skewX(0deg); }
+        }
+
+        .independence-text {
+          background: linear-gradient(
+            90deg,
+            #ff9933 0%,
+            white 50%,
+            #138808 100%
+          );
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+        
       `}</style>
     </nav>
   );
