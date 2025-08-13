@@ -1,7 +1,7 @@
 import { Link, useLocation } from "wouter";
 import React, { useState,useRef,useEffect  } from "react";
 import logoJas from "../../../assets/jaslogo.png"; // Adjust the path as necessary
-
+import nflag from "../../../assets/india-national_flag.gif";
 const dropdownItemStyle: React.CSSProperties = {
   padding: "0.5rem 1.5rem",
   cursor: "pointer",
@@ -93,11 +93,10 @@ export default function Navigation() {
 
             {/* Flag */}
             <img
-              src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg"
-              alt="Indian Flag"
-              className="flag-wave"
-            />
-
+            src={nflag}
+            alt="Proud Indian Flag"
+            className="flag-wave"
+              />
             {/* Text */}
             <span className="independence-text">
               {`Happy 79th Independence Day`}
@@ -426,27 +425,8 @@ export default function Navigation() {
         }
 
         .flag-wave {
-          height: 1.8em;
+          height: 3em;
           width: auto;
-          animation: flutter 0.8s ease-in-out infinite;
-        }
-
-        @keyframes flutter {
-          0% {
-            transform: rotateZ(0deg) skewX(0deg);
-          }
-          25% {
-            transform: rotateZ(1deg) skewX(2deg);
-          }
-          50% {
-            transform: rotateZ(0deg) skewX(0deg);
-          }
-          75% {
-            transform: rotateZ(-1deg) skewX(-2deg);
-          }
-          100% {
-            transform: rotateZ(0deg) skewX(0deg);
-          }
         }
 
         .independence-text {
