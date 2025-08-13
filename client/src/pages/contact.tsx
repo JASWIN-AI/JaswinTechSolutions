@@ -137,7 +137,7 @@ export default function Contact() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-blue-900 mb-2">Contact Us</h1>
+          <h1 className="text-3xl font-bold text-blue-900 mb-2"></h1>
           <p className="text-blue-800 max-w-md mx-auto">
             We're excited to hear what's on your mind - drop us a line!
           </p>
@@ -162,24 +162,30 @@ export default function Contact() {
                     { id: "phone", label: "Phone", type: "tel", required: false },
                     { id: "company", label: "Company", type: "text", required: false }
                   ].map((field) => (
-                    <div key={field.id} className="relative">
-                      <Input
-                        id={field.id}
-                        name={field.id}
-                        type={field.type}
-                        value={formData[field.id as keyof ContactFormData]}
-                        onChange={handleInputChange}
-                        required={field.required}
-                        className="peer h-10 w-full border-b-2 border-gray-300 text-sm placeholder-transparent focus:outline-none focus:border-blue-500"
-                        placeholder=" "
-                      />
-                      <Label
-                        htmlFor={field.id}
-                        className="absolute left-0 -top-3 text-gray-600 text-xs transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-gray-600 peer-focus:text-xs"
-                      >
-                        {field.label}{field.required && " *"}
-                      </Label>
-                    </div>
+                   <div key={field.id} className="relative">
+                        <Input
+                          id={field.id}
+                          name={field.id}
+                          type={field.type}
+                          value={formData[field.id as keyof ContactFormData]}
+                          onChange={handleInputChange}
+                          required={field.required}
+                          className="peer h-12 w-full border-b-2 border-gray-300 text-sm placeholder-transparent focus:outline-none focus:border-blue-50 pt-2"
+                          placeholder=" "
+                        />
+                        <Label
+                          htmlFor={field.id}
+                          className="absolute left-0 -top-1.5 text-gray-600 text-xs transition-all duration-200 ease-out
+                            peer-placeholder-shown:text-sm 
+                            peer-placeholder-shown:text-gray-400 
+                            peer-placeholder-shown:top-3.5
+                            peer-focus:-top-1.5
+                            peer-focus:text-blue-60
+                            peer-focus:text-xs"
+                        >
+                          {field.label}{field.required && " *"}
+                        </Label>
+                      </div>
                   ))}
 
                   <div className="relative">
@@ -190,12 +196,18 @@ export default function Contact() {
                       rows={3}
                       value={formData.message}
                       onChange={handleInputChange}
-                      className="peer w-full border-b-2 border-gray-300 text-sm placeholder-transparent focus:outline-none focus:border-blue-500 pt-3"
+                      className="peer h-12 w-full border-b-2 border-gray-300 text-sm placeholder-transparent focus:outline-none focus:border-blue-50 pt-2"
                       placeholder=" "
                     />
                     <Label
                       htmlFor="message"
-                      className="absolute left-0 -top-5 text-gray-600 text-xs transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-0.5 peer-focus:-top-3 peer-focus:text-gray-600 peer-focus:text-xs"
+                      className="absolute left-0 -top-1.5 text-gray-600 text-xs transition-all duration-200 ease-out
+                            peer-placeholder-shown:text-sm 
+                            peer-placeholder-shown:text-gray-400 
+                            peer-placeholder-shown:top-3.5
+                            peer-focus:-top-1.5
+                            peer-focus:text-blue-60
+                            peer-focus:text-xs"
                     >
                       Your Message *
                     </Label>
@@ -231,7 +243,15 @@ export default function Contact() {
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <div className="bg-blue-100 p-2 rounded-full">
-                  <MapPin className="h-5 w-5 text-blue-600" />
+                  
+                  <a 
+                    href="https://maps.app.goo.gl/vUgzqtmhfsvfZp45A?g_st=aw"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-1 text-xs text-blue-600 hover:underline"
+                  >
+                    <MapPin className="h-5 w-5 text-blue-600" />
+                  </a>
                 </div>
                 <div>
                   <h3 className="text-sm font-semibold text-gray-800">Location</h3>
@@ -252,7 +272,9 @@ export default function Contact() {
 
               <div className="flex items-start gap-3">
                 <div className="bg-blue-100 p-2 rounded-full">
-                  <Phone className="h-5 w-5 text-blue-600" />
+                  <a href="tel:8265016045" className="text-xs text-gray-600 hover:text-blue-600 mt-1 block">
+                    <Phone className="h-5 w-5 text-blue-600" />
+                  </a>
                 </div>
                 <div>
                   <h3 className="text-sm font-semibold text-gray-800">Phone</h3>
@@ -264,7 +286,9 @@ export default function Contact() {
 
               <div className="flex items-start gap-3">
                 <div className="bg-blue-100 p-2 rounded-full">
-                  <Mail className="h-5 w-5 text-blue-600" />
+                  <a href="mailto:info@jaswins.com" className="text-xs text-gray-600 hover:text-blue-600 mt-1 block">
+                    <Mail className="h-5 w-5 text-blue-600" />
+                  </a>
                 </div>
                 <div>
                   <h3 className="text-sm font-semibold text-gray-800">Email</h3>
