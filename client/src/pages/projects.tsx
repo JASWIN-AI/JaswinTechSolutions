@@ -6,13 +6,13 @@ export default function Projects() {
       title: "AI-LMS Platform",
       description: "A cloud-based SaaS platform built on MERN stack, simplifying corporate training, compliance, and skill development with AI-powered tools.",
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
-      category: "Web Development"
+      category: "Learning Management System"
     },
     {
       title: "AI-BFSI DST & Reporting",
       description: "A unified, role-agnostic dashboard suite with an AI-driven rules engine, designed to transform decision-making across India's banking ecosystem.",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
-      category: "Data Analytics"
+      category: "Banking and Data Analytics"
     },
     {
       title: "JASWIN Service Desk Plus",
