@@ -173,16 +173,6 @@ export default function Footer() {
           padding-bottom: 0.5rem;
         }
         
-        .footer-heading::after {
-          content: '';
-          position: absolute;
-          left: 0;
-          bottom: 0;
-          width: 40px;
-          height: 2px;
-          background: #f59e0b;
-        }
-        
         .footer-links {
           list-style: none;
           padding: 0;
