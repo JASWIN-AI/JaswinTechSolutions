@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Rocket, Zap, Sparkles } from "lucide-react";
 import { motion } from 'framer-motion';
-import heroBg from "../../../assets/hero_background5.png"; // Adjust the path as necessary
+import heroBg from "../../../assets/hero_background.jpg"; // Adjust the path as necessary
 export default function Home() {
   return (
     <div className="pt-16">
