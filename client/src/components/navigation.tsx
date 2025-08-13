@@ -90,8 +90,6 @@ export default function Navigation() {
           
           {/* Flag + Independence Day Message */}
           <div className="independence-banner">
-            {/* Fireworks before flag */}
-           
 
             {/* Flag */}
             <img
@@ -102,12 +100,8 @@ export default function Navigation() {
 
             {/* Text */}
             <span className="independence-text">
-              {`Happy 78th Independence Day`}
+              {`Happy 79th Independence Day`}
             </span>
-
-            {/* Fireworks after text */}
-            
-
           </div>
 
           {/* Hamburger for mobile */}
@@ -420,6 +414,7 @@ export default function Navigation() {
           }
         }
 
+        /* --- Default styles for larger screens (desktop) --- */
         .independence-banner {
           display: flex;
           align-items: center;
@@ -427,34 +422,62 @@ export default function Navigation() {
           font-size: 1rem;
           font-weight: bold;
           margin-left: 16px;
+          position: relative; /* Add position relative to contain the glitter effect */
         }
 
-       .flag-wave {
-          height: 35px;
+        .flag-wave {
+          height: 1.8em;
           width: auto;
           animation: flutter 0.8s ease-in-out infinite;
         }
 
         @keyframes flutter {
-          0%   { transform: rotateZ(0deg) skewX(0deg); }
-          25%  { transform: rotateZ(1deg) skewX(2deg); }
-          50%  { transform: rotateZ(0deg) skewX(0deg); }
-          75%  { transform: rotateZ(-1deg) skewX(-2deg); }
-          100% { transform: rotateZ(0deg) skewX(0deg); }
+          0% {
+            transform: rotateZ(0deg) skewX(0deg);
+          }
+          25% {
+            transform: rotateZ(1deg) skewX(2deg);
+          }
+          50% {
+            transform: rotateZ(0deg) skewX(0deg);
+          }
+          75% {
+            transform: rotateZ(-1deg) skewX(-2deg);
+          }
+          100% {
+            transform: rotateZ(0deg) skewX(0deg);
+          }
         }
 
         .independence-text {
           background: linear-gradient(
             90deg,
-            #ff9933 0%,
-            white 50%,
-            #138808 100%
+            #e3a364ff 10%,
+            white 40%,
+            #15ff00ff 10%
           );
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
-        
+
+        @keyframes glitter-flow {
+          0% {
+            background-position: 0 0;
+          }
+          100% {
+            background-position: -50px 0;
+          }
+        }
+
+        /* --- Media query for smaller screens (mobile) --- */
+        @media (max-width: 600px) {
+          .independence-banner {
+            font-size: 0.8rem;
+            gap: 4px;
+            margin-left: 8px;
+          }
+        }
       `}</style>
     </nav>
   );
