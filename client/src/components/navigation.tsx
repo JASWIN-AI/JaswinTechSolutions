@@ -88,21 +88,7 @@ export default function Navigation() {
             </div>
           </Link>
           
-          {/* Flag + Independence Day Message */}
-          <div className="independence-banner">
-
-            {/* Flag */}
-            <img
-            src={nflag}
-            alt="Proud Indian Flag"
-            className="flag-wave"
-              />
-            {/* Text */}
-            <span className="independence-text">
-              {`Happy 79th Independence Day`}
-            </span>
-          </div>
-
+         
           {/* Hamburger for mobile */}
           <button
             className="nav-hamburger"
