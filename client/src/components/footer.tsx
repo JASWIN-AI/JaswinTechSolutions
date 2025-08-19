@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Facebook, Twitter, Linkedin, Github, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Github, Mail, Phone, MapPin, Instagram, Youtube, TwitterIcon } from "lucide-react";
 import logoJas from "../../../assets/jaslogo.png";
 
 export default function Footer() {
@@ -29,10 +29,10 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/company/jaswin-tech" },
-    { name: "Twitter", icon: Twitter, href: "https://twitter.com/jaswintech" },
-    { name: "Facebook", icon: Facebook, href: "https://facebook.com/jaswintech" },
-    { name: "GitHub", icon: Github, href: "https://github.com/jaswintech" }
+    { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/in/jaswinai-ai-71272737b/" },
+    { name: "Twitter", icon: Twitter, href: "https://x.com/JaswinAi" },
+    { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/jaswinaillp/" },
+    { name: "Youtube", icon: Youtube, href: "https://www.youtube.com/channel/UCkjDXCGKFmYL0HVZ2K4VTiw" }
   ];
 
   return (
