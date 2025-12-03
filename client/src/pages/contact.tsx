@@ -1,12 +1,24 @@
 import { useState } from "react";
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from "lucide-react";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Send,
+  CheckCircle,
+  Linkedin,
+  Twitter,
+  Facebook,
+  Github,
+} from "lucide-react";
+import { useForm } from "react-hook-form";
+import { motion } from "framer-motion";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-// Add these imports at the top with your other icon imports
-import { Linkedin, Twitter, Facebook, Github } from "lucide-react";
 
 interface ContactFormData {
   name: string;
@@ -17,77 +29,38 @@ interface ContactFormData {
 }
 
 export default function Contact() {
-  const [formData, setFormData] = useState<ContactFormData>({
-    name: "",
-    email: "",
-    phone: "",
-    company: "",
-    message: ""
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showThankYou, setShowThankYou] = useState(false);
   const { toast } = useToast();
+  const [showThankYou, setShowThankYou] = useState(false);
 
-  // Add this to your existing socialLinks array
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<ContactFormData>({
+    mode: "onBlur",
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      company: "",
+      message: "",
+    },
+  });
+
   const socialLinks = [
-    { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/company/jaswin-tech" },
+    {
+      name: "LinkedIn",
+      icon: Linkedin,
+      href: "https://linkedin.com/company/jaswin-tech",
+    },
     { name: "Twitter", icon: Twitter, href: "https://twitter.com/jaswintech" },
     { name: "Facebook", icon: Facebook, href: "https://facebook.com/jaswintech" },
-    { name: "GitHub", icon: Github, href: "https://github.com/jaswintech" }
+    { name: "GitHub", icon: Github, href: "https://github.com/jaswintech" },
   ];
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const validateForm = () => {
-    if (!formData.name.trim()) {
-      toast({
-        title: "Validation Error",
-        description: "Please enter your full name.",
-        variant: "destructive"
-      });
-      return false;
-    }
-    if (!formData.email.trim()) {
-      toast({
-        title: "Validation Error",
-        description: "Please enter your email address.",
-        variant: "destructive"
-      });
-      return false;
-    }
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      toast({
-        title: "Validation Error",
-        description: "Please enter a valid email address.",
-        variant: "destructive"
-      });
-      return false;
-    }
-    if (!formData.message.trim()) {
-      toast({
-        title: "Validation Error",
-        description: "Please enter your message.",
-        variant: "destructive"
-      });
-      return false;
-    }
-    return true;
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!validateForm()) return;
-
-    setIsSubmitting(true);
+  const onSubmit = async (data: ContactFormData) => {
+    setShowThankYou(false);
 
     try {
       const response = await fetch(
@@ -95,7 +68,7 @@ export default function Contact() {
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData)
+          body: JSON.stringify(data),
         }
       );
 
@@ -104,19 +77,12 @@ export default function Contact() {
 
       if (success) {
         setShowThankYou(true);
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          company: "",
-          message: ""
-        });
-
         toast({
-          title: "Message Sent!",
-          description: "Thank you for contacting us. We'll get back to you within 24 hours."
+          title: "Message sent",
+          description:
+            "Thank you for contacting us. We'll get back to you within 24 hours.",
         });
-
+        reset();
         setTimeout(() => setShowThankYou(false), 5000);
       } else {
         throw new Error(result.error || "Failed to send email");
@@ -124,214 +90,349 @@ export default function Contact() {
     } catch (error) {
       console.error("Form submission error:", error);
       toast({
-        title: "Error",
-        description: "Failed to send your message. Please try again or contact us directly at sales@jaswins.com",
-        variant: "destructive"
+        title: "Something went wrong",
+        description:
+          "We couldn't send your message. Please try again or email us at info@jaswins.com.",
+        variant: "destructive",
       });
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-8" style={{ paddingTop: "2rem" }} >
-         
-          <p className="text-blue-800 max-w-md mx-auto">
-            We're excited to hear what's on your mind - drop us a line!
+    <div className="relative min-h-screen overflow-hidden bg-slate-50 pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+      {/* subtle background blobs / accents */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-70"
+        aria-hidden="true"
+      >
+        <div className="absolute -left-40 top-10 h-64 w-64 rounded-full bg-[#0B79D4]/10 blur-3xl" />
+        <div className="absolute right-[-5rem] top-40 h-72 w-72 rounded-full bg-sky-300/20 blur-3xl" />
+        <div className="absolute bottom-[-6rem] left-1/3 h-60 w-60 rounded-full bg-[#0B79D4]/8 blur-3xl" />
+      </div>
+
+      <div className="relative mx-auto max-w-6xl">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="mb-10 text-center"
+        >
+          <span className="inline-flex items-center rounded-full bg-[#0B79D4]/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[#0B79D4]">
+            Contact us
+          </span>
+          <h1 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            Let&apos;s build what&apos;s next, together
+          </h1>
+          <p className="mx-auto mt-3 max-w-2xl text-sm sm:text-base text-slate-600">
+            Share a bit about your use case and we&apos;ll connect you with the
+            right JASWIN specialist for BFSI, EdTech, eGovernance or AI-led
+            solutions.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-white rounded-xl shadow-md overflow-hidden border border-blue-100">
-            <div className="p-6">
-              <h2 className="text-xl font-bold text-blue-900 mb-4">Send us a message</h2>
-              
-              {showThankYou ? (
-                <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-center">
-                  <CheckCircle className="h-8 w-8 text-green-500 mx-auto mb-2" />
-                  <h3 className="font-semibold text-green-800 mb-1">Thank You!</h3>
-                  <p className="text-sm text-green-700">We'll respond within 24 hours.</p>
+        {/* Layout */}
+        <div className="grid items-start gap-8 md:grid-cols-[minmax(0,1.6fr)_minmax(0,1.1fr)]">
+          {/* Form card */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.45, ease: "easeOut" }}
+            className="rounded-2xl bg-white p-6 shadow-[0_16px_40px_rgba(15,23,42,0.12)] border border-slate-100"
+          >
+            <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h2 className="text-xl font-semibold text-slate-900">
+                  Tell us about your project
+                </h2>
+                <p className="mt-1 text-xs sm:text-sm text-slate-500">
+                  The more context you share, the better we can prepare before we
+                  speak.
+                </p>
+              </div>
+
+              {showThankYou && (
+                <div className="flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
+                  <CheckCircle className="h-4 w-4 text-emerald-500" />
+                  Message sent
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  {[
-                    { id: "name", label: "Full Name", type: "text", required: true },
-                    { id: "email", label: "Email", type: "email", required: true },
-                    { id: "phone", label: "Phone", type: "tel", required: false },
-                    { id: "company", label: "Company", type: "text", required: false }
-                  ].map((field) => (
-                   <div key={field.id} className="relative">
-                        <Input
-                          id={field.id}
-                          name={field.id}
-                          type={field.type}
-                          value={formData[field.id as keyof ContactFormData]}
-                          onChange={handleInputChange}
-                          required={field.required}
-                          className="peer h-12 w-full border-b-2 border-gray-300 text-sm placeholder-transparent focus:outline-none focus:border-blue-50 pt-2"
-                          placeholder=" "
-                        />
-                        <Label
-                          htmlFor={field.id}
-                          className="absolute left-0 -top-1.5 text-gray-600 text-xs transition-all duration-200 ease-out
-                            peer-placeholder-shown:text-sm 
-                            peer-placeholder-shown:text-gray-400 
-                            peer-placeholder-shown:top-3.5
-                            peer-focus:-top-1.5
-                            peer-focus:text-blue-60
-                            peer-focus:text-xs"
-                        >
-                          {field.label}{field.required && " *"}
-                        </Label>
-                      </div>
-                  ))}
-
-                  <div className="relative">
-                    <Textarea
-                      id="message"
-                      name="message"
-                      required
-                      rows={3}
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      className="peer h-12 w-full border-b-2 border-gray-300 text-sm placeholder-transparent focus:outline-none focus:border-blue-50 pt-2"
-                      placeholder=" "
-                    />
-                    <Label
-                      htmlFor="message"
-                      className="absolute left-0 -top-1.5 text-gray-600 text-xs transition-all duration-200 ease-out
-                            peer-placeholder-shown:text-sm 
-                            peer-placeholder-shown:text-gray-400 
-                            peer-placeholder-shown:top-3.5
-                            peer-focus:-top-1.5
-                            peer-focus:text-blue-60
-                            peer-focus:text-xs"
-                    >
-                      Your Message *
-                    </Label>
-                  </div>
-
-                  <div className="flex justify-center">
-                      <Button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-2 px-6 rounded-full flex items-center gap-2 transition-all shadow-md"
-                      >
-                        {isSubmitting ? (
-                          <>
-                            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                            Sending...
-                          </>
-                        ) : (
-                          <span className="flex items-center gap-2">
-                            <Send className="h-4 w-4" />
-                            Send Message
-                          </span>
-                        )}
-                      </Button>
-                    </div>
-                </form>
               )}
             </div>
-          </div>
 
-          <div className="bg-white rounded-xl shadow-md overflow-hidden border border-blue-100 p-6">
-            <h2 className="text-xl font-bold text-blue-900 mb-4">Contact info</h2>
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <div className="bg-blue-100 p-2 rounded-full">
-                  
-                  <a 
-                    href="https://maps.app.goo.gl/vUgzqtmhfsvfZp45A?g_st=aw"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block mt-1 text-xs text-blue-600 hover:underline"
+            <form onSubmit={handleSubmit(onSubmit)} className="mt-2 space-y-4">
+              {/* Name */}
+              <div className="space-y-1">
+                <Label htmlFor="name" className="text-xs font-medium text-slate-700">
+                  Full Name <span className="text-red-500">*</span>
+                </Label>
+                <Input
+                  id="name"
+                  type="text"
+                  autoComplete="name"
+                  className="h-10 text-sm border-slate-200 focus-visible:ring-[#0B79D4]"
+                  placeholder="Your full name"
+                  {...register("name", {
+                    required: "Please enter your full name.",
+                    minLength: {
+                      value: 3,
+                      message: "Name should be at least 3 characters.",
+                    },
+                  })}
+                />
+                {errors.name && (
+                  <p className="text-xs text-red-500">{errors.name.message}</p>
+                )}
+              </div>
+
+              {/* Email */}
+              <div className="space-y-1">
+                <Label htmlFor="email" className="text-xs font-medium text-slate-700">
+                  Work Email <span className="text-red-500">*</span>
+                </Label>
+                <Input
+                  id="email"
+                  type="email"
+                  autoComplete="email"
+                  className="h-10 text-sm border-slate-200 focus-visible:ring-[#0B79D4]"
+                  placeholder="name@company.com"
+                  {...register("email", {
+                    required: "Please enter your email address.",
+                    pattern: {
+                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      message: "Please enter a valid email address.",
+                    },
+                  })}
+                />
+                {errors.email && (
+                  <p className="text-xs text-red-500">{errors.email.message}</p>
+                )}
+              </div>
+
+              {/* Phone & Company */}
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="space-y-1">
+                  <Label
+                    htmlFor="phone"
+                    className="text-xs font-medium text-slate-700"
                   >
-                    <MapPin className="h-5 w-5 text-blue-600" />
-                  </a>
+                    Phone (optional)
+                  </Label>
+                  <Input
+                    id="phone"
+                    type="tel"
+                    autoComplete="tel"
+                    className="h-10 text-sm border-slate-200 focus-visible:ring-[#0B79D4]"
+                    placeholder="+91 98765 43210"
+                    {...register("phone", {
+                      pattern: {
+                        value: /^[0-9+\-\s()]*$/,
+                        message: "Please enter a valid phone number.",
+                      },
+                    })}
+                  />
+                  {errors.phone && (
+                    <p className="text-xs text-red-500">{errors.phone.message}</p>
+                  )}
+                </div>
+
+                <div className="space-y-1">
+                  <Label
+                    htmlFor="company"
+                    className="text-xs font-medium text-slate-700"
+                  >
+                    Company (optional)
+                  </Label>
+                  <Input
+                    id="company"
+                    type="text"
+                    className="h-10 text-sm border-slate-200 focus-visible:ring-[#0B79D4]"
+                    placeholder="Company or organisation name"
+                    {...register("company", {
+                      maxLength: {
+                        value: 120,
+                        message: "Company name is too long.",
+                      },
+                    })}
+                  />
+                  {errors.company && (
+                    <p className="text-xs text-red-500">
+                      {errors.company.message}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              {/* Message */}
+              <div className="space-y-1">
+                <Label
+                  htmlFor="message"
+                  className="text-xs font-medium text-slate-700"
+                >
+                  How can we help? <span className="text-red-500">*</span>
+                </Label>
+                <Textarea
+                  id="message"
+                  rows={4}
+                  className="text-sm border-slate-200 focus-visible:ring-[#0B79D4]"
+                  placeholder="Briefly describe your use case, current challenges or the outcomes you are aiming for."
+                  {...register("message", {
+                    required: "Please enter your message.",
+                    minLength: {
+                      value: 10,
+                      message: "Message should be at least 10 characters.",
+                    },
+                  })}
+                />
+                {errors.message && (
+                  <p className="text-xs text-red-500">
+                    {errors.message.message}
+                  </p>
+                )}
+              </div>
+
+              {/* Hint */}
+              <p className="text-[11px] text-slate-400">
+                By submitting this form you agree to be contacted by JASWIN AI
+                Solutions regarding your enquiry.
+              </p>
+
+              {/* Submit */}
+              <div className="flex justify-end pt-2">
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="bg-[#0B79D4] hover:bg-[#0a68b5] text-white text-sm font-semibold px-5 py-2.5 rounded-full shadow-[0_6px_16px_rgba(11,121,212,0.45)] flex items-center gap-2"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-transparent" />
+                      Sending…
+                    </>
+                  ) : (
+                    <>
+                      <Send className="h-4 w-4" />
+                      Send message
+                    </>
+                  )}
+                </Button>
+              </div>
+            </form>
+          </motion.div>
+
+          {/* Contact info + social */}
+          <motion.aside
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.45, ease: "easeOut", delay: 0.1 }}
+            className="rounded-2xl bg-white/95 backdrop-blur-sm p-6 shadow-[0_16px_40px_rgba(15,23,42,0.10)] border border-slate-100"
+          >
+            <h2 className="text-lg font-semibold text-slate-900">
+              Contact information
+            </h2>
+            <p className="mt-1 text-sm text-slate-600">
+              Prefer to talk directly? Reach us via phone, email or visit us at
+              our office.
+            </p>
+
+            <div className="mt-5 space-y-4 text-sm">
+              {/* Location */}
+              <div className="flex gap-3">
+                <div className="mt-0.5 flex h-9 w-9 items-center justify.center rounded-full bg-[#0B79D4]/10">
+                  <MapPin className="h-4 w-4 text-[#0B79D4]" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-800">Location</h3>
-                  <p className="text-xs text-gray-600 mt-1">
-                    GALA NO. 06/A, GOYAL INDUSTRIAL PREMISES,<br />
-                    J-514, MIDC, BHOSARI, PUNE-411039
+                  <div className="font-semibold text-slate-900">Location</div>
+                  <p className="mt-1 text-xs sm:text-sm text-slate-600">
+                    GALA NO. 06/A, Goyal Industrial Premises, <br />
+                    J-514, MIDC, Bhosari, Pune – 411039
                   </p>
-                  <a 
+                  <a
                     href="https://maps.app.goo.gl/vUgzqtmhfsvfZp45A?g_st=aw"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block mt-1 text-xs text-blue-600 hover:underline"
+                    className="mt-1 inline-flex items-center text-xs font-medium text-[#0B79D4] hover:underline"
                   >
                     View on Maps
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3">
-                <div className="bg-blue-100 p-2 rounded-full">
-                  <a href="tel:8265016045" className="text-xs text-gray-600 hover:text-blue-600 mt-1 block">
-                    <Phone className="h-5 w-5 text-blue-600" />
-                  </a>
+              {/* Phone */}
+              <div className="flex gap-3">
+                <div className="mt-0.5 flex h-9 w-9 items-center justify-center rounded-full bg-[#0B79D4]/10">
+                  <Phone className="h-4 w-4 text-[#0B79D4]" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-800">Phone</h3>
-                  <a href="tel:8265016045" className="text-xs text-gray-600 hover:text-blue-600 mt-1 block">
+                  <div className="font-semibold text-slate-900">Phone</div>
+                  <a
+                    href="tel:8265016045"
+                    className="mt-1 block text-xs sm:text-sm text-slate-600 hover:text-[#0B79D4]"
+                  >
                     +91 82650 16045
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3">
-                <div className="bg-blue-100 p-2 rounded-full">
-                  <a href="mailto:info@jaswins.com" className="text-xs text-gray-600 hover:text-blue-600 mt-1 block">
-                    <Mail className="h-5 w-5 text-blue-600" />
-                  </a>
+              {/* Email */}
+              <div className="flex gap-3">
+                <div className="mt-0.5 flex h-9 w-9 items-center justify-center rounded-full bg-[#0B79D4]/10">
+                  <Mail className="h-4 w-4 text-[#0B79D4]" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-800">Email</h3>
-                  <a href="mailto:info@jaswins.com" className="text-xs text-gray-600 hover:text-blue-600 mt-1 block">
+                  <div className="font-semibold text-slate-900">Email</div>
+                  <a
+                    href="mailto:info@jaswins.com"
+                    className="mt-1 block text-xs sm:text-sm text-slate-600 hover:text-[#0B79D4]"
+                  >
                     info@jaswins.com
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3">
-                <div className="bg-blue-100 p-2 rounded-full">
-                  <Clock className="h-5 w-5 text-blue-600" />
+              {/* Hours */}
+              <div className="flex gap-3">
+                <div className="mt-0.5 flex h-9 w-9 items-center justify-center rounded-full bg-[#0B79D4]/10">
+                  <Clock className="h-4 w-4 text-[#0B79D4]" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-800">Hours</h3>
-                  <p className="text-xs text-gray-600 mt-1">
-                    Mon-Fri: 9AM-6PM<br />
-                    Sat-Sun: Closed
+                  <div className="font-semibold text-slate-900">Hours</div>
+                  <p className="mt-1 text-xs sm:text-sm text-slate-600">
+                    Monday – Friday: 9:00 AM – 6:00 PM <br />
+                    Saturday – Sunday: Closed
                   </p>
                 </div>
               </div>
+            </div>
 
-              <div className="flex flex-col items-center mt-6">
-                <h3 className="text-sm font-semibold text-gray-800 mb-3">Connect With Us</h3>
-                <div className="flex gap-5">
-                  {socialLinks.map((social) => (
+            {/* Social links */}
+            <div className="mt-6 rounded-xl bg-slate-50/80 p-4 border border-slate-100">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                Connect with us
+              </p>
+              <p className="mt-1 text-sm text-slate-600">
+                Follow JASWIN for product updates, case studies and insights.
+              </p>
+              <div className="mt-3 flex flex-wrap gap-3">
+                {socialLinks.map((social) => {
+                  const Icon = social.icon;
+                  return (
                     <a
                       key={social.name}
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-800 transition-colors"
                       aria-label={social.name}
+                      className="flex h-9 w-9 items-center justify-center rounded-full bg-[#0B79D4]/10 text-[#0B79D4] transition-all duration-150 hover:bg-[#0B79D4] hover:text-white shadow-sm"
                     >
-                      <social.icon className="h-5 w-5" />
+                      <Icon className="h-4 w-4" />
                     </a>
-                  ))}
-                </div>
+                  );
+                })}
               </div>
             </div>
-          </div>
+          </motion.aside>
         </div>
       </div>
     </div>
-    
   );
 }

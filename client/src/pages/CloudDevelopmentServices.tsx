@@ -1,279 +1,246 @@
-import React from 'react';
+import React from "react";
 import { motion } from "framer-motion";
-import { Link } from 'wouter';
+import { Link } from "wouter";
+import {
+  CloudCog,
+  Rocket,
+  Layers,
+  GitBranch,
+  Server,
+  Database,
+  Users2,
+  CheckCircle2,
+} from "lucide-react";
 
 const CloudDevelopmentServices = () => {
+  const fadeUp = {
+    initial: { opacity: 0, y: 24 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: "-120px" },
+    transition: { duration: 0.5 },
+  };
+
+  const features = [
+    {
+      title: "Infrastructure as Code (IaC)",
+      description:
+        "Manage and provision cloud infrastructure using declarative code for automated, consistent deployments.",
+      icon: Layers,
+    },
+    {
+      title: "CI/CD Pipelines",
+      description:
+        "Automated delivery pipelines enabling deployment at speed with quality and transparency.",
+      icon: GitBranch,
+    },
+    {
+      title: "Scalable Environments",
+      description:
+        "On-demand environments that adapt to project growth without operational bottlenecks.",
+      icon: CloudCog,
+    },
+    {
+      title: "Collaboration Tools",
+      description:
+        "Integrated toolsets for version control, issue tracking, and real-time collaboration.",
+      icon: Users2,
+    },
+    {
+      title: "Managed Databases",
+      description:
+        "Fully managed DB solutions with backups, scaling, replication & automated resilience.",
+      icon: Database,
+    },
+    {
+      title: "Secure Cloud Deployment",
+      description:
+        "Bank-grade security with encryption and access controls baked into your DevOps pipeline.",
+      icon: Server,
+    },
+  ];
+
+  const benefitsLeft = [
+    "Flexibility and Agility: Quickly adapt to changing project requirements for faster innovation.",
+    "Cost Efficiency: Reduce capital expenditures with pay-as-you-go cloud resources.",
+    "Enhanced Security: Robust security including encryption and advanced access control.",
+  ];
+
+  const benefitsRight = [
+    "Global Reach: Deploy applications across regions for minimal latency.",
+    "Expert Support: Hands-on cloud specialists guiding your transformation.",
+    "Seamless Integration: Works with existing workflows and DevOps toolchains.",
+  ];
+
   return (
-    <div className="bg-white">
-      {/* Hero Section with Cloud Background */}
-      <section className="relative overflow-hidden">
-        {/* Cloud Background */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-500 to-indigo-700 opacity-90"></div>
-          <img 
-            src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80" 
-            alt="Cloud technology background"
-            className="w-full h-full object-cover object-center"
-          />
+    <div className="bg-white min-h-screen pt-16 overflow-hidden">
+      {/* HERO – full banner CSS background */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-[#0B79D4] text-white">
+        {/* background accents */}
+        <div className="absolute inset-0 opacity-60">
+          {/* soft radial glow */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(148,163,184,0.35),transparent_55%)]" />
+          {/* subtle diagonal grid */}
+          <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(148,163,184,0.18)_1px,transparent_1px)] bg-[length:120px_120px]" />
         </div>
 
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-40">
-          <div className="text-center max-w-4xl mx-auto">
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
-            >
+        {/* animated blobs */}
+        <motion.div
+          animate={{ y: [-20, 20, -20] }}
+          transition={{ duration: 12, repeat: Infinity }}
+          className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#0B79D4]/40 blur-3xl"
+        />
+        <motion.div
+          animate={{ y: [20, -20, 20] }}
+          transition={{ duration: 14, repeat: Infinity }}
+          className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-sky-400/30 blur-3xl"
+        />
+
+        {/* content */}
+        <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 md:py-28 lg:py-32">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="max-w-4xl mx-auto text-center"
+          >
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-sky-100 ring-1 ring-white/20 mb-4">
+              <CloudCog className="w-3.5 h-3.5" />
+              Cloud for development teams
+            </div>
+
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold mb-5 leading-tight">
               Cloud Solutions for Development Teams
-            </motion.h1>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-xl md:text-2xl text-blue-100 mb-10"
-            >
-              Empower your organization with tailored cloud technology that enhances collaboration, 
+            </h1>
+
+            <p className="text-base md:text-xl text-slate-100/90 leading-relaxed mb-8">
+              Empower your organization with tailored cloud technology that enhances collaboration,
               scalability, and efficiency throughout your development process.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="flex flex-col sm:flex-row justify-center gap-4"
-            >
-              <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.3, duration: 0.8 }}
-                    className="flex justify-center gap-4 mt-8"
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-4 mt-4">
+              <Link href="/contact">
+                <motion.button
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3 text-sm font-semibold text-[#0B79D4] shadow-[0_15px_38px_rgba(15,23,42,0.55)] hover:bg-slate-50 transition-all"
                 >
-                    <Link
-                          href="/contact"
-                        className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:scale-105"
-                      >
-                    Contact Us
-                    </Link>
-                    
-                </motion.div>  
-            </motion.div>
-          </div>
+                  Contact Us
+                  <Rocket className="w-4 h-4" />
+                </motion.button>
+              </Link>
+              <a
+                href="#features"
+                className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/5 px-7 py-2.5 text-sm font-semibold text-sky-50 hover:bg-white/10 transition-all"
+              >
+                Explore Features
+              </a>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section id="features" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div className="text-center mb-16">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+      {/* FEATURES */}
+      <section
+        id="features"
+        className="max-w-7xl mx-auto px-6 py-20 md:py-24"
+      >
+        <motion.div {...fadeUp} className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Key Features Built for Modern Development
+          </h2>
+          <p className="text-lg text-slate-600 mt-3 max-w-3xl mx-auto">
+            Scalable, secure and high-performance cloud engineering tailored for agile teams and
+            fast-moving products.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-9">
+          {features.map((feature, i) => {
+            const Icon = feature.icon;
+            return (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                whileHover={{ y: -8, scale: 1.03 }}
+                className="bg-white p-7 rounded-2xl shadow-md hover:shadow-xl border border-slate-100 transition-all"
+              >
+                <div className="mb-4 inline-flex items-center justify-center h-14 w-14 bg-[#0B79D4]/10 rounded-xl text-[#0B79D4]">
+                  <Icon className="w-7 h-7" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-slate-600 text-sm sm:text-base">
+                  {feature.description}
+                </p>
+              </motion.div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* BENEFITS */}
+      <section className="bg-slate-50 py-20 md:py-24">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.h2
+            {...fadeUp}
+            className="text-3xl md:text-4xl font-extrabold text-center text-slate-900 mb-14"
           >
-            <span className="inline-block bg-blue-100 text-blue-600 px-4 py-2 rounded-full">
-              🌟
-            </span> 
-            <span className="ml-3">Key Features</span>
+            Why Development Teams Choose Our Cloud Services
           </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
-          >
-            Our comprehensive cloud solutions are designed specifically for development teams
-          </motion.p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            {
-              title: "Infrastructure as Code (IaC)",
-              description: "Manage and provision cloud infrastructure through code for consistent, repeatable deployments.",
-              icon: (
-                <svg className="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                </svg>
-              ),
-              bgColor: "bg-blue-50"
-            },
-            {
-              title: "CI/CD Pipelines",
-              description: "Automate code integration and deployment for faster release cycles and better quality.",
-              icon: (
-                <svg className="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              ),
-              bgColor: "bg-blue-50"
-            },
-            {
-              title: "Scalable Environments",
-              description: "On-demand development environments that scale with your project needs.",
-              icon: (
-                <svg className="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
-                </svg>
-              ),
-              bgColor: "bg-blue-50"
-            },
-            {
-              title: "Collaboration Tools",
-              description: "Integrated tools for version control, issue tracking, and real-time collaboration.",
-              icon: (
-                <svg className="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              ),
-              bgColor: "bg-blue-50"
-            },
-            {
-              title: "Managed Databases",
-              description: "Fully managed solutions that handle backups, scaling, and performance tuning.",
-              icon: (
-                <svg className="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
-                </svg>
-              ),
-              bgColor: "bg-blue-50"
-            }
-          ].map((feature, index) => (
-            <motion.div 
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`${feature.bgColor} p-8 rounded-xl hover:shadow-xl transition-all duration-300 hover:-translate-y-2`}
-            >
-              <div className="mb-6">
-                {feature.icon}
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-              <p className="text-gray-600">{feature.description}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="bg-gray-50 py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
-            >
-              <span className="inline-block bg-blue-100 text-blue-600 px-4 py-2 rounded-full">
-                🔧
-              </span> 
-              <span className="ml-3">Benefits</span>
-            </motion.h2>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl text-gray-600 max-w-3xl mx-auto"
-            >
-              Why development teams choose our cloud services
-            </motion.p>
-          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="space-y-8">
-              {[
-                "Flexibility and Agility: Quickly adapt to changing project requirements for faster innovation.",
-                "Cost Efficiency: Reduce capital expenditures with pay-as-you-go cloud resources.",
-                "Enhanced Security: Robust measures including encryption and access controls."
-              ].map((benefit, index) => (
-                <motion.div 
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex items-start"
-                >
-                  <div className="flex-shrink-0 bg-blue-100 rounded-full p-2 mr-4">
-                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <p className="text-lg text-gray-700">{benefit}</p>
-                </motion.div>
-              ))}
-            </div>
-            <div className="space-y-8">
-              {[
-                "Global Reach: Deploy in multiple regions for low latency worldwide.",
-                "Expert Support: Guidance from cloud experts throughout your journey.",
-                "Seamless Integration: Works with your existing tools and workflows."
-              ].map((benefit, index) => (
-                <motion.div 
-                  key={index}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex items-start"
-                >
-                  <div className="flex-shrink-0 bg-blue-100 rounded-full p-2 mr-4">
-                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <p className="text-lg text-gray-700">{benefit}</p>
-                </motion.div>
-              ))}
-            </div>
+            {[benefitsLeft, benefitsRight].map((col, idx) => (
+              <div key={idx} className="space-y-7">
+                {col.map((benefit, i) => (
+                  <motion.div
+                    key={benefit}
+                    initial={{ opacity: 0, x: idx === 0 ? -20 : 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    className="flex items-start gap-4"
+                  >
+                    <CheckCircle2 className="w-6 h-6 text-[#0B79D4] mt-1" />
+                    <p className="text-lg text-slate-700">{benefit}</p>
+                  </motion.div>
+                ))}
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-indigo-600 py-16 md:py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-bold text-white mb-6"
+      {/* CTA */}
+      <section className="bg-gradient-to-r from-[#0B79D4] to-sky-600 py-20 md:py-24 text-center">
+        <motion.h2
+          {...fadeUp}
+          className="text-3xl md:text-4xl font-bold text-white mb-6"
+        >
+          Ready to Transform Your Development Process?
+        </motion.h2>
+        <motion.p
+          {...fadeUp}
+          transition={{ delay: 0.2 }}
+          className="text-lg text-white/90 max-w-3xl mx-auto mb-10"
+        >
+          Whether you're building your first application or modernizing
+          enterprise platforms, we have the cloud solutions to support your
+          engineering teams end to end.
+        </motion.p>
+
+        <Link href="/contact">
+          <motion.button
+            whileHover={{ scale: 1.06, y: -2 }}
+            whileTap={{ scale: 0.97 }}
+            className="bg-white text-[#0B79D4] font-semibold py-3 px-10 rounded-full shadow-lg hover:shadow-2xl transition-all"
           >
-            Ready to Transform Your Development Process?
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-blue-100 mb-10"
-          >
-            Whether you're a startup building your first application or an enterprise modernizing infrastructure, 
-            we have the cloud solutions to meet your needs.
-          </motion.p>
-          <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.3, duration: 0.8 }}
-                    className="flex justify-center gap-4 mt-8"
-                >
-                    <Link
-                          href="/contact"
-                        className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:scale-105"
-                      >
-                    Connect with Us
-                    </Link>
-                    
-                </motion.div>  
-        </div>
+            Connect with Us
+          </motion.button>
+        </Link>
       </section>
     </div>
   );

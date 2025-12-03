@@ -1,79 +1,153 @@
 import React from "react";
 import { Cloud, Code, ShieldCheck, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { Link } from 'wouter';
+import { Link } from "wouter";
+
 const TechnologyPartner = () => {
   const pillars = [
     {
-      icon: <Cloud className="w-8 h-8" />,
+      icon: Cloud,
       title: "Strategic Guidance",
-      description: "Receive expert advice and strategic roadmaps to navigate the complex technological landscape and make informed decisions.",
+      description:
+        "Receive expert advice and strategic roadmaps to navigate the complex technological landscape and make informed decisions.",
     },
     {
-      icon: <Code className="w-8 h-8" />,
+      icon: Code,
       title: "Customized Solutions",
-      description: "Solutions are tailored to specific needs, ensuring they address unique requirements and deliver maximum value.",
+      description:
+        "Solutions are tailored to specific needs, ensuring they address unique requirements and deliver maximum value.",
     },
     {
-      icon: <ShieldCheck className="w-8 h-8" />,
+      icon: ShieldCheck,
       title: "Ongoing Support",
-      description: "Offer continuous support and evolution of your technology infrastructure, ensuring long-term success and adaptability.",
+      description:
+        "Offer continuous support and evolution of your technology infrastructure, ensuring long-term success and adaptability.",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      {/* Hero with Image */}
-      <section className="relative py-20 px-6 overflow-hidden">
-        
-        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/8849287/pexels-photo-8849287.jpeg?_gl=1*n94mok*_ga*MTcxNTE2MjczLjE3NTM3Nzk0MjM.*_ga_8JE65Q40S6*czE3NTM5ODQwMzYkbzIkZzEkdDE3NTM5ODQ1NjMkajU5JGwwJGgw')] bg-cover bg-center opacity-20"></div>
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-50 pt-16">
+      {/* HERO */}
+      {/* HERO */}
+      <section className="relative overflow-hidden py-20 px-4 sm:px-6 lg:px-8">
+        {/* Background Image */}
+        <motion.div
+          initial={{ scale: 1.1, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="absolute inset-0"
+        >
+          <img
+            src="https://images.pexels.com/photos/8849287/pexels-photo-8849287.jpeg"
+            alt="Technology Partnership Background"
+            className="h-full w-full object-cover object-center"
+          />
+          {/* Glass fade overlay */}
+          <div className="absolute inset-0 bg-white/10 backdrop-blur-xl" />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/40 to-slate-900/70" />
+          <div className="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-[#0B79D4]/35 to-transparent" />
+        </motion.div>
 
-        <div className="container mx-auto relative z-10 text-center">
+        {/* Accent blobs */}
+        <motion.div
+          animate={{ y: [-15, 15, -15] }}
+          transition={{ duration: 10, repeat: Infinity }}
+          className="pointer-events-none absolute -left-16 top-10 h-48 w-48 rounded-full bg-[#0B79D4]/20 blur-3xl"
+        />
+        <motion.div
+          animate={{ y: [15, -15, 15] }}
+          transition={{ duration: 11, repeat: Infinity }}
+          className="pointer-events-none absolute -right-16 bottom-10 h-52 w-52 rounded-full bg-sky-400/20 blur-3xl"
+        />
+
+        {/* Text Container */}
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight"
+            transition={{ duration: 0.55, ease: "easeOut" }}
+            className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight drop-shadow-xl"
           >
             Unlocking Your Technological Potential
           </motion.h1>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+
+          <motion.p
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-lg sm:text-xl text-slate-200 max-w-2xl mx-auto mb-8"
+          >
             Partner with us to harness the power of innovation and drive unprecedented growth.
-          </p>
-           <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.3, duration: 0.8 }}
-                className="flex justify-center gap-4 mt-8"
-            >
-                <Link
-                    href="/contact"
-                  className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:scale-105"
-                >
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="flex justify-center"
+          >
+            <Link href="/contact">
+              <motion.button
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center gap-2 rounded-full bg-[#0B79D4] px-8 py-3 text-sm sm:text-base font-semibold text-white shadow-[0_14px_35px_rgba(11,121,212,0.45)] hover:bg-[#0a68b5] transition-colors"
+              >
                 Start Partnership
-                </Link>
-                {/*  <a
-                href="#capabilities"
-                className="bg-white/10 hover:bg-white/20 text-white font-semibold py-3 px-8 rounded-full border border-white/20 transition-all hover:scale-105"
-                >
-                Explore Features
-                </a> */}
-            </motion.div>
+                <ArrowRight className="w-5 h-5" />
+              </motion.button>
+            </Link>
+          </motion.div>
         </div>
       </section>
 
-      {/* Value Proposition */}
-      <section className="py-20 px-6 bg-white">
-        <div className="container mx-auto max-w-5xl">
-          <div className="flex flex-col md:flex-row gap-12 items-center">
-            {pillars.map((pillar, index) => (
-              <div key={index} className="flex-1">
-                <div className="flex items-center mb-4">
-                  {pillar.icon}
-                  <h3 className="text-lg font-bold ml-4">{pillar.title}</h3>
-                </div>
-                <p className="text-gray-700">{pillar.description}</p>
-              </div>
-            ))}
+
+      {/* VALUE PROPOSITION / PILLARS */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white relative">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="text-center mb-10"
+          >
+            <p className="inline-flex items-center gap-2 rounded-full bg-[#0B79D4]/10 px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#0B79D4]">
+              Technology / Service Partner
+            </p>
+            <p className="mt-3 text-sm sm:text-base text-slate-600 max-w-2xl mx-auto">
+              As your long-term technology partner, we align strategy, engineering and support around your goals.
+            </p>
+          </motion.div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {pillars.map((pillar, index) => {
+              const Icon = pillar.icon;
+              return (
+                <motion.div
+                  key={pillar.title}
+                  initial={{ opacity: 0, y: 28 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.45, delay: index * 0.08 }}
+                  whileHover={{
+                    y: -8,
+                    scale: 1.03,
+                    boxShadow: "0 18px 40px rgba(15,23,42,0.16)",
+                  }}
+                  className="group rounded-2xl border border-slate-100 bg-slate-50/40 p-6 text-left shadow-sm transition-all duration-200"
+                >
+                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#0B79D4]/10 text-[#0B79D4] group-hover:bg-[#0B79D4] group-hover:text-white transition-colors">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-base font-semibold text-slate-900 mb-2">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-sm text-slate-600">
+                    {pillar.description}
+                  </p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>

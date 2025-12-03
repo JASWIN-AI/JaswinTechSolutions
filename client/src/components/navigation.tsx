@@ -1,450 +1,593 @@
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "wouter";
-import React, { useState,useRef,useEffect  } from "react";
-import logoJas from "../../../assets/jaslogo.png"; // Adjust the path as necessary
-import nflag from "../../../assets/india-national_flag.gif";
-const dropdownItemStyle: React.CSSProperties = {
-  padding: "0.5rem 1.5rem",
-  cursor: "pointer",
-  whiteSpace: "nowrap",
-  fontSize: "0.95rem",
-  fontWeight: 500,
-  color: "#1e3a8a",
-  background: "white",
-  border: "none",
-  transition: "background 0.2s",
-};
+
+import logoJas from "../../../assets/jaslogo.png";
+
+type MenuKey = "company" | "solutions" | "product" | null;
 
 export default function Navigation() {
   const [location] = useLocation();
-  const [openMenu, setOpenMenu] = useState<string | null>(null);
-  const [openConsulting, setOpenConsulting] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState<MenuKey>(null); // desktop
+  const [mobileOpen, setMobileOpen] = useState(false); // mobile sheet
+  const [mobileSection, setMobileSection] = useState<MenuKey>(null); // mobile accordion
+
+  const closeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const isActive = (path: string) => location === path;
 
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-  
-  // Clear timeout when component unmounts
+  const clearCloseTimeout = () => {
+    if (closeTimeout.current) {
+      clearTimeout(closeTimeout.current);
+      closeTimeout.current = null;
+    }
+  };
+
   useEffect(() => {
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    };
+    return () => clearCloseTimeout();
   }, []);
 
   const handleNavClick = () => {
     setOpenMenu(null);
-    setOpenConsulting(false);
-    setMobileMenuOpen(false);
+    setMobileOpen(false);
+    setMobileSection(null);
   };
 
-  const handleMouseEnter = (menu: string) => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
+  const handleHoverOpen = (menu: MenuKey) => {
+    clearCloseTimeout();
     setOpenMenu(menu);
   };
 
-  const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => {
+  const handleHoverClose = () => {
+    clearCloseTimeout();
+    closeTimeout.current = setTimeout(() => {
       setOpenMenu(null);
-      setOpenConsulting(false);
-    }, 300); // 300ms delay before closing
+    }, 160);
   };
 
-  const dropdownItemStyle = {
-    padding: "0.5rem 1rem",
-    cursor: "pointer",
-    transition: "all 0.2s ease",
-    "&:hover": {
-      backgroundColor: "#f0f0f0",
-    },
+  const toggleMobileSection = (section: MenuKey) => {
+    setMobileSection((prev) => (prev === section ? null : section));
   };
 
-  // Handles closing mobile menu on navigation
- // const handleNavClick = () => setMobileMenuOpen(false);
+  // --- styles ---
+  const baseNavLink =
+    "group relative inline-flex items-center text-sm font-medium text-white/90 hover:text-white transition-colors duration-200";
+
+  const underlineSlide =
+    "after:pointer-events-none after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-200 group-hover:after:scale-x-100";
+
+  const activeUnderline = "after:scale-x-100";
+
+  const dropdownPanelBase =
+    "absolute left-0 top-full mt-3 rounded-2xl border border-white/60 bg-white/90 backdrop-blur-xl p-3 shadow-xl shadow-slate-900/20 transform origin-top transition-transform duration-150 ease-out";
+
+  const dropdownItem =
+    "group relative flex w-full items-center justify-between rounded-md pl-4 pr-3 py-2 text-sm font-medium text-slate-800 hover:text-[#0B79D4] hover:bg-[#0B79D4]/6 transition-all duration-150";
+
+  const dropdownAccent =
+    "absolute left-0 top-1/2 h-3/4 w-[3px] -translate-y-1/2 rounded-r-full bg-[#0B79D4] opacity-0 group-hover:opacity-100 transition-opacity duration-150";
 
   return (
-    <nav className="nav-root">
-      <div className="nav-container">
-        <div className="nav-row">
-          {/* Logo */}
-          <Link href="/" onClick={handleNavClick}>
-            <div className="nav-logo" style={{ zIndex: 1 }}>
-              <img src={logoJas} 
-              alt="JASWIN Logo" 
-              className="nav-logo-img" 
-              style={{
-              height: "40px",
-              width: "auto",
-              objectFit: "contain",
-              margin: 0,
-              padding: 0,
-              display: "block",
-              filter: "drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.6))"
-            }}
-              />
-            </div>
+    <header className="fixed inset-x-0 top-0 z-50">
+      {/* Outer navbar background (blue strip) */}
+      <div className="pointer-events-none absolute inset-0 bg-[#0B79D4]" />
+
+      <nav className="relative mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        {/* logo */}
+        <div className="flex items-center gap-3">
+          <Link href="/" onClick={handleNavClick} className="flex items-center">
+            <img
+              src={logoJas}
+              alt="JASWIN logo"
+              className="h-9 w-auto object-contain transition-transform duration-150 hover:-translate-y-0.5 drop-shadow-[0_0_8px_rgba(0,0,0,0.25)]"
+            />
           </Link>
-          
-         
-          {/* Hamburger for mobile */}
-          <button
-            className="nav-hamburger"
-            onClick={() => setMobileMenuOpen((v) => !v)}
-            aria-label="Toggle menu"
+        </div>
+
+        {/* mobile hamburger */}
+        <button
+          type="button"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/60 bg-[#0B79D4] text-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white md:hidden"
+          onClick={() => setMobileOpen((prev) => !prev)}
+          aria-label="Toggle navigation menu"
+        >
+          <div className="space-y-1.5">
+            <span className="block h-0.5 w-5 rounded-full bg-current" />
+            <span className="block h-0.5 w-4 rounded-full bg-current" />
+            <span className="block h-0.5 w-5 rounded-full bg-current" />
+          </div>
+        </button>
+
+        {/* desktop nav */}
+        <div className="hidden items-center gap-6 rounded-full bg-white/95 px-5 py-2 shadow-[0_6px_18px_rgba(15,23,42,0.30)] border border-white md:flex">
+          {/* Our Company */}
+          <div
+            className="relative"
+            onMouseEnter={() => handleHoverOpen("company")}
+            onMouseLeave={handleHoverClose}
           >
-            ☰
-          </button>
-
-          {/* Navigation Links */}
-          <div className={`nav-links${mobileMenuOpen ? " open" : ""}`} style={{ padding: "0 40px" }}>
-            {/* Our Company Dropdown */}
-            <div
-              className="nav-dropdown"
-              onMouseEnter={() => handleMouseEnter("company")}
-              onMouseLeave={handleMouseLeave}
+            <button
+              type="button"
+              className={`${baseNavLink} ${underlineSlide} ${
+                openMenu === "company" ? activeUnderline : ""
+              }`}
+              onClick={() =>
+                setOpenMenu((prev) => (prev === "company" ? null : "company"))
+              }
             >
-              <button
-                className={`nav-btn${openMenu === "company" ? " active" : ""}`}
-                onClick={() => setOpenMenu(openMenu === "company" ? null : "company")}
-                type="button"
-              >
-                Our Company
-              </button>
-              {openMenu === "company" && (
-                <div 
-                  className="nav-dropdown-menu"
-                  onMouseEnter={() => handleMouseEnter("company")}
-                  onMouseLeave={handleMouseLeave}
+              <span className="text-slate-900">Our Company</span>
+              <span className="ml-1 text-[0.65rem] text-slate-500">▾</span>
+            </button>
+            {openMenu === "company" && (
+              <div className={`${dropdownPanelBase} w-60`}>
+                <Link href="/about" onClick={handleNavClick} className="block">
+                  <span className={dropdownItem}>
+                    <span className={dropdownAccent} />
+                    <span>JASWIN Overview</span>
+                    <span className="ml-2 text-xs text-slate-400">›</span>
+                  </span>
+                </Link>
+                <Link
+                  href="/technology-partner"
+                  onClick={handleNavClick}
+                  className="block"
                 >
-                  <Link href="/about" onClick={handleNavClick}>
-                    <div style={dropdownItemStyle}>About JASWIN</div>
-                  </Link>
-                  <Link href="/technology-partner" onClick={handleNavClick}>
-                    <div style={dropdownItemStyle}>Technology/Service Partner</div>
-                  </Link>
-                  <Link href="/hr-partner" onClick={handleNavClick}>
-                    <div style={dropdownItemStyle}>Human Resources Partner</div>
-                  </Link>
-                </div>
-              )}
-            </div>
+                  <span className={dropdownItem}>
+                    <span className={dropdownAccent} />
+                    <span>Technology / Service Partner</span>
+                    <span className="ml-2 text-xs text-slate-400">›</span>
+                  </span>
+                </Link>
+                <Link
+                  href="/hr-partner"
+                  onClick={handleNavClick}
+                  className="block"
+                >
+                  <span className={dropdownItem}>
+                    <span className={dropdownAccent} />
+                    <span>Human Resources Partner</span>
+                    <span className="ml-2 text-xs text-slate-400">›</span>
+                  </span>
+                </Link>
+              </div>
+            )}
+          </div>
 
-            {/* Solutions Dropdown */}
-            <div
-              className="nav-dropdown"
-              onMouseEnter={() => handleMouseEnter("solutions")}
-              onMouseLeave={handleMouseLeave}
+          {/* Solutions */}
+          <div
+            className="relative"
+            onMouseEnter={() => handleHoverOpen("solutions")}
+            onMouseLeave={handleHoverClose}
+          >
+            <button
+              type="button"
+              className={`${baseNavLink} ${underlineSlide} ${
+                openMenu === "solutions" ? activeUnderline : ""
+              }`}
+              onClick={() =>
+                setOpenMenu((prev) =>
+                  prev === "solutions" ? null : "solutions"
+                )
+              }
             >
-              <button
-                className={`nav-btn${openMenu === "solutions" ? " active" : ""}`}
-                onClick={() => setOpenMenu(openMenu === "solutions" ? null : "solutions")}
-                type="button"
-              >
-                Solutions
-              </button>
-              {openMenu === "solutions" && (
-                <div 
-                  className="nav-dropdown-menu"
-                  onMouseEnter={() => handleMouseEnter("solutions")}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <Link href="/solutions/turnkey-projects" onClick={handleNavClick}>
-                    <div style={dropdownItemStyle}>Turnkey Projects</div>
-                  </Link>
-                  <Link href="/solutions/product-development" onClick={handleNavClick}>
-                    <div style={dropdownItemStyle}>Product Development</div>
-                  </Link>
-                  <Link href="/solutions/sre-managed" onClick={handleNavClick}>
-                    <div style={dropdownItemStyle}>SRE/Managed Services</div>
-                  </Link>
-                  <Link href="/solutions/cloud-services" onClick={handleNavClick}>
-                    <div style={dropdownItemStyle}>Cloud Services</div>
-                  </Link>
-                  <Link href="/solutions/information-security" onClick={handleNavClick}>
-                    <div style={dropdownItemStyle}>Information Security</div>
-                  </Link>
-                  
-                  {/* Consulting Submenu */}
-                  <div
-                    className="nav-subdropdown"
-                    onMouseEnter={() => {
-                      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-                      setOpenConsulting(true);
-                    }}
-                    onMouseLeave={() => {
-                      timeoutRef.current = setTimeout(() => {
-                        setOpenConsulting(false);
-                      }, 300);
-                    }}
+              <span className="text-slate-900">Solutions</span>
+              <span className="ml-1 text-[0.65rem] text-slate-500">▾</span>
+            </button>
+            {openMenu === "solutions" && (
+              <div className={`${dropdownPanelBase} min-w-[260px]`}>
+                <div className="space-y-1">
+                  <Link
+                    href="/solutions/turnkey-projects"
+                    onClick={handleNavClick}
+                    className="block"
                   >
-                    <div style={{ ...dropdownItemStyle, fontWeight: 600, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                      Consulting Services &raquo;
-                    </div>
-                    {openConsulting && (
-                      <div 
-                        className="nav-dropdown-menu nav-subdropdown-menu"
-                        onMouseEnter={() => {
-                          if (timeoutRef.current) clearTimeout(timeoutRef.current);
-                          setOpenConsulting(true);
-                        }}
-                        onMouseLeave={() => {
-                          timeoutRef.current = setTimeout(() => {
-                            setOpenConsulting(false);
-                          }, 300);
-                        }}
-                      >
-                        <Link href="/solutions/consulting/bfsi" onClick={handleNavClick}>
-                          <div style={dropdownItemStyle}>BFSI</div>
-                        </Link>
-                        <Link href="/solutions/consulting/edtech" onClick={handleNavClick}>
-                          <div style={dropdownItemStyle}>EdTech</div>
-                        </Link>
-                        <Link href="/solutions/consulting/egovernance" onClick={handleNavClick}>
-                          <div style={dropdownItemStyle}>eGovernance</div>
-                        </Link>
-                      </div>
-                    )}
-                  </div>
-                  
-                  <Link href="/solutions/ai-data-consulting" onClick={handleNavClick}>
-                    <div style={dropdownItemStyle}>AI and Data Consulting</div>
+                    <span className={dropdownItem}>
+                      <span className={dropdownAccent} />
+                      <span>Turnkey Projects</span>
+                      <span className="ml-2 text-xs text-slate-400">›</span>
+                    </span>
+                  </Link>
+                  <Link
+                    href="/solutions/product-development"
+                    onClick={handleNavClick}
+                    className="block"
+                  >
+                    <span className={dropdownItem}>
+                      <span className={dropdownAccent} />
+                      <span>Product Development</span>
+                      <span className="ml-2 text-xs text-slate-400">›</span>
+                    </span>
+                  </Link>
+                  <Link
+                    href="/solutions/sre-managed"
+                    onClick={handleNavClick}
+                    className="block"
+                  >
+                    <span className={dropdownItem}>
+                      <span className={dropdownAccent} />
+                      <span>SRE / Managed Services</span>
+                      <span className="ml-2 text-xs text-slate-400">›</span>
+                    </span>
+                  </Link>
+                  <Link
+                    href="/solutions/cloud-services"
+                    onClick={handleNavClick}
+                    className="block"
+                  >
+                    <span className={dropdownItem}>
+                      <span className={dropdownAccent} />
+                      <span>Cloud Services</span>
+                      <span className="ml-2 text-xs text-slate-400">›</span>
+                    </span>
+                  </Link>
+                  <Link
+                    href="/solutions/information-security"
+                    onClick={handleNavClick}
+                    className="block"
+                  >
+                    <span className={dropdownItem}>
+                      <span className={dropdownAccent} />
+                      <span>Information Security</span>
+                      <span className="ml-2 text-xs text-slate-400">›</span>
+                    </span>
+                  </Link>
+                  <Link
+                    href="/solutions/consulting/bfsi"
+                    onClick={handleNavClick}
+                    className="block"
+                  >
+                    <span className={dropdownItem}>
+                      <span className={dropdownAccent} />
+                      <span>Consulting – BFSI</span>
+                      <span className="ml-2 text-xs text-slate-400">›</span>
+                    </span>
+                  </Link>
+                  <Link
+                    href="/solutions/consulting/edtech"
+                    onClick={handleNavClick}
+                    className="block"
+                  >
+                    <span className={dropdownItem}>
+                      <span className={dropdownAccent} />
+                      <span>Consulting – EdTech</span>
+                      <span className="ml-2 text-xs text-slate-400">›</span>
+                    </span>
+                  </Link>
+                  <Link
+                    href="/solutions/consulting/egovernance"
+                    onClick={handleNavClick}
+                    className="block"
+                  >
+                    <span className={dropdownItem}>
+                      <span className={dropdownAccent} />
+                      <span>Consulting – eGovernance</span>
+                      <span className="ml-2 text-xs text-slate-400">›</span>
+                    </span>
+                  </Link>
+                  <Link
+                    href="/solutions/ai-data-consulting"
+                    onClick={handleNavClick}
+                    className="block"
+                  >
+                    <span className={dropdownItem}>
+                      <span className={dropdownAccent} />
+                      <span>AI &amp; Data Consulting</span>
+                      <span className="ml-2 text-xs text-slate-400">›</span>
+                    </span>
                   </Link>
                 </div>
-              )}
-            </div>
+              </div>
+            )}
+          </div>
 
-            {/* Product Dropdown */}
-            <div
-              className="nav-dropdown"
-              onMouseEnter={() => handleMouseEnter("product")}
-              onMouseLeave={handleMouseLeave}
+          {/* Product */}
+          <div
+            className="relative"
+            onMouseEnter={() => handleHoverOpen("product")}
+            onMouseLeave={handleHoverClose}
+          >
+            <button
+              type="button"
+              className={`${baseNavLink} ${underlineSlide} ${
+                openMenu === "product" ? activeUnderline : ""
+              }`}
+              onClick={() =>
+                setOpenMenu((prev) => (prev === "product" ? null : "product"))
+              }
             >
-              <button
-                className={`nav-btn${openMenu === "product" ? " active" : ""}`}
-                onClick={() => setOpenMenu(openMenu === "product" ? null : "product")}
-                type="button"
-              >
-                Product
-              </button>
-              {openMenu === "product" && (
-                <div 
-                  className="nav-dropdown-menu"
-                  onMouseEnter={() => handleMouseEnter("product")}
-                  onMouseLeave={handleMouseLeave}
+              <span className="text-slate-900">Product</span>
+              <span className="ml-1 text-[0.65rem] text-slate-500">▾</span>
+            </button>
+            {openMenu === "product" && (
+              <div className={`${dropdownPanelBase} w-64`}>
+                <Link href="/product/lms" onClick={handleNavClick} className="block">
+                  <span className={dropdownItem}>
+                    <span className={dropdownAccent} />
+                    <span>JASWIN AI-LMS</span>
+                    <span className="ml-2 text-xs text-slate-400">›</span>
+                  </span>
+                </Link>
+                <Link href="/product/ai-bfsi" onClick={handleNavClick} className="block">
+                  <span className={dropdownItem}>
+                    <span className={dropdownAccent} />
+                    <span>AI-BFSI-DST &amp; Reporting</span>
+                    <span className="ml-2 text-xs text-slate-400">›</span>
+                  </span>
+                </Link>
+                <Link
+                  href="/product/jas-service-desk"
+                  onClick={handleNavClick}
+                  className="block"
                 >
-                  <Link href="/product/lms" onClick={handleNavClick}>
-                    <div style={dropdownItemStyle}>JASWIN AI-LMS</div>
+                  <span className={dropdownItem}>
+                    <span className={dropdownAccent} />
+                    <span>JASWIN Service Desk Plus</span>
+                    <span className="ml-2 text-xs text-slate-400">›</span>
+                  </span>
+                </Link>
+              </div>
+            )}
+          </div>
+
+          {/* Simple links */}
+          <Link
+            href="/consulting"
+            onClick={handleNavClick}
+            className={`${baseNavLink} ${underlineSlide} ${
+              isActive("/consulting") ? activeUnderline : ""
+            }`}
+          >
+            <span className="text-slate-900">Consulting</span>
+          </Link>
+
+          <Link
+            href="/human-capital"
+            onClick={handleNavClick}
+            className={`${baseNavLink} ${underlineSlide} ${
+              isActive("/human-capital") ? activeUnderline : ""
+            }`}
+          >
+            <span className="text-slate-900">Human Capital</span>
+          </Link>
+
+          <Link href="/contact" onClick={handleNavClick}>
+            <span
+              className={`inline-flex items-center rounded-full bg-[#0B79D4] px-4 py-2 text-sm font-semibold text-white shadow-[0_4px_12px_rgba(11,121,212,0.45)] hover:bg-[#0a68b5] transition-transform duration-150 hover:-translate-y-0.5 ${
+                isActive("/contact")
+                  ? "ring-2 ring-[#0B79D4]/40 ring-offset-2 ring-offset-white"
+                  : ""
+              }`}
+            >
+              Contact
+            </span>
+          </Link>
+        </div>
+      </nav>
+
+      {/* MOBILE MENU – full screen, #0B79D4, animated accordion */}
+      {mobileOpen && (
+        <div className="fixed inset-x-0 top-16 bottom-0 z-40 bg-[#0B79D4] text-white md:hidden">
+          <div className="h-full overflow-y-auto px-6 py-6 space-y-6">
+            {/* Our Company */}
+            <section>
+              <button
+                type="button"
+                onClick={() => toggleMobileSection("company")}
+                className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-base font-semibold"
+              >
+                <span>Our Company</span>
+                <span
+                  className={`text-xs transition-transform duration-200 ${
+                    mobileSection === "company" ? "rotate-180" : ""
+                  }`}
+                >
+                  ▾
+                </span>
+              </button>
+
+              <div
+                className={`overflow-hidden transition-all duration-200 ease-out ${
+                  mobileSection === "company"
+                    ? "max-h-96 opacity-100 translate-y-0"
+                    : "max-h-0 opacity-0 -translate-y-1"
+                }`}
+              >
+                <div className="mt-2 space-y-1">
+                  <Link
+                    href="/about"
+                    onClick={handleNavClick}
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-white/12"
+                  >
+                    About JASWIN
                   </Link>
-                  <Link href="/product/ai-bfsi" onClick={handleNavClick}>
-                    <div style={dropdownItemStyle}>AI-BFSI-DST & Reporting</div>
+                  <Link
+                    href="/technology-partner"
+                    onClick={handleNavClick}
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg.white/12"
+                  >
+                    Technology / Service Partner
                   </Link>
-                  <Link href="/product/jas-service-desk" onClick={handleNavClick}>
-                    <div style={dropdownItemStyle}>JASWIN Service Desk Plus</div>
+                  <Link
+                    href="/hr-partner"
+                    onClick={handleNavClick}
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg.white/12"
+                  >
+                    Human Resources Partner
                   </Link>
                 </div>
-              )}
-            </div>
+              </div>
+            </section>
 
-            {/* Simple Links */}
-            <Link href="/consulting" onClick={handleNavClick}>
-              <button className={`nav-btn${isActive("/consulting") ? " active" : ""}`}>Consulting</button>
+            {/* Solutions */}
+            <section>
+              <button
+                type="button"
+                onClick={() => toggleMobileSection("solutions")}
+                className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-base font-semibold"
+              >
+                <span>Solutions</span>
+                <span
+                  className={`text-xs transition-transform duration-200 ${
+                    mobileSection === "solutions" ? "rotate-180" : ""
+                  }`}
+                >
+                  ▾
+                </span>
+              </button>
+
+              <div
+                className={`overflow-hidden transition-all duration-200 ease-out ${
+                  mobileSection === "solutions"
+                    ? "max-h-[420px] opacity-100 translate-y-0"
+                    : "max-h-0 opacity-0 -translate-y-1"
+                }`}
+              >
+                <div className="mt-2 space-y-1">
+                  <Link
+                    href="/solutions/turnkey-projects"
+                    onClick={handleNavClick}
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg.white/12"
+                  >
+                    Turnkey Projects
+                  </Link>
+                  <Link
+                    href="/solutions/product-development"
+                    onClick={handleNavClick}
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg.white/12"
+                  >
+                    Product Development
+                  </Link>
+                  <Link
+                    href="/solutions/sre-managed"
+                    onClick={handleNavClick}
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg.white/12"
+                  >
+                    SRE / Managed Services
+                  </Link>
+                  <Link
+                    href="/solutions/cloud-services"
+                    onClick={handleNavClick}
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg.white/12"
+                  >
+                    Cloud Services
+                  </Link>
+                  <Link
+                    href="/solutions/information-security"
+                    onClick={handleNavClick}
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg.white/12"
+                  >
+                    Information Security
+                  </Link>
+                  <Link
+                    href="/solutions/consulting/bfsi"
+                    onClick={handleNavClick}
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg.white/12"
+                  >
+                    Consulting – BFSI
+                  </Link>
+                  <Link
+                    href="/solutions/consulting/edtech"
+                    onClick={handleNavClick}
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg.white/12"
+                  >
+                    Consulting – EdTech
+                  </Link>
+                  <Link
+                    href="/solutions/consulting/egovernance"
+                    onClick={handleNavClick}
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg.white/12"
+                  >
+                    Consulting – eGovernance
+                  </Link>
+                  <Link
+                    href="/solutions/ai-data-consulting"
+                    onClick={handleNavClick}
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg.white/12"
+                  >
+                    AI &amp; Data Consulting
+                  </Link>
+                </div>
+              </div>
+            </section>
+
+            {/* Product */}
+            <section>
+              <button
+                type="button"
+                onClick={() => toggleMobileSection("product")}
+                className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-base font-semibold"
+              >
+                <span>Product</span>
+                <span
+                  className={`text-xs transition-transform duration-200 ${
+                    mobileSection === "product" ? "rotate-180" : ""
+                  }`}
+                >
+                  ▾
+                </span>
+              </button>
+
+              <div
+                className={`overflow-hidden transition-all duration-200 ease-out ${
+                  mobileSection === "product"
+                    ? "max-h-64 opacity-100 translate-y-0"
+                    : "max-h-0 opacity-0 -translate-y-1"
+                }`}
+              >
+                <div className="mt-2 space-y-1">
+                  <Link
+                    href="/product/lms"
+                    onClick={handleNavClick}
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg.white/12"
+                  >
+                    JASWIN AI-LMS
+                  </Link>
+                  <Link
+                    href="/product/ai-bfsi"
+                    onClick={handleNavClick}
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg.white/12"
+                  >
+                    AI-BFSI-DST &amp; Reporting
+                  </Link>
+                  <Link
+                    href="/product/jas-service-desk"
+                    onClick={handleNavClick}
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg.white/12"
+                  >
+                    JASWIN Service Desk Plus
+                  </Link>
+                </div>
+              </div>
+            </section>
+
+            {/* Divider + simple links */}
+            <div className="h-px bg-white/30" />
+
+            <Link
+              href="/consulting"
+              onClick={handleNavClick}
+              className="block rounded-md px-3 py-2 text-base font-medium hover:bg.white/12"
+            >
+              Consulting
             </Link>
-            <Link href="/human-capital" onClick={handleNavClick}>
-              <button className={`nav-btn${isActive("/human-capital") ? " active" : ""}`}>Human Capital</button>
+
+            <Link
+              href="/human-capital"
+              onClick={handleNavClick}
+              className="block rounded-md px-3 py-2 text-base font-medium hover:bg.white/12"
+            >
+              Human Capital
             </Link>
-            <Link href="/contact" onClick={handleNavClick}>
-              <button className={`nav-btn${isActive("/contact") ? " active" : ""}`}>Contact</button>
+
+            <Link
+              href="/contact"
+              onClick={handleNavClick}
+              className="block rounded-full bg-white px-4 py-2 text-center text-base font-semibold text-[#0B79D4] shadow-md hover:bg-slate-100"
+            >
+              Contact
             </Link>
           </div>
         </div>
-      </div>
-      {/* Responsive styles */}
-      <style>{`
-        .nav-root {
-          position: fixed;
-          top: 0;
-          left:5;
-          width: 100vw;
-          background: #244fc7ff;
-          color: white;
-          z-index: 50;
-          box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .nav-container {
-          width: 100vw;
-          margin: 10 auto;
-          padding: 10 1rem;
-        }
-        .nav-row {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          height: 64px;
-          width: 100vw;
-          margin: 0;
-          padding: 0 12px;
-        }
-        .nav-logo {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          cursor: pointer;
-        }
-        .nav-logo-img {
-        height: 40px;
-        width: auto;
-        object-fit: contain;
-        margin: 0;
-        padding: 0;
-        display: block;
-      }
-        .nav-logo-text {
-          font-size: 1.25rem;
-          font-weight: bold;
-          color: #f59e0b;
-          display: block;
-        }
-        .nav-hamburger {
-          display: none;
-          background: none;
-          border: none;
-          color: white;
-          font-size: 2rem;
-          cursor: pointer;
-        }
-        .nav-links {
-          display: flex;
-          align-items: center;
-          gap: 2rem;
-        }
-        .nav-btn {
-          padding: 0.5rem 1rem;
-          font-size: 0.875rem;
-          font-weight: 500;
-          color: white;
-          background: transparent;
-          border: none;
-          cursor: pointer;
-          border-bottom: none;
-          transition: all 0.3s ease;
-        }
-        .nav-btn.active, .nav-btn:hover {
-          color: #f59e0b;
-          border-bottom: 2px solid #f59e0b;
-        }
-        .nav-dropdown {
-          position: relative;
-        }
-        .nav-dropdown-menu {
-          position: absolute;
-          top: 100%;
-          left: 0;
-          background: white;
-          color: #1e3a8a;
-          min-width: 220px;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-          border-radius: 0 0 8px 8px;
-          padding: 0.5rem 0;
-          z-index: 100;
-          margin-top: 10px;
-          
-        }
-        .nav-subdropdown {
-          position: relative;
-        }
-        .nav-subdropdown-menu {
-          left: 100%;
-          top: 0;
-          min-width: 180px;
-          border-radius: 0 8px 8px 8px;
-        }
-        @media (max-width: 900px) {
-          .nav-logo-text {
-            display: none;
-          }
-        }
-        @media (max-width: 768px) {
-          .nav-row {
-            flex-direction: row;
-            height: 56px;
-          }
-          .nav-hamburger {
-            display: block;
-          }
-          .nav-links {
-            display: none;
-            flex-direction: column;
-            background: #1e3a8a;
-            position: absolute;
-            top: 56px;
-            left: 0;
-            width: 100%;
-            padding: 1rem 0;
-            gap: 1rem;
-            z-index: 100;
-          }
-          .nav-links.open {
-            display: flex;
-          }
-          .nav-dropdown-menu, .nav-subdropdown-menu {
-            position: static;
-            min-width: 100%;
-            box-shadow: none;
-            border-radius: 0;
-            background: #f1f5f9;
-            color: #1e3a8a;
-          }
-        }
-
-        /* --- Default styles for larger screens (desktop) --- */
-        .independence-banner {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          font-size: 1rem;
-          font-weight: bold;
-          margin-left: 16px;
-          position: relative; /* Add position relative to contain the glitter effect */
-        }
-
-        .flag-wave {
-          height: 3em;
-          width: auto;
-        }
-
-        .independence-text {
-          background: linear-gradient(
-            90deg,
-            #e3a364ff 10%,
-            white 40%,
-            #15ff00ff 10%
-          );
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
-
-        @keyframes glitter-flow {
-          0% {
-            background-position: 0 0;
-          }
-          100% {
-            background-position: -50px 0;
-          }
-        }
-
-        /* --- Media query for smaller screens (mobile) --- */
-        @media (max-width: 600px) {
-          .independence-banner {
-            font-size: 0.8rem;
-            gap: 4px;
-            margin-left: 8px;
-          }
-        }
-      `}</style>
-    </nav>
+      )}
+    </header>
   );
 }
