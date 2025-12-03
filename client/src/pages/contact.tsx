@@ -338,7 +338,7 @@ export default function Contact() {
               {/* Location */}
               <div className="flex gap-3">
                 <div className="mt-0.5 flex h-9 w-9 items-center justify.center rounded-full bg-[#0B79D4]/10">
-                  <MapPin className="h-4 w-4 text-[#0B79D4]" />
+                  <MapPin className="h-4 w-4 text-[#0B79D4] ml-[10px]" />
                 </div>
                 <div>
                   <div className="font-semibold text-slate-900">Location</div>
