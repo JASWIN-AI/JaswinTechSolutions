@@ -78,7 +78,7 @@ export default function About() {
               className="flex-1"
             >
               <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-5 tracking-tight leading-tight">
-                <span className="block bg-gradient-to-r from-[#0B79D4] to-sky-400 bg-clip-text text-transparent drop-shadow">
+                <span className="py-2.5 px-0 block bg-gradient-to-r from-[#0B79D4] to-sky-400 bg-clip-text text-transparent drop-shadow">
                   Empowering Innovation,
                 </span>
                 <span className="block">

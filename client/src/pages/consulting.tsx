@@ -36,7 +36,7 @@ export default function Consulting() {
             </span>
 
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-              Strategy &amp Consulting:{" "}
+              Strategy & Consulting:{" "}
               <span className="bg-gradient-to-r from-cyan-300 to-sky-400 bg-clip-text text-transparent">
                 Bridge the Gap Between Vision and Results
               </span>

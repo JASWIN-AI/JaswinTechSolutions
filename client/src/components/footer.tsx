@@ -28,13 +28,27 @@ export default function Footer() {
     { name: "JASWIN Service Desk Plus", path: "/product/jas-service-desk" },
   ];
 
+  const XLogo = ({ className }: { className?: string }) => (
+  <svg
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+    className={className}
+  >
+    <path
+      d="M18.5 4L13.7 10.1L19 20H15.8L12.1 13.3L7.7 20H5.5L10.5 13.2L5.2 4H8.4L11.8 10L16 4H18.5Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+
+
   const socialLinks = [
     {
       name: "LinkedIn",
       icon: Linkedin,
       href: "https://www.linkedin.com/in/jaswinai-ai-71272737b/",
     },
-    { name: "Twitter", icon: Twitter, href: "https://x.com/JaswinAi" },
+    { name: "X", icon: XLogo, href: "https://x.com/JaswinAi" },
     { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/jaswinaillp/" },
     { name: "Youtube", icon: Youtube, href: "https://www.youtube.com/channel/UCkjDXCGKFmYL0HVZ2K4VTiw" },
   ];
@@ -57,7 +71,7 @@ export default function Footer() {
                 alt="JASWIN AI Solutions"
                 className="h-11 w-auto object-contain drop-shadow-[0_0_12px_rgba(0,0,0,0.35)]"
               />
-              <div className="flex flex-col">
+              <div className="flex flex-col hidden">
                 <span className="text-base font-semibold tracking-wide uppercase text-white">
                   JASWIN AI Solutions
                 </span>
@@ -187,7 +201,7 @@ export default function Footer() {
                   aria-label={social.name}
                   className="flex h-10 w-10 items-center justify-center rounded-full bg-white/15 text-white shadow-sm backdrop-blur-md transition-all duration-150 hover:bg-white hover:text-[#0B79D4] hover:-translate-y-0.5"
                 >
-                  <Icon className="h-4.5 w-4.5" />
+                  <Icon className={social.name === "X" ? "h-3.5 w-3.5" : "h-4 w-4"} />
                 </a>
               );
             })}

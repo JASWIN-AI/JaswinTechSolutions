@@ -123,7 +123,6 @@ export default function Navigation() {
                   <span className={dropdownItem}>
                     <span className={dropdownAccent} />
                     <span>JASWIN Overview</span>
-                    <span className="ml-2 text-xs text-slate-400">›</span>
                   </span>
                 </Link>
                 <Link
@@ -134,7 +133,6 @@ export default function Navigation() {
                   <span className={dropdownItem}>
                     <span className={dropdownAccent} />
                     <span>Technology / Service Partner</span>
-                    <span className="ml-2 text-xs text-slate-400">›</span>
                   </span>
                 </Link>
                 <Link
@@ -145,7 +143,6 @@ export default function Navigation() {
                   <span className={dropdownItem}>
                     <span className={dropdownAccent} />
                     <span>Human Resources Partner</span>
-                    <span className="ml-2 text-xs text-slate-400">›</span>
                   </span>
                 </Link>
               </div>
@@ -183,7 +180,6 @@ export default function Navigation() {
                     <span className={dropdownItem}>
                       <span className={dropdownAccent} />
                       <span>Turnkey Projects</span>
-                      <span className="ml-2 text-xs text-slate-400">›</span>
                     </span>
                   </Link>
                   <Link
@@ -194,7 +190,6 @@ export default function Navigation() {
                     <span className={dropdownItem}>
                       <span className={dropdownAccent} />
                       <span>Product Development</span>
-                      <span className="ml-2 text-xs text-slate-400">›</span>
                     </span>
                   </Link>
                   <Link
@@ -205,7 +200,6 @@ export default function Navigation() {
                     <span className={dropdownItem}>
                       <span className={dropdownAccent} />
                       <span>SRE / Managed Services</span>
-                      <span className="ml-2 text-xs text-slate-400">›</span>
                     </span>
                   </Link>
                   <Link
@@ -216,7 +210,6 @@ export default function Navigation() {
                     <span className={dropdownItem}>
                       <span className={dropdownAccent} />
                       <span>Cloud Services</span>
-                      <span className="ml-2 text-xs text-slate-400">›</span>
                     </span>
                   </Link>
                   <Link
@@ -227,40 +220,6 @@ export default function Navigation() {
                     <span className={dropdownItem}>
                       <span className={dropdownAccent} />
                       <span>Information Security</span>
-                      <span className="ml-2 text-xs text-slate-400">›</span>
-                    </span>
-                  </Link>
-                  <Link
-                    href="/solutions/consulting/bfsi"
-                    onClick={handleNavClick}
-                    className="block"
-                  >
-                    <span className={dropdownItem}>
-                      <span className={dropdownAccent} />
-                      <span>Consulting – BFSI</span>
-                      <span className="ml-2 text-xs text-slate-400">›</span>
-                    </span>
-                  </Link>
-                  <Link
-                    href="/solutions/consulting/edtech"
-                    onClick={handleNavClick}
-                    className="block"
-                  >
-                    <span className={dropdownItem}>
-                      <span className={dropdownAccent} />
-                      <span>Consulting – EdTech</span>
-                      <span className="ml-2 text-xs text-slate-400">›</span>
-                    </span>
-                  </Link>
-                  <Link
-                    href="/solutions/consulting/egovernance"
-                    onClick={handleNavClick}
-                    className="block"
-                  >
-                    <span className={dropdownItem}>
-                      <span className={dropdownAccent} />
-                      <span>Consulting – eGovernance</span>
-                      <span className="ml-2 text-xs text-slate-400">›</span>
                     </span>
                   </Link>
                   <Link
@@ -271,9 +230,47 @@ export default function Navigation() {
                     <span className={dropdownItem}>
                       <span className={dropdownAccent} />
                       <span>AI &amp; Data Consulting</span>
-                      <span className="ml-2 text-xs text-slate-400">›</span>
                     </span>
                   </Link>
+                </div>
+
+                {/* Consulting Services sub-section */}
+                <div className="mt-3 border-t border-slate-200/80 pt-2">
+                  <div className="px-4 pb-1 text-[0.7rem] font-semibold tracking-wide uppercase text-slate-400">
+                    Consulting Services
+                  </div>
+                  <div className="space-y-1">
+                    <Link
+                      href="/solutions/consulting/bfsi"
+                      onClick={handleNavClick}
+                      className="block"
+                    >
+                      <span className={dropdownItem}>
+                        <span className={dropdownAccent} />
+                        <span>BFSI</span>
+                      </span>
+                    </Link>
+                    <Link
+                      href="/solutions/consulting/edtech"
+                      onClick={handleNavClick}
+                      className="block"
+                    >
+                      <span className={dropdownItem}>
+                        <span className={dropdownAccent} />
+                        <span>EdTech</span>
+                      </span>
+                    </Link>
+                    <Link
+                      href="/solutions/consulting/egovernance"
+                      onClick={handleNavClick}
+                      className="block"
+                    >
+                      <span className={dropdownItem}>
+                        <span className={dropdownAccent} />
+                        <span>eGovernance</span>
+                      </span>
+                    </Link>
+                  </div>
                 </div>
               </div>
             )}
@@ -299,18 +296,24 @@ export default function Navigation() {
             </button>
             {openMenu === "product" && (
               <div className={`${dropdownPanelBase} w-64`}>
-                <Link href="/product/lms" onClick={handleNavClick} className="block">
+                <Link
+                  href="/product/lms"
+                  onClick={handleNavClick}
+                  className="block"
+                >
                   <span className={dropdownItem}>
                     <span className={dropdownAccent} />
                     <span>JASWIN AI-LMS</span>
-                    <span className="ml-2 text-xs text-slate-400">›</span>
                   </span>
                 </Link>
-                <Link href="/product/ai-bfsi" onClick={handleNavClick} className="block">
+                <Link
+                  href="/product/ai-bfsi"
+                  onClick={handleNavClick}
+                  className="block"
+                >
                   <span className={dropdownItem}>
                     <span className={dropdownAccent} />
                     <span>AI-BFSI-DST &amp; Reporting</span>
-                    <span className="ml-2 text-xs text-slate-400">›</span>
                   </span>
                 </Link>
                 <Link
@@ -321,7 +324,6 @@ export default function Navigation() {
                   <span className={dropdownItem}>
                     <span className={dropdownAccent} />
                     <span>JASWIN Service Desk Plus</span>
-                    <span className="ml-2 text-xs text-slate-400">›</span>
                   </span>
                 </Link>
               </div>
@@ -402,14 +404,14 @@ export default function Navigation() {
                   <Link
                     href="/technology-partner"
                     onClick={handleNavClick}
-                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg.white/12"
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-white/12"
                   >
                     Technology / Service Partner
                   </Link>
                   <Link
                     href="/hr-partner"
                     onClick={handleNavClick}
-                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg.white/12"
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-white/12"
                   >
                     Human Resources Partner
                   </Link>
@@ -437,7 +439,7 @@ export default function Navigation() {
               <div
                 className={`overflow-hidden transition-all duration-200 ease-out ${
                   mobileSection === "solutions"
-                    ? "max-h-[420px] opacity-100 translate-y-0"
+                    ? "max-h-[520px] opacity-100 translate-y-0"
                     : "max-h-0 opacity-0 -translate-y-1"
                 }`}
               >
@@ -445,65 +447,72 @@ export default function Navigation() {
                   <Link
                     href="/solutions/turnkey-projects"
                     onClick={handleNavClick}
-                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg.white/12"
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-white/12"
                   >
                     Turnkey Projects
                   </Link>
                   <Link
                     href="/solutions/product-development"
                     onClick={handleNavClick}
-                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg.white/12"
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-white/12"
                   >
                     Product Development
                   </Link>
                   <Link
                     href="/solutions/sre-managed"
                     onClick={handleNavClick}
-                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg.white/12"
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-white/12"
                   >
                     SRE / Managed Services
                   </Link>
                   <Link
                     href="/solutions/cloud-services"
                     onClick={handleNavClick}
-                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg.white/12"
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-white/12"
                   >
                     Cloud Services
                   </Link>
                   <Link
                     href="/solutions/information-security"
                     onClick={handleNavClick}
-                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg.white/12"
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-white/12"
                   >
                     Information Security
                   </Link>
                   <Link
+                    href="/solutions/ai-data-consulting"
+                    onClick={handleNavClick}
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-white/12"
+                  >
+                    AI &amp; Data Consulting
+                  </Link>
+                </div>
+
+                {/* Consulting Services sub-section (mobile) */}
+                <div className="mt-3 border-t border-white/25 pt-2 space-y-1">
+                  <div className="px-3 pb-1 text-[0.7rem] font-semibold uppercase tracking-wide text-white/60">
+                    Consulting Services
+                  </div>
+                  <Link
                     href="/solutions/consulting/bfsi"
                     onClick={handleNavClick}
-                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg.white/12"
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-white/12"
                   >
-                    Consulting – BFSI
+                    BFSI
                   </Link>
                   <Link
                     href="/solutions/consulting/edtech"
                     onClick={handleNavClick}
-                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg.white/12"
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-white/12"
                   >
-                    Consulting – EdTech
+                    EdTech
                   </Link>
                   <Link
                     href="/solutions/consulting/egovernance"
                     onClick={handleNavClick}
-                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg.white/12"
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-white/12"
                   >
-                    Consulting – eGovernance
-                  </Link>
-                  <Link
-                    href="/solutions/ai-data-consulting"
-                    onClick={handleNavClick}
-                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg.white/12"
-                  >
-                    AI &amp; Data Consulting
+                    eGovernance
                   </Link>
                 </div>
               </div>
@@ -537,21 +546,21 @@ export default function Navigation() {
                   <Link
                     href="/product/lms"
                     onClick={handleNavClick}
-                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg.white/12"
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-white/12"
                   >
                     JASWIN AI-LMS
                   </Link>
                   <Link
                     href="/product/ai-bfsi"
                     onClick={handleNavClick}
-                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg.white/12"
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-white/12"
                   >
                     AI-BFSI-DST &amp; Reporting
                   </Link>
                   <Link
                     href="/product/jas-service-desk"
                     onClick={handleNavClick}
-                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg.white/12"
+                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-white/12"
                   >
                     JASWIN Service Desk Plus
                   </Link>
@@ -565,7 +574,7 @@ export default function Navigation() {
             <Link
               href="/consulting"
               onClick={handleNavClick}
-              className="block rounded-md px-3 py-2 text-base font-medium hover:bg.white/12"
+              className="block rounded-md px-3 py-2 text-base font-medium hover:bg-white/12"
             >
               Consulting
             </Link>
@@ -573,7 +582,7 @@ export default function Navigation() {
             <Link
               href="/human-capital"
               onClick={handleNavClick}
-              className="block rounded-md px-3 py-2 text-base font-medium hover:bg.white/12"
+              className="block rounded-md px-3 py-2 text-base font-medium hover:bg-white/12"
             >
               Human Capital
             </Link>

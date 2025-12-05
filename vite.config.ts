@@ -9,6 +9,7 @@ const BASE_PATH = "/";
 export default defineConfig({
   plugins: [react()],
   base: BASE_PATH,
+  
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./client/src"),
@@ -21,5 +22,6 @@ export default defineConfig({
     outDir: path.resolve(__dirname, "client/dist"), // Output inside client
     emptyOutDir: true, // Clears old files before building
     assetsDir: "assets", // Keep assets organized
+    chunkSizeWarningLimit: 1500,
   },
 });

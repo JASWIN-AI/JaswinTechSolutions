@@ -35,7 +35,7 @@ export default function Home() {
 
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
               <span className="block text-slate-100">JASWIN AI Solutions</span>
-              <span className="mt-2 block bg-gradient-to-r from-[#4FC3F7] via-[#0B79D4] to-[#42A5F5] bg-clip-text text-transparent">
+              <span className="py-2.5 px-0 mt-2 block bg-gradient-to-r from-[#4FC3F7] via-[#0B79D4] to-[#42A5F5] bg-clip-text text-transparent">
                 From strategy to intelligent systems.
               </span>
             </h1>

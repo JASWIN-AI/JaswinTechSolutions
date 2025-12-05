@@ -19,7 +19,18 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-
+const XLogo = ({ className }: { className?: string }) => (
+  <svg
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+    className={className}
+  >
+    <path
+      d="M18.5 4L13.7 10.1L19 20H15.8L12.1 13.3L7.7 20H5.5L10.5 13.2L5.2 4H8.4L11.8 10L16 4H18.5Z"
+      fill="currentColor"
+    />
+  </svg>
+);
 interface ContactFormData {
   name: string;
   email: string;
@@ -54,7 +65,7 @@ export default function Contact() {
       icon: Linkedin,
       href: "https://linkedin.com/company/jaswin-tech",
     },
-    { name: "Twitter", icon: Twitter, href: "https://twitter.com/jaswintech" },
+    { name: "X", icon: XLogo, href: "https://twitter.com/jaswintech" },
     { name: "Facebook", icon: Facebook, href: "https://facebook.com/jaswintech" },
     { name: "GitHub", icon: Github, href: "https://github.com/jaswintech" },
   ];
