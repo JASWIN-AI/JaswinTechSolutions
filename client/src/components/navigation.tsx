@@ -232,46 +232,20 @@ export default function Navigation() {
                       <span>AI &amp; Data Consulting</span>
                     </span>
                   </Link>
-                </div>
 
-                {/* Consulting Services sub-section */}
-                <div className="mt-3 border-t border-slate-200/80 pt-2">
-                  <div className="px-4 pb-1 text-[0.7rem] font-semibold tracking-wide uppercase text-slate-400">
-                    Consulting Services
-                  </div>
-                  <div className="space-y-1">
-                    <Link
+                   <Link
                       href="/solutions/consulting/bfsi"
                       onClick={handleNavClick}
                       className="block"
                     >
                       <span className={dropdownItem}>
                         <span className={dropdownAccent} />
-                        <span>BFSI</span>
+                        <span>Industry Specific AI Solutions</span>
                       </span>
                     </Link>
-                    <Link
-                      href="/solutions/consulting/edtech"
-                      onClick={handleNavClick}
-                      className="block"
-                    >
-                      <span className={dropdownItem}>
-                        <span className={dropdownAccent} />
-                        <span>EdTech</span>
-                      </span>
-                    </Link>
-                    <Link
-                      href="/solutions/consulting/egovernance"
-                      onClick={handleNavClick}
-                      className="block"
-                    >
-                      <span className={dropdownItem}>
-                        <span className={dropdownAccent} />
-                        <span>eGovernance</span>
-                      </span>
-                    </Link>
-                  </div>
                 </div>
+
+              
               </div>
             )}
           </div>
@@ -490,30 +464,13 @@ export default function Navigation() {
 
                 {/* Consulting Services sub-section (mobile) */}
                 <div className="mt-3 border-t border-white/25 pt-2 space-y-1">
-                  <div className="px-3 pb-1 text-[0.7rem] font-semibold uppercase tracking-wide text-white/60">
-                    Consulting Services
-                  </div>
                   <Link
                     href="/solutions/consulting/bfsi"
                     onClick={handleNavClick}
                     className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-white/12"
-                  >
-                    BFSI
+                  >Industry Specific AI Solutions
                   </Link>
-                  <Link
-                    href="/solutions/consulting/edtech"
-                    onClick={handleNavClick}
-                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-white/12"
-                  >
-                    EdTech
-                  </Link>
-                  <Link
-                    href="/solutions/consulting/egovernance"
-                    onClick={handleNavClick}
-                    className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-white/12"
-                  >
-                    eGovernance
-                  </Link>
+                  
                 </div>
               </div>
             </section>

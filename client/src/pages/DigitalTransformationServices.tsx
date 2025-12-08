@@ -104,14 +104,9 @@ const DigitalTransformationServices = () => {
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3 text-[11px] uppercase tracking-[0.15em] text-sky-100/80">
               <span className="rounded-full border border-white/25 px-3 py-1">
-                BFSI
+              Industry Specific AI Solutions
               </span>
-              <span className="rounded-full border border-white/25 px-3 py-1">
-                eGovernance
-              </span>
-              <span className="rounded-full border border-white/25 px-3 py-1">
-                Public Sector
-              </span>
+              
             </div>
           </motion.div>
         </div>
