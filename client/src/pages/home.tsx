@@ -30,7 +30,7 @@ export default function Home() {
             className="flex-1 space-y-6"
           >
             <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-sky-100 ring-1 ring-white/20">
-              BFSI • EdTech • eGovernance • Cloud &amp; AI
+              Industry Specific AI Solutions
             </span>
 
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
@@ -66,7 +66,7 @@ export default function Home() {
             <div className="mt-4 grid gap-3 text-xs text-slate-200/80 sm:grid-cols-3">
               <div className="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
                 <div className="text-[0.7rem] uppercase tracking-wide text-slate-300/80">
-                  Built for BFSI
+                  Built for Industry-Specific AI Solutions
                 </div>
                 <div className="text-sm font-semibold text-white">
                   Risk-aware architectures
@@ -127,7 +127,7 @@ export default function Home() {
                   <div>
                     <div className="font-semibold">Domain-led consulting</div>
                     <p className="text-xs text-slate-200/80">
-                      BFSI, EdTech and eGovernance expertise, not just technology.
+                      Industry-Specific AI Solutions.
                     </p>
                   </div>
                 </li>

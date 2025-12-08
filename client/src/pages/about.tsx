@@ -103,14 +103,10 @@ export default function About() {
                   At JASWIN, we bridge the gap between vision and reality. As a
                   next-gen technology and consulting startup, we combine decades
                   of industry expertise with agile innovation to deliver
-                  tailored solutions for the{" "}
-                  <span className="font-medium text-[#0B79D4]">BFSI</span>,{" "}
-                  <span className="font-medium text-[#0B79D4]">EdTech</span>,
-                  and{" "}
-                  <span className="font-medium text-[#0B79D4]">
-                    eGovernance
-                  </span>{" "}
-                  sectors.
+                  tailored,{" "}
+                  <span className="font-medium text-[#0B79D4]">Industry Specific AI Solutions</span>{" "}
+                  
+              
                 </p>
                 <p>
                   Backed by seasoned leaders from banking, IT, and public

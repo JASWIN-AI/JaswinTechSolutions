@@ -179,7 +179,7 @@ export default function Navigation() {
                   >
                     <span className={dropdownItem}>
                       <span className={dropdownAccent} />
-                      <span>Turnkey Projects</span>
+                      <span>Enterprise AI Solutionss</span>
                     </span>
                   </Link>
                   <Link
@@ -449,7 +449,7 @@ export default function Navigation() {
                     onClick={handleNavClick}
                     className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-white/12"
                   >
-                    Turnkey Projects
+                    Enterprise AI Solutionss
                   </Link>
                   <Link
                     href="/solutions/product-development"

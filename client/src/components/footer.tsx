@@ -11,14 +11,14 @@ export default function Footer() {
   ];
 
   const solutionslinks = [
-    { name: "Turnkey Projects", path: "/solutions/turnkey-projects" },
+    { name: "Enterprise AI Solutionss", path: "/solutions/turnkey-projects" },
     { name: "Product Development", path: "/solutions/product-development" },
     { name: "SRE/Managed Services", path: "/solutions/sre-managed" },
     { name: "Cloud Services", path: "/solutions/cloud-services" },
     { name: "Information Security", path: "/solutions/information-security" },
-    { name: "Consulting – BFSI", path: "/solutions/consulting/bfsi" },
-    { name: "Consulting – EdTech", path: "/solutions/consulting/edtech" },
-    { name: "Consulting – eGovernance", path: "/solutions/consulting/egovernance" },
+    { name: "Consulting – Industry Specific AI Solutions", path: "/solutions/consulting/bfsi" },
+    /*{ name: "Consulting – EdTech", path: "/solutions/consulting/edtech" },
+    { name: "Consulting – eGovernance", path: "/solutions/consulting/egovernance" },*/
     { name: "AI & Data Consulting", path: "/solutions/ai-data-consulting" },
   ];
 
@@ -83,7 +83,7 @@ export default function Footer() {
 
             <p className="max-w-md text-[0.92rem] leading-relaxed text-white">
               We help organisations design, build and operate intelligent
-              products and platforms — from BFSI and EdTech to e-Governance —
+              products and platforms — Industry Specific AI Solutions —
               using secure, scalable cloud and AI capabilities.
             </p>
           </div>
@@ -141,7 +141,7 @@ export default function Footer() {
                       href={link.path}
                       className="group inline-flex items-center text-white/90 transition-colors duration-150 hover:text-white"
                     >
-                      <span className="mr-1 h-[2px] w-0 bg.white transition-all duration-150 group-hover:w-3" />
+                      <span className="mr-1 h-[2px] w-0 bg-white transition-all duration-150 group-hover:w-3" />
                       <span>{link.name}</span>
                     </Link>
                   </li>
@@ -159,7 +159,7 @@ export default function Footer() {
                     href="/consulting"
                     className="group inline-flex items-center text-white/90 transition-colors duration-150 hover:text-white"
                   >
-                    <span className="mr-1 h-[2px] w-0 bg.white transition-all duration-150 group-hover:w-3" />
+                    <span className="mr-1 h-[2px] w-0 bg-white transition-all duration-150 group-hover:w-3" />
                     <span>Consulting</span>
                   </Link>
                 </li>
@@ -168,7 +168,7 @@ export default function Footer() {
                     href="/human-capital"
                     className="group inline-flex items-center text-white/90 transition-colors duration-150 hover:text-white"
                   >
-                    <span className="mr-1 h-[2px] w-0 bg.white transition-all duration-150 group-hover:w-3" />
+                    <span className="mr-1 h-[2px] w-0 bg-white transition-all duration-150 group-hover:w-3" />
                     <span>Human Capital</span>
                   </Link>
                 </li>
@@ -177,7 +177,7 @@ export default function Footer() {
                     href="/contact"
                     className="group inline-flex items-center text-white/90 transition-colors duration-150 hover:text-white"
                   >
-                    <span className="mr-1 h-[2px] w-0 bg.white transition-all duration-150 group-hover:w-3" />
+                    <span className="mr-1 h-[2px] w-0 bg-white transition-all duration-150 group-hover:w-3" />
                     <span>Contact</span>
                   </Link>
                 </li>

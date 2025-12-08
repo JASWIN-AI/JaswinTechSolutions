@@ -80,10 +80,10 @@ export default function Projects() {
               className="flex-1 text-center md:text-left"
             >
               <p className="inline-flex items-center gap-2 rounded-full bg-[#0B79D4]/10 px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#0B79D4] mb-3">
-                Turnkey software engineering
+                AI software engineering
               </p>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 leading-tight">
-                Turnkey Project Development
+                Enterprise AI Solutions Development
               </h1>
 
               <div className="text-sm sm:text-base text-slate-700 leading-relaxed space-y-4">
@@ -134,7 +134,7 @@ export default function Projects() {
                 <div className="absolute -inset-3 rounded-3xl bg-gradient-to-tr from-[#0B79D4]/20 via-sky-200/30 to-transparent blur-2xl" />
                 <img
                   src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Turnkey Project Development"
+                  alt="Enterprise AI Solutions Development"
                   className="relative rounded-2xl shadow-[0_18px_45px_rgba(15,23,42,0.25)] object-cover w-full h-full"
                 />
               </div>
